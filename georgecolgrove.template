@@ -1,0 +1,18 @@
+#include     /etc/nginx/conf.d/mime.types;
+
+server {
+    listen      ${NGINX_PORT};
+    listen      [::]:${NGINX_PORT};
+    #server_name ${NGINX_HOST}; 
+
+    access_log /logs/access.log combined;
+    error_log  /logs/error.log debug;
+
+
+    location / {
+        index index.html index.htm;
+        port_in_redirect on;
+        root    /usr/share/nginx/html;
+        try_files $uri /index.html =404;
+    }
+}
