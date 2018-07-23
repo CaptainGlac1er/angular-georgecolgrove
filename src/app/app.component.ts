@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GWC Website';
-  header = 'GlacierByte™';
+  header = 'GWC IV';
 }
