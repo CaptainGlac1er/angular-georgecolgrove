@@ -1,15 +1,11 @@
-version: '3'
+version: '3.6'
 services:
   georgecolgrove:
-    image: 'nginx:alpine'
+    build: .
     volumes:
-      - ./dist/angular-georgecolgrove:/usr/share/nginx/html
-      - ./georgecolgrove.template:/etc/nginx/conf.d/mysite.template
-      - ./mime.types:/etc/nginx/conf.d/mime.types
-      - ./logs:/logs
+      - ./Server/logs/:/logs
     ports:
-      - '${PORT}:8080'
+      - '${PORT}:80'
     environment:
       - NGINX_HOST=127.0.0.1
-      - NGINX_PORT=8080
-    command: /bin/ash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+      - NGINX_PORT=${PORT}
