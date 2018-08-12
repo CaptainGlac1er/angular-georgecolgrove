@@ -1,6 +1,6 @@
 <div class="div-center-content" id="homepage-splash">
   <div class="tile">
-    <div><img id="logo" src="assets/personalLogo2.png" /></div>
+    <div><img id="logo" src="../../assets/personalLogo2.png"/></div>
     <div>{{name}}</div>
     <div>{{gamertag}}</div>
     <div>{{phone}}</div>
@@ -18,20 +18,20 @@
       {{homepage.jobs.title}}
   </div>
   <div class="homepage-panel-content">
-    <div class="homepage-tile" *ngFor="let job of homepage.jobs.positions">
+    <a class="homepage-tile links" *ngFor="let job of jobs | keyvalue" routerLink="/experience/{{job.key}}">
       <h4>
-        {{job.company}}
+        {{job.value.company}}
       </h4>
       <h2>
-        {{job.position}}
+        {{job.value.position}}
       </h2>
-      <p [innerHTML]="job.description"></p>
-    </div>
+      <p [innerHTML]="job.value.description"></p>
+    </a>
   </div>
 </div>
 <div class="homepage-panel darker-gray">
   <div class="homepage-panel-title">
-      {{homepage.links.title}} 
+    {{homepage.links.title}}
   </div>
   <div class="homepage-panel-content">
     <a class="homepage-tile links" *ngFor="let link of homepage.links.urls" href={{link.url}}>
