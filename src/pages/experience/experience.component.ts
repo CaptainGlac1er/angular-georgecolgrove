@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-  company: string;
+  myExperience = '<Experience />';
   job: Job;
 
   constructor(
