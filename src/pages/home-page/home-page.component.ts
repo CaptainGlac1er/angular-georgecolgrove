@@ -15,9 +15,9 @@ export class HomePageComponent implements OnInit {
   about = {
     title: '<About />',
     text: 'Constructing well built secure software is what I strive for. <br />'
-    + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
-    + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
-    + 'secure and modular for reusability and future development.'
+      + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
+      + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
+      + 'secure and modular for reusability and future development.'
   };
   jobs: Map<string, Job>;
   homepage = {
@@ -51,4 +51,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  newestFirst = (a, b) => {
+    if (a.value.startDate > b.value.startDate) {
+      return a.key;
+    }
+  }
 }

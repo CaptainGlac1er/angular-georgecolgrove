@@ -18,7 +18,7 @@
       {{homepage.jobs.title}}
   </div>
   <div class="homepage-panel-content">
-    <a class="homepage-tile links" *ngFor="let job of jobs | keyvalue" routerLink="/experience/{{job.key}}">
+    <a class="homepage-tile links" *ngFor="let job of jobs | keyvalue:newestFirst" routerLink="/experience/{{job.key}}">
       <h4>
         {{job.value.company}}
       </h4>
