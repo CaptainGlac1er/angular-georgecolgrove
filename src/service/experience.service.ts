@@ -13,20 +13,28 @@ export class ExperienceService {
       {
         company: 'Software Advice',
         position: 'Software Developer Intern',
-        description: 'Maintained legacy PHP code in moving it to better code standards and newer features'
+        description: 'Maintained legacy PHP code in moving it to better code standards and newer features',
+        startDate: new Date('05-21-2018'),
+        logoUrl: 'https://www.softwareadvice.com/img/sa_logo_tm-reverse-2x-sm.png'
       });
     this.jobs.set('rit',
       {
         company: 'Rochester Institute of Technology',
         position: 'Developer',
-        description: 'Worked on the visual overhaul of start.rit.edu and updated code to PHP 7'
+        description: 'Worked on the visual overhaul of start.rit.edu and updated code to PHP 7',
+        startDate: new Date('07-01-2015'),
+        endDate: new Date('05-19-2018'),
+        logoUrl: 'https://www.rit.edu/_assets/images/idbar.png'
       });
     this.jobs.set('vtc',
       {
         company: 'Vermont Technical College',
         position: 'Java and Web Dev TA, and IT helpdesk',
         description: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing '
-          + 'computers  and handled phone calls'
+          + 'computers  and handled phone calls',
+        startDate: new Date('07-17-2014'),
+        endDate: new Date('05-06-2015'),
+        logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg'
       });
   }
 

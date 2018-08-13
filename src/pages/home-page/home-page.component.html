@@ -1,24 +1,24 @@
-<div class="div-center-content" id="homepage-splash">
-  <div class="tile">
+<div class="div-center-content" id="top-splash">
+  <div class="main-tile">
     <div><img id="logo" src="../../assets/personalLogo2.png"/></div>
     <div>{{name}}</div>
     <div>{{gamertag}}</div>
     <div>{{phone}}</div>
   </div>
 </div>
-<div class="homepage-panel darker-gray">
-  <div class="homepage-panel-title">
+<div class="page-panel darker-gray">
+  <div class="page-panel-title">
       {{about.title}}
   </div>
-  <p class="homepage-panel-content" [innerHTML] ="about.text">
+  <p class="page-panel-content" [innerHTML] ="about.text">
   </p>
 </div>
-<div class="homepage-panel dark-gray">
-  <div class="homepage-panel-title">
+<div class="page-panel dark-gray">
+  <div class="page-panel-title">
       {{homepage.jobs.title}}
   </div>
-  <div class="homepage-panel-content">
-    <a class="homepage-tile links" *ngFor="let job of jobs | keyvalue" routerLink="/experience/{{job.key}}">
+  <div class="page-panel-content">
+    <a class="homepage-tile links" *ngFor="let job of jobs | keyvalue:newestFirst" routerLink="/experience/{{job.key}}">
       <h4>
         {{job.value.company}}
       </h4>
@@ -29,11 +29,11 @@
     </a>
   </div>
 </div>
-<div class="homepage-panel darker-gray">
-  <div class="homepage-panel-title">
+<div class="page-panel darker-gray">
+  <div class="page-panel-title">
     {{homepage.links.title}}
   </div>
-  <div class="homepage-panel-content">
+  <div class="page-panel-content">
     <a class="homepage-tile links" *ngFor="let link of homepage.links.urls" href={{link.url}}>
       <h2>
         {{link.title}}
