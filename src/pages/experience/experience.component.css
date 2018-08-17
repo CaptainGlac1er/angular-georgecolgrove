@@ -4,3 +4,7 @@
   background-position-y: center;
   background-repeat: no-repeat;
 }
+.page-panel-tile {
+  flex: 1 1 200px;
+}
+

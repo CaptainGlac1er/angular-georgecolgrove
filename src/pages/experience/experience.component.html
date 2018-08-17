@@ -1,8 +1,9 @@
 <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
   <div class="main-tile">
-    <div>{{job.company}}</div>
-    <div>{{job.position}}</div>
-    <div>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</div>
+    <h1>{{job.company}}</h1>
+    <h2>{{job.position}}</h2>
+    <h3>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</h3>
+    <h3>{{job.location}}</h3>
   </div>
 </div>
 <div class="page-panel darker-gray">
@@ -11,5 +12,19 @@
   </div>
   <div class="page-panel-content">
     {{job.description}}
+  </div>
+</div>
+
+<div class="page-panel dark-gray" *ngIf="job.frameworksUsed">
+  <div class="page-panel-title">
+    {{jobFrameworks}}
+  </div>
+  <div class="page-panel-content">
+    <a class="page-panel-tile text-link text-center" *ngFor="let framework of job.frameworksUsed" href="{{framework.url}}" target="_blank">
+      <h4>
+        {{framework.text}}
+      </h4>
+      <p *ngIf="framework.description" [innerHTML]="framework.description"></p>
+    </a>
   </div>
 </div>

@@ -10,6 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ExperienceComponent implements OnInit {
   myExperience = '<Experience />';
+  jobFrameworks = '<Frameworks />';
   job: Job;
 
   constructor(
