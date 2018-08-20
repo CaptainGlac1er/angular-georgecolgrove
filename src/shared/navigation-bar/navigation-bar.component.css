@@ -5,9 +5,10 @@
     height: 100%;
 }
 #container > div{
-    flex: 0 1 200px;
+    flex: 0 1 150px;
+    margin-left: 5px;
     text-align: center;
-    height: 100%;
+    height: calc(100% - 6px);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -15,4 +16,8 @@
 #container > div:hover{
     background-color: #111111;
     cursor: pointer;
+}
+.nav-link {
+  margin-bottom: 3px;
+  border-bottom: #444444 2px solid;
 }

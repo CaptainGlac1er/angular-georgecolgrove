@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ExperienceService} from '../../service/experience.service';
 import {Job} from '../../classes/job';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -44,7 +45,7 @@ export class HomePageComponent implements OnInit {
     }
   };
 
-  constructor(private experienceService: ExperienceService) {
+  constructor(private experienceService: ExperienceService, private router: Router) {
     this.jobs = this.experienceService.getJobs();
   }
 
@@ -55,5 +56,9 @@ export class HomePageComponent implements OnInit {
     if (a.value.startDate > b.value.startDate) {
       return a.key;
     }
+  }
+
+  goToJobPage(job: string) {
+    this.router.navigate(['/experiences/' + job]);
   }
 }
