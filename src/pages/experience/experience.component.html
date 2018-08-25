@@ -1,3 +1,17 @@
+<div *ngIf="job === null; else showJob" class="listing-body">
+  <div *ngFor="let aJob of getAllJobs() | keyvalue:newestFirst" (click)="selectJob(aJob.key)" class="listing-row listing-single-column">
+    <h3 class="listing-title">
+      {{aJob.value.company}}
+    </h3>
+    <h4 class="listing-subtitle">
+      {{aJob.value.position}}
+    </h4>
+    <h4 class="listing-subtitle">
+      {{aJob.value.startDate | date:'shortDate'}} - {{(aJob.value.endDate | date:'shortDate') || 'Current'}}
+    </h4>
+  </div>
+</div>
+<ng-template #showJob>
 <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
   <div class="main-tile">
     <h1>{{job.company}}</h1>
@@ -11,7 +25,7 @@
     {{myExperience}}
   </div>
   <div class="page-panel-content">
-    {{job.description}}
+    {{job.shortDescription}}
   </div>
 </div>
 
@@ -28,3 +42,4 @@
     </a>
   </div>
 </div>
+</ng-template>

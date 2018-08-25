@@ -8,10 +8,15 @@ import {NavigationBarComponent} from '../shared/navigation-bar/navigation-bar.co
 import {PageNotFoundComponent} from '../pages/page-not-found/page-not-found.component';
 import {FooterComponent} from '../shared/footer/footer.component';
 import {ExperienceComponent} from '../pages/experience/experience.component';
+import {ProjectComponent} from '../pages/project/project.component';
+import {HeaderComponent} from '../shared/header/header.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
-  {path: 'experience/:company', component: ExperienceComponent},
+  { path: 'experiences/:company', component: ExperienceComponent},
+  { path: 'experiences', component: ExperienceComponent},
+  { path: 'projects/:project', component: ProjectComponent},
+  { path: 'projects', component: ProjectComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
@@ -24,6 +29,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     FooterComponent,
     ExperienceComponent,
+    ProjectComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

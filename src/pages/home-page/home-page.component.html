@@ -7,37 +7,37 @@
   </div>
 </div>
 <div class="page-panel darker-gray">
-  <div class="page-panel-title">
+  <h2 class="page-panel-title">
       {{about.title}}
-  </div>
+  </h2>
   <p class="page-panel-content" [innerHTML] ="about.text">
   </p>
 </div>
 <div class="page-panel dark-gray">
-  <div class="page-panel-title">
+  <h2 class="page-panel-title">
       {{homepage.jobs.title}}
-  </div>
+  </h2>
   <div class="page-panel-content">
-    <a class="page-panel-tile text-link text-center" *ngFor="let job of jobs | keyvalue:newestFirst" routerLink="/experience/{{job.key}}">
+    <div class="page-panel-tile text-link text-center" *ngFor="let job of jobs | keyvalue:newestFirst" (click)="goToJobPage(job.key)">
       <h4>
         {{job.value.company}}
       </h4>
-      <h2>
+      <h3>
         {{job.value.position}}
-      </h2>
-      <p [innerHTML]="job.value.description"></p>
-    </a>
+      </h3>
+      <p [innerHTML]="job.value.shortDescription"></p>
+    </div>
   </div>
 </div>
 <div class="page-panel darker-gray">
-  <div class="page-panel-title">
+  <h2 class="page-panel-title">
     {{homepage.links.title}}
-  </div>
+  </h2>
   <div class="page-panel-content">
     <a class="page-panel-tile text-link text-center" *ngFor="let link of homepage.links.urls" href={{link.url}} target="_blank">
-      <h2>
+      <h3>
         {{link.title}}
-      </h2>
+      </h3>
     </a>
   </div>
 </div>

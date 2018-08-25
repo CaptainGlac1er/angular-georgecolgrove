@@ -7,10 +7,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
   links = [
-    /*{
-      title: 'Favorites',
-      link: 'favorites'
-    }*/
+    {
+      title: 'Experiences',
+      link: 'experiences'
+    },
+    {
+      title: 'Projects',
+      link: 'projects'
+    }
   ];
   constructor() { }
 
