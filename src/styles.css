@@ -5,12 +5,17 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  color: #d3d3d3;
 }
 
 html {
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
   font-size: 18px;
   height: 100%;
+}
+
+a {
+
 }
 
 .div-center-content {
@@ -46,11 +51,11 @@ p {
 
 .text-link {
   text-decoration: none;
-  color: white;
+  color: inherit;
+  cursor: pointer;
 }
 
 #top-splash {
-  color: white;
   background: black;
   background-size: cover;
   height: 25vw;
@@ -77,28 +82,31 @@ p {
   align-content: center;
   justify-content: center;
 }
-.main-tile > h1 {
+h1 {
   margin: 5px 0;
 }
-.main-tile > h2 {
+ h2 {
   margin: 3px 0;
 }
-.main-tile > h3 {
+h3 {
+  margin: 2px 0;
+}
+h4 {
   margin: 1px 0;
+}
+div {
+  font-size: 16px;
 }
 .page-panel {
   display: flex;
   flex: 3 3 100%;
   flex-direction: row;
-  color: white;
-  padding: 20px 5vw;
+  padding: 20px 1vw;
 }
 
 .page-panel-title {
-  flex: 1 1 250px;
+  flex: 1 1 300px;
   padding-bottom: 30px;
-  font-size: x-large;
-  font-weight: bold;
 }
 
 .page-panel-content {
@@ -144,17 +152,24 @@ p {
     /*font-size: 32px;*/
   }
 
-  .main-tile > h1{
-    font-size: 50px;
+  h1{
+    font-size: 40px;
     margin: 5px 0;
   }
-  .main-tile > h2 {
-    font-size: 40px;
+  h2 {
+    font-size: 32px;
     margin: 3px 0;
   }
-  .main-tile > h3 {
-    font-size: 30px;
+  h3 {
+    font-size: 28px;
+    margin: 2px 0;
+  }
+  h4 {
+    font-size: 20px;
     margin: 1px 0;
+  }
+  div {
+    font-size: 18px;
   }
 
 }
@@ -176,31 +191,45 @@ p {
   .page-panel-title {
     flex: 1 1 100%;
   }
-  .main-tile > h1{
+  h1{
     font-size: 40px;
     margin: 5px 0;
   }
-  .main-tile > h2 {
+  h2 {
     font-size: 25px;
     margin: 3px 0;
   }
-  .main-tile > h3 {
-    font-size: 15px;
+  h3 {
+    font-size: 18px;
+    margin: 2px 0;
+  }
+  h4 {
+    font-size: 14px;
     margin: 1px 0;
+  }
+  div {
+    font-size: 13px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .main-tile > h1{
+  h1{
     font-size: 20px;
     margin: 5px 0;
   }
-  .main-tile > h2 {
+  h2 {
     font-size: 15px;
     margin: 3px 0;
   }
-  .main-tile > h3 {
+  h3 {
+    font-size: 13px;
+    margin: 2px 0;
+  }
+  h4 {
     font-size: 12px;
     margin: 1px 0;
+  }
+  div {
+    font-size: 12px;
   }
 }

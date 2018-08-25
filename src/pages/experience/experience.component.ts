@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css']
+  styleUrls: ['./experience.component.css', '../../shared/css/page-listing.css']
 })
 export class ExperienceComponent implements OnInit {
   myExperience = '<Experience />';

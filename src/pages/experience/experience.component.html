@@ -1,13 +1,14 @@
-<div *ngIf="job === null; else showJob">
-  <div *ngFor="let aJob of getAllJobs() | keyvalue:newestFirst" (click)="selectJob(aJob.key)">
-    <div class="page-panel darker-gray">
-      <div class="page-panel-title">
-        {{aJob.value.company}}
-      </div>
-      <div class="page-panel-content">
-        {{aJob.value.position}}
-      </div>
-    </div>
+<div *ngIf="job === null; else showJob" class="listing-body">
+  <div *ngFor="let aJob of getAllJobs() | keyvalue:newestFirst" (click)="selectJob(aJob.key)" class="listing-row listing-single-column">
+    <h3 class="listing-title">
+      {{aJob.value.company}}
+    </h3>
+    <h4 class="listing-subtitle">
+      {{aJob.value.position}}
+    </h4>
+    <h4 class="listing-subtitle">
+      {{aJob.value.startDate | date:'shortDate'}} - {{(aJob.value.endDate | date:'shortDate') || 'Current'}}
+    </h4>
   </div>
 </div>
 <ng-template #showJob>
@@ -24,7 +25,7 @@
     {{myExperience}}
   </div>
   <div class="page-panel-content">
-    {{job.description}}
+    {{job.shortDescription}}
   </div>
 </div>
 

@@ -5,7 +5,7 @@ export class Job implements StartEndObject {
   company: string;
   location: string;
   position: string;
-  description: string;
+  shortDescription: string;
   logoUrl: string;
   frameworksUsed?: Link[];
   endDate?: Date;

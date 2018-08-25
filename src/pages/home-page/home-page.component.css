@@ -1,14 +1,13 @@
 #logo {
   width: 100px;
   align-self: center;
-  background-color: rgba(64,64,64,.7);
-  border-radius: 15px;
+  background-color: rgba(50,50,50,.8);
+  border-radius: 5px;
   padding: 10px;
 }
 
 #top-splash {
-  color: white;
-  background: url("../../assets/splash.jpg") left center;
+  background: url("../../assets/splash.jpg") center center;
   background-size: cover;
   height: 25vw;
   max-height: 500px;
@@ -25,5 +24,4 @@
 .links {
   text-align: center;
   text-decoration: none;
-  color: white;
 }

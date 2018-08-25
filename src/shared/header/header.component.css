@@ -1,7 +1,6 @@
 #top-bar {
   border-top: 5px solid rgb(200, 25, 28);
   background-color: black;
-  color: lightgray;
   justify-content: center;
   display: flex;
   height: 50px;
