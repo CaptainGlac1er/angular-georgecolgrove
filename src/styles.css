@@ -63,7 +63,6 @@ p {
   max-height: 500px;
   align-content: center;
   justify-content: center;
-  border-bottom: darkgray 1px solid;
 }
 
 .main-tile {
@@ -103,7 +102,12 @@ div {
   flex-direction: row;
   padding: 20px 1vw;
 }
-
+.page-panel:nth-child(even){
+  background-color: #222222;
+}
+.page-panel:nth-child(odd){
+  background-color: #111111;
+}
 .page-panel-title {
   flex: 1 1 300px;
   padding-bottom: 30px;
@@ -133,14 +137,6 @@ div {
 }
 .page-panel-tile:hover {
   transform: scale(1.05);
-}
-
-.dark-gray {
-  background-color: #222222;
-}
-
-.darker-gray {
-  background-color: #111111;
 }
 
 @media screen and (min-width: 1300px) {

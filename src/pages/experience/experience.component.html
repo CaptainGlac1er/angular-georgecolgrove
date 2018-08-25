@@ -1,4 +1,4 @@
-<div *ngIf="job === null; else showJob" class="listing-body">
+<div *ngIf="job === undefined; else showJob" class="listing-body">
   <div *ngFor="let aJob of getAllJobs() | keyvalue:newestFirst" (click)="selectJob(aJob.key)" class="listing-row listing-single-column">
     <h3 class="listing-title">
       {{aJob.value.company}}
@@ -12,34 +12,46 @@
   </div>
 </div>
 <ng-template #showJob>
-<div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
-  <div class="main-tile">
-    <h1>{{job.company}}</h1>
-    <h2>{{job.position}}</h2>
-    <h3>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</h3>
-    <h3>{{job.location}}</h3>
+  <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
+    <div class="main-tile">
+      <h1>{{job.company}}</h1>
+      <h2>{{job.position}}</h2>
+      <h3>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</h3>
+      <h3>{{job.location}}</h3>
+    </div>
   </div>
-</div>
-<div class="page-panel darker-gray">
-  <div class="page-panel-title">
-    {{myExperience}}
+  <div class="page-panel">
+    <div class="page-panel-title">
+      {{myExperience}}
+    </div>
+    <div class="page-panel-content">
+      {{job.shortDescription}}
+    </div>
   </div>
-  <div class="page-panel-content">
-    {{job.shortDescription}}
+  <div class="page-panel" *ngIf="projectsForJob.length > 0">
+    <div class="page-panel-title">
+      {{myProjects}}
+    </div>
+    <div class="page-panel-content">
+      <div class="page-panel-tile text-link text-center" *ngFor="let project of projectsForJob" (click)="selectProject(project)">
+        <h2>
+          {{project.name}}
+        </h2>
+        <p *ngIf="project.description" [innerHTML]="project.description"></p>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="page-panel dark-gray" *ngIf="job.frameworksUsed">
-  <div class="page-panel-title">
-    {{jobFrameworks}}
+  <div class="page-panel" *ngIf="job.frameworksUsed">
+    <div class="page-panel-title">
+      {{jobFrameworks}}
+    </div>
+    <div class="page-panel-content">
+      <a class="page-panel-tile text-link text-center" *ngFor="let framework of job.frameworksUsed" href="{{framework.url}}" target="_blank">
+        <h4>
+          {{framework.text}}
+        </h4>
+        <p *ngIf="framework.description" [innerHTML]="framework.description"></p>
+      </a>
+    </div>
   </div>
-  <div class="page-panel-content">
-    <a class="page-panel-tile text-link text-center" *ngFor="let framework of job.frameworksUsed" href="{{framework.url}}" target="_blank">
-      <h4>
-        {{framework.text}}
-      </h4>
-      <p *ngIf="framework.description" [innerHTML]="framework.description"></p>
-    </a>
-  </div>
-</div>
 </ng-template>
