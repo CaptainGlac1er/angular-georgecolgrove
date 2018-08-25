@@ -1,15 +1,27 @@
-# AngularGeorgecolgrove
+# My New Angular Website: *In Development*
+## About
+Learning how to use [Angular v6](https://github.com/angular/angular-cli) while building my new site.
+Replacement for my initial PHP version.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
-[![dependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove)
+
+## Status Board
+|Dependencies|devDependencies|
+|:----------:|:-------------:|
+| [![dependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove) |[![devDependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/dev-status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove?type=dev) |
+
+## Progress:
+[Trello Board](https://trello.com/b/T13W1xU9)
+ - [x] Main Page
+ - [ ] Experience Page
+ - [ ] Projects
+ - [ ] Hobbies
+ - [ ] Blog
+
+# Nerdy stuff
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -22,7 +34,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

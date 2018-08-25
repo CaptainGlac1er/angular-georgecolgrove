@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ExperienceService} from '../../service/experience.service';
 import {Job} from '../../classes/job';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Project} from '../../classes/project';
 
 @Component({
   selector: 'app-experience',
@@ -11,7 +12,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ExperienceComponent implements OnInit {
   myExperience = '<Experience />';
   jobFrameworks = '<Frameworks />';
+  myProjects = '<Projects />';
+  projectsForJob: Project[];
   job: Job;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +26,10 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.job = this.experienceService.getJob(params['company']);
+      if (this.job === undefined) {
+        return this.router.navigate(['/experiences']);
+      }
+      this.projectsForJob = this.experienceService.getProjectsForJob(this.job);
     });
   }
 
@@ -33,8 +41,10 @@ export class ExperienceComponent implements OnInit {
       return a.key;
     }
   }
-
   selectJob(job: string) {
-    this.router.navigate(['/experiences/' + job]);
+    return this.router.navigate(['/experiences/' + job]);
+  }
+  selectProject(project: Project) {
+    return this.router.navigate(['/projects/' + project.tag]);
   }
 }
