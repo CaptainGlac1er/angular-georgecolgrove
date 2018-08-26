@@ -22,7 +22,7 @@
   </div>
   <div class="page-panel">
     <div class="page-panel-title">
-      {{myExperience}}
+      Experience:
     </div>
     <div class="page-panel-content">
       {{job.shortDescription}}
@@ -30,7 +30,7 @@
   </div>
   <div class="page-panel" *ngIf="projectsForJob.length > 0">
     <div class="page-panel-title">
-      {{myProjects}}
+      Projects:
     </div>
     <div class="page-panel-content">
       <div class="page-panel-tile text-link text-center" *ngFor="let project of projectsForJob" (click)="selectProject(project)">
@@ -43,7 +43,7 @@
   </div>
   <div class="page-panel" *ngIf="job.frameworksUsed">
     <div class="page-panel-title">
-      {{jobFrameworks}}
+      Frameworks:
     </div>
     <div class="page-panel-content">
       <a class="page-panel-tile text-link text-center" *ngFor="let framework of job.frameworksUsed" href="{{framework.url}}" target="_blank">

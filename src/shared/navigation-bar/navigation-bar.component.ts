@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {MobileService} from '../../service/mobile.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -16,7 +17,10 @@ export class NavigationBarComponent implements OnInit {
       link: 'projects'
     }
   ];
-  constructor() { }
+  constructor(
+    public mobileInterface: MobileService
+  ) {
+  }
 
   ngOnInit() {
   }

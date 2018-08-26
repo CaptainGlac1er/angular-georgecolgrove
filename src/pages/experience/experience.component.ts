@@ -10,9 +10,6 @@ import {Project} from '../../classes/project';
   styleUrls: ['./experience.component.css', '../../shared/css/page-listing.css']
 })
 export class ExperienceComponent implements OnInit {
-  myExperience = '<Experience />';
-  jobFrameworks = '<Frameworks />';
-  myProjects = '<Projects />';
   projectsForJob: Project[];
   job: Job;
 

@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   gamertag = 'CaptainGlac1er';
   phone = '+1 802 595-1798';
   about = {
-    title: '<About />',
+    title: 'About:',
     text: 'Constructing well built secure software is what I strive for. <br />'
       + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
       + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
@@ -23,11 +23,11 @@ export class HomePageComponent implements OnInit {
   jobs: Map<string, Job>;
   homepage = {
     jobs: {
-      title: '<Experience />',
+      title: 'Experience:',
       positions: null
     },
     links: {
-      title: '<Links />',
+      title: 'Links:',
       urls: [
         {
           title: 'LinkedIn',
