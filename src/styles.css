@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #d3d3d3;
+  overflow: hidden;
 }
 
 html {
@@ -18,6 +19,10 @@ a {
 
 }
 
+.scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .div-center-content {
   text-align: center;
 }
@@ -123,7 +128,7 @@ div {
 .page-panel-tile {
   background-color: rgba(255,255,255,.1);
   padding: 10px;
-  margin: 0 20px 20px 0;
+  margin: 5px;
   border-radius: 5px;
   border-right: 3px solid #333333;
   border-bottom: 3px solid #333333;
@@ -179,30 +184,31 @@ div {
     flex-direction: column;
   }
 
-  .page-panel-tile {
-    margin: 1vw 1vh;
-
-  }
-
   .page-panel-title {
+    margin: 5px 1vh;
     flex: 1 1 100%;
   }
+
   h1{
     font-size: 40px;
     margin: 5px 0;
   }
+
   h2 {
     font-size: 25px;
     margin: 3px 0;
   }
+
   h3 {
     font-size: 18px;
     margin: 2px 0;
   }
+
   h4 {
     font-size: 14px;
     margin: 1px 0;
   }
+
   div {
     font-size: 13px;
   }

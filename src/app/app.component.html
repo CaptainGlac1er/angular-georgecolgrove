@@ -1,10 +1,12 @@
 <div class="flex-vertical flex-full-height">
   <!--The content below is only a placeholder and can be replaced.-->
   <app-header></app-header>
-  <div id="main-content">
-    <router-outlet></router-outlet>
+  <div class="scrollable flex-vertical flex-full-height">
+    <div id="main-content">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
 </div>
 
 

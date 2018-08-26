@@ -1,23 +1,73 @@
-#container{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 100%;
+#navElements {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
-#container > div{
-    flex: 0 1 150px;
-    margin-left: 5px;
-    text-align: center;
-    height: calc(100% - 6px);
-    align-items: center;
-    justify-content: center;
-    display: flex;
+#contentLockout{
+  height: inherit;
 }
-#container > div:hover{
-    background-color: #111111;
-    cursor: pointer;
+#btnNavHamburger{
+  display: none;
+  width: 100px;
 }
-.nav-link {
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: inherit;
+  width: 100%;
+}
+.nav-link{
+  height: inherit;
+  box-sizing: border-box;
+  flex: 1 0 120px;
+  max-width: 175px;
+  margin-left: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   margin-bottom: 3px;
   border-bottom: #444444 2px solid;
+}
+.nav-link:hover{
+  background-color: #111111;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px) {
+  #navElements {
+  }
+  #btnNavHamburger{
+    display: flex;
+  }
+  #contentLockout.lockoutShow{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    bottom: 0;
+    width: 100%;
+  }
+  .navbar{
+    display: none;
+  }
+  .navbar.hamburgerShow{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 80%;
+    z-index: 1;
+    background-color: black;
+    justify-content: flex-start;
+  }
+  .navbar.hamburgerShow > .nav-link{
+  }
+  .navbar > .nav-link {
+    max-width: 100%;
+    flex: 0 1 60px;
+  }
 }
