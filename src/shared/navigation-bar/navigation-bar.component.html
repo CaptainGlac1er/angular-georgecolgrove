@@ -1,5 +1,5 @@
 <div id="navElements">
-  <div id="btnNavHamburger" (click)="mobileInterface.toggleHamburgerMenu()">
+  <div id="btnNavHamburger" class="nav-link" (click)="mobileInterface.toggleHamburgerMenu()">
     Menu
   </div>
   <div id="contentLockout" [ngClass]="{lockoutShow: mobileInterface.hamburgerShown}" (click)="mobileInterface.closeHamburgerMenu()">
