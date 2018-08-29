@@ -1,4 +1,5 @@
 import {StartEndObject} from '../interfaces/start-end-object';
+import {Link} from './link';
 
 export class Project implements StartEndObject {
   tag: string;
@@ -7,6 +8,7 @@ export class Project implements StartEndObject {
   job?: string;
   startDate: Date;
   endDate?: Date;
+  links?: Link[];
 }
 
 

@@ -10,7 +10,8 @@ import {ProjectsService} from '../../service/projects.service';
 })
 export class ProjectComponent implements OnInit {
   project: Project;
-  myAbout: '<About />';
+  myAbout = 'About:';
+  myLinks = 'Links:';
   constructor(
     private route: ActivatedRoute,
     private router: Router,

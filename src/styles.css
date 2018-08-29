@@ -86,6 +86,14 @@ p {
   align-content: center;
   justify-content: center;
 }
+
+.nav-button {
+  cursor: pointer;
+}
+.nav-button:hover {
+  background-color: #333333;
+}
+
 h1 {
   margin: 5px 0;
 }
@@ -123,6 +131,7 @@ div {
   line-height: 30px;
   display: flex;
   flex-wrap: wrap;
+  padding: 5px;
 }
 
 .page-panel-tile {
@@ -141,7 +150,7 @@ div {
   text-align: center;
 }
 .page-panel-tile:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 @media screen and (min-width: 1300px) {
@@ -158,11 +167,11 @@ div {
     margin: 5px 0;
   }
   h2 {
-    font-size: 32px;
+    font-size: 30px;
     margin: 3px 0;
   }
   h3 {
-    font-size: 28px;
+    font-size: 25px;
     margin: 2px 0;
   }
   h4 {
@@ -235,3 +244,6 @@ div {
     font-size: 12px;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }

@@ -15,13 +15,29 @@ export class ProjectsService {
       description: 'Overhauled the RIT start page for computer registration',
       job: 'rit',
       startDate: new Date('07-01-2015'),
-      endDate: new Date('12-20-2015')
+      endDate: new Date('12-20-2015'),
+      links: [
+        {
+          text: 'start.rit.edu',
+          url: 'https://start.rit.edu/',
+          description: 'Computer Registration site for RIT'
+        }
+
+      ]
     },
     {
       tag: '3uler',
       name: '3uler Discord Bot',
       description: 'Uses Discord.net library version 1.0, has both a console and gui interface ',
-      startDate: new Date('06-22-2017')
+      startDate: new Date('06-22-2017'),
+      links: [
+        {
+          text: 'Github Repository',
+          url: 'https://github.com/CaptainGlac1er/3uler',
+          description: 'Discord bot built with the C# discord v1 api'
+        }
+
+      ]
     }
   ];
   constructor() {
