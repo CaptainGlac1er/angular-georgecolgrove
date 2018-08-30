@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ExperienceService} from '../../service/experience.service';
 import {Job} from '../../classes/job';
 import {Router} from '@angular/router';
+import {Displayable} from '../../interfaces/displayable';
 
 @Component({
   selector: 'app-home-page',
@@ -58,7 +59,12 @@ export class HomePageComponent implements OnInit {
     }
   }
 
-  goToJobPage(job: string) {
-    this.router.navigate(['/experiences/' + job]);
+  goToJobPage(job: Displayable) {
+    console.log(this);
+    this.router.navigate(['/experiences/' + job.getTag()]);
+  }
+
+  getJobs(): Job[] {
+    return this.experienceService.getExperiencesData();
   }
 }

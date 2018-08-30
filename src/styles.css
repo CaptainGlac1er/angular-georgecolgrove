@@ -135,6 +135,7 @@ div {
 }
 
 .page-panel-tile {
+  flex: 1 1 350px;
   background-color: rgba(255,255,255,.1);
   padding: 10px;
   margin: 5px;

@@ -63,7 +63,8 @@ export class ExperienceService {
     tag: 'vtc',
     company: 'Vermont Technical College',
     position: 'Java and Web Dev TA, and IT helpdesk',
-    shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers and handled phone calls',
+    shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers and ' +
+      'handled phone calls',
     startDate: new Date('07-17-2014'),
     endDate: new Date('05-06-2015'),
     logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg',
@@ -90,7 +91,11 @@ export class ExperienceService {
     this.jobs = jobs;
   }
   getExperiencesData(): Job[] {
-    return this.experiences as Job[];
+    const jobs: Job[] = [];
+    this.experiences.forEach(function (item) {
+      jobs.push(Job.decode(item));
+    });
+    return jobs;
   }
   getJobs() {
     return this.jobs;

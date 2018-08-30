@@ -8,7 +8,7 @@ import {Job} from '../classes/job';
 export class ProjectsService {
   private projects: Map<string, Project>;
 
-  private projectArray = [
+  private projectArray: Project[] = [
     {
       tag: 'start-rit',
       name: 'Start page for RIT',
@@ -37,6 +37,23 @@ export class ProjectsService {
           description: 'Discord bot built with the C# discord v1 api'
         }
 
+      ]
+    },
+    {
+      tag: 'chem-tools-uwp',
+      name: 'Chemistry Tools UWP',
+      description: 'Rewrite of the original Chemistry Tools app that I made for Windows Phone 8.1. This version was made to use the UWP ' +
+        'framework',
+      startDate: new Date('08-07-2017'),
+      links: [
+        {
+          text: 'Windows Store Link',
+          url: 'https://www.microsoft.com/store/productId/9P4X65LM9MM1'
+        },
+        {
+          text: 'Github Repository',
+          url: 'https://github.com/CaptainGlac1er/ChemistryToolsUWP'
+        }
       ]
     }
   ];

@@ -6,29 +6,11 @@
     <h3>{{phone}}</h3>
   </div>
 </div>
-<div class="page-panel">
-  <h2 class="page-panel-title">
-      {{about.title}}
-  </h2>
-  <p class="page-panel-content" [innerHTML] ="about.text">
-  </p>
-</div>
-<div class="page-panel">
-  <h2 class="page-panel-title">
-      {{homepage.jobs.title}}
-  </h2>
-  <div class="page-panel-content">
-    <div class="page-panel-tile text-link text-center" *ngFor="let job of jobs | keyvalue:newestFirst" (click)="goToJobPage(job.key)">
-      <h4>
-        {{job.value.company}}
-      </h4>
-      <h3>
-        {{job.value.position}}
-      </h3>
-      <p [innerHTML]="job.value.shortDescription"></p>
-    </div>
-  </div>
-</div>
+<app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
+</app-panel-row>
+<app-panel-row [title]="homepage.jobs.title" [contentTiles]="getJobs()" [sortByDate]="true" (clickCallback)="goToJobPage($event)" class="page-panel">
+
+</app-panel-row>
 <div class="page-panel">
   <h2 class="page-panel-title">
     {{homepage.links.title}}
