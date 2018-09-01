@@ -10,6 +10,9 @@ import {Project} from '../../classes/project';
   styleUrls: ['./experience.component.css', '../../shared/css/page-listing.css']
 })
 export class ExperienceComponent implements OnInit {
+  experienceTitle = 'Experience:';
+  projectTitle = 'Projects:';
+  frameworkTitle = 'Frameworks:';
   projectsForJob: Project[];
   job: Job;
 
@@ -31,17 +34,17 @@ export class ExperienceComponent implements OnInit {
   }
 
   getAllJobs() {
-    return this.experienceService.getJobs();
+    return this.experienceService.getExperiencesData();
   }
   newestFirst = (a, b) => {
     if (a.value.startDate > b.value.startDate) {
       return a.key;
     }
   }
-  selectJob(job: string) {
-    return this.router.navigate(['/experiences/' + job]);
+  selectJob(job: Job) {
+    return this.router.navigate([job.relUrl]);
   }
   selectProject(project: Project) {
-    return this.router.navigate(['/projects/' + project.tag]);
+    return this.router.navigate([project.relUrl]);
   }
 }

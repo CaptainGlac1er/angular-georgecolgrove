@@ -10,6 +10,10 @@ import {FooterComponent} from '../shared/footer/footer.component';
 import {ExperienceComponent} from '../pages/experience/experience.component';
 import {ProjectComponent} from '../pages/project/project.component';
 import {HeaderComponent} from '../shared/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule, MatMenu} from '@angular/material';
+import { PanelRowComponent } from '../shared/panel-row/panel-row.component';
+import { OrderDatePipe } from '../pipes/order-date.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
@@ -30,11 +34,15 @@ const appRoutes: Routes = [
     FooterComponent,
     ExperienceComponent,
     ProjectComponent,
-    HeaderComponent
+    HeaderComponent,
+    PanelRowComponent,
+    OrderDatePipe
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   bootstrap: [AppComponent]
 })

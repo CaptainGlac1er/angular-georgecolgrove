@@ -9,7 +9,15 @@
 }
 #btnNavHamburger{
   display: none;
-  width: 100px;
+  height: inherit;
+  box-sizing: border-box;
+  flex: 1 0 40px;
+  max-width: 50px;
+  margin-left: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 .navbar{
   display: flex;
@@ -32,7 +40,7 @@
   border-bottom: #444444 2px solid;
 }
 .nav-link:hover{
-  background-color: #111111;
+  background-color: #333333;
   cursor: pointer;
 }
 
@@ -63,6 +71,15 @@
     z-index: 1;
     background-color: black;
     justify-content: flex-start;
+    animation: slideHamburger ease-in 200ms;
+  }
+  @keyframes slideHamburger {
+    0% {
+      transform: translateX(300px);
+    }
+    100% {
+      transform: translate(0px);
+    }
   }
   .navbar.hamburgerShow > .nav-link{
   }

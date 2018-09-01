@@ -10,7 +10,8 @@ import {ProjectsService} from '../../service/projects.service';
 })
 export class ProjectComponent implements OnInit {
   project: Project;
-  myAbout: '<About />';
+  myAbout = 'About:';
+  myLinks = 'Links:';
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,15 +27,15 @@ export class ProjectComponent implements OnInit {
   }
 
   getAllProjects() {
-    return this.projectService.getProjects();
+    return this.projectService.getProjectsData();
   }
   newestFirst = (a, b) => {
-    if (a.value.startDate > b.value.startDate) {
+    if (a.startDate > b.startDate) {
       return a.key;
     }
   }
   selectProject(project: Project) {
-    return this.router.navigate(['/projects/' + project.tag]);
+    return this.router.navigate([project.relUrl]);
   }
 
 }

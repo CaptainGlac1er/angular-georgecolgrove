@@ -19,26 +19,26 @@ export class ExperienceService {
       logoUrl: 'https://www.softwareadvice.com/img/sa_logo_tm-reverse-2x-sm.png',
       location: 'Austin, Texas',
       frameworksUsed: [{
-        url: 'https://secure.php.net/',
-        text: 'PHP'
+        extUrl: 'https://secure.php.net/',
+        title: 'PHP'
       }, {
-        url: 'https://phpunit.de/',
-        text: 'PHPUnit'
+        extUrl: 'https://phpunit.de/',
+        title: 'PHPUnit'
       }, {
-        url: 'https://www.smarty.net/',
-        text: 'Smarty'
+        extUrl: 'https://www.smarty.net/',
+        title: 'Smarty'
       }, {
-        url: 'https://www.docker.com/',
-        text: 'Docker'
+        extUrl: 'https://www.docker.com/',
+        title: 'Docker'
       }, {
-        url: 'https://gitlab.com/',
-        text: 'Gitlab'
+        extUrl: 'https://gitlab.com/',
+        title: 'Gitlab'
       }, {
-        url: 'https://www.mysql.com/',
-        text: 'MySQL'
+        extUrl: 'https://www.mysql.com/',
+        title: 'MySQL'
       }, {
-        url: 'https://getcomposer.org/',
-        text: 'Composer'
+        extUrl: 'https://getcomposer.org/',
+        title: 'Composer'
       }]
     }, {
   tag: 'rit',
@@ -50,33 +50,34 @@ export class ExperienceService {
   logoUrl: 'https://www.rit.edu/_assets/images/idbar.png',
   location: 'Rochester, New York',
   frameworksUsed: [{
-    url: 'https://secure.php.net/',
-    text: 'PHP'
+    extUrl: 'https://secure.php.net/',
+    title: 'PHP'
   }, {
-    url: 'https://gitlab.com/',
-    text: 'Gitlab'
+    extUrl: 'https://gitlab.com/',
+    title: 'Gitlab'
   }, {
-    url: 'https://www.mysql.com/',
-    text: 'MySQL'
+    extUrl: 'https://www.mysql.com/',
+    title: 'MySQL'
   }]
 }, {
     tag: 'vtc',
     company: 'Vermont Technical College',
     position: 'Java and Web Dev TA, and IT helpdesk',
-    shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers and handled phone calls',
+    shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers and ' +
+      'handled phone calls',
     startDate: new Date('07-17-2014'),
     endDate: new Date('05-06-2015'),
     logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg',
     location: 'Randolph, Vermont',
     frameworksUsed: [{
-      url: 'https://secure.php.net/',
-      text: 'PHP'
+      extUrl: 'https://secure.php.net/',
+      title: 'PHP'
     }, {
-      url: 'https://www.java.com/en/',
-      text: 'Java'
+      extUrl: 'https://www.java.com/en/',
+      title: 'Java'
     }, {
-      url: 'https://www.mysql.com/',
-      text: 'MySQL'
+      extUrl: 'https://www.mysql.com/',
+      title: 'MySQL'
     }]
   }
     ];
@@ -90,7 +91,11 @@ export class ExperienceService {
     this.jobs = jobs;
   }
   getExperiencesData(): Job[] {
-    return this.experiences as Job[];
+    const jobs: Job[] = [];
+    this.experiences.forEach(function (item) {
+      jobs.push(Job.decode(item));
+    });
+    return jobs;
   }
   getJobs() {
     return this.jobs;
