@@ -190,15 +190,6 @@ div {
     display: none;
   }
 
-  .page-panel {
-    flex-direction: column;
-  }
-
-  .page-panel-title {
-    margin: 5px 1vh;
-    flex: 1 1 100%;
-  }
-
   h1{
     font-size: 40px;
     margin: 5px 0;
