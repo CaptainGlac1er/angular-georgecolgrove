@@ -4,3 +4,15 @@
   flex-direction: row;
   padding: 20px 1vw;
 }
+
+@media screen and (max-width: 1000px) {
+
+  #wrapper {
+    flex-direction: column;
+  }
+
+  .page-panel-title {
+    margin: 5px 1vh;
+    flex: 1 1 100%;
+  }
+}
