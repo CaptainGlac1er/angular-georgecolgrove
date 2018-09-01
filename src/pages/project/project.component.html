@@ -1,38 +1,20 @@
 <div *ngIf="project === undefined; else showProject" class="listing-body">
-  <div *ngFor="let aProject of getAllProjects() | keyvalue:newestFirst" (click)="selectProject(aProject.value)" class="listing-row listing-single-column">
+  <div *ngFor="let aProject of getAllProjects() | orderDate:newestFirst" (click)="selectProject(aProject)" class="listing-row listing-single-column">
     <h3 class="listing-title">
-      {{aProject.value.name}}
+      {{aProject.title}}
     </h3>
     <h4 class="listing-subtitle">
-      {{aProject.value.startDate | date:'shortDate'}} - {{(aProject.value.endDate | date:'shortDate') || 'Current'}}
+      {{aProject.startDate | date:'shortDate'}} - {{(aProject.endDate | date:'shortDate') || 'Current'}}
     </h4>
   </div>
 </div>
 <ng-template #showProject>
   <div id="top-splash" class="div-center-content">
     <div class="main-tile">
-      <h1>{{project.name}}</h1>
+      <h1>{{project.title}}</h1>
       <h3>{{project.startDate | date:'shortDate'}} - {{(project.endDate | date:'shortDate') || 'Current'}}</h3>
     </div>
   </div>
-  <div class="page-panel">
-    <h2 class="page-panel-title">
-      {{myAbout}}
-    </h2>
-    <div class="page-panel-content">
-      {{project.description}}
-    </div>
-  </div>
-  <div class="page-panel">
-    <h2 class="page-panel-title">
-      {{myLinks}}
-    </h2>
-    <div class="page-panel-content">
-      <a class="page-panel-tile text-link text-center" *ngFor="let link of project.links" href={{link.url}} target="_blank">
-        <h3>
-          {{link.text}}
-        </h3>
-      </a>
-    </div>
-  </div>
+  <app-panel-row [title]="myAbout" [contentText]="project.description" class="page-panel"></app-panel-row>
+  <app-panel-row [title]="myLinks" [contentTiles]="project.links" class="page-panel" [useExtUrlFirst]="true"></app-panel-row>
 </ng-template>

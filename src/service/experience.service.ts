@@ -19,26 +19,26 @@ export class ExperienceService {
       logoUrl: 'https://www.softwareadvice.com/img/sa_logo_tm-reverse-2x-sm.png',
       location: 'Austin, Texas',
       frameworksUsed: [{
-        url: 'https://secure.php.net/',
-        text: 'PHP'
+        extUrl: 'https://secure.php.net/',
+        title: 'PHP'
       }, {
-        url: 'https://phpunit.de/',
-        text: 'PHPUnit'
+        extUrl: 'https://phpunit.de/',
+        title: 'PHPUnit'
       }, {
-        url: 'https://www.smarty.net/',
-        text: 'Smarty'
+        extUrl: 'https://www.smarty.net/',
+        title: 'Smarty'
       }, {
-        url: 'https://www.docker.com/',
-        text: 'Docker'
+        extUrl: 'https://www.docker.com/',
+        title: 'Docker'
       }, {
-        url: 'https://gitlab.com/',
-        text: 'Gitlab'
+        extUrl: 'https://gitlab.com/',
+        title: 'Gitlab'
       }, {
-        url: 'https://www.mysql.com/',
-        text: 'MySQL'
+        extUrl: 'https://www.mysql.com/',
+        title: 'MySQL'
       }, {
-        url: 'https://getcomposer.org/',
-        text: 'Composer'
+        extUrl: 'https://getcomposer.org/',
+        title: 'Composer'
       }]
     }, {
   tag: 'rit',
@@ -50,14 +50,14 @@ export class ExperienceService {
   logoUrl: 'https://www.rit.edu/_assets/images/idbar.png',
   location: 'Rochester, New York',
   frameworksUsed: [{
-    url: 'https://secure.php.net/',
-    text: 'PHP'
+    extUrl: 'https://secure.php.net/',
+    title: 'PHP'
   }, {
-    url: 'https://gitlab.com/',
-    text: 'Gitlab'
+    extUrl: 'https://gitlab.com/',
+    title: 'Gitlab'
   }, {
-    url: 'https://www.mysql.com/',
-    text: 'MySQL'
+    extUrl: 'https://www.mysql.com/',
+    title: 'MySQL'
   }]
 }, {
     tag: 'vtc',
@@ -70,14 +70,14 @@ export class ExperienceService {
     logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg',
     location: 'Randolph, Vermont',
     frameworksUsed: [{
-      url: 'https://secure.php.net/',
-      text: 'PHP'
+      extUrl: 'https://secure.php.net/',
+      title: 'PHP'
     }, {
-      url: 'https://www.java.com/en/',
-      text: 'Java'
+      extUrl: 'https://www.java.com/en/',
+      title: 'Java'
     }, {
-      url: 'https://www.mysql.com/',
-      text: 'MySQL'
+      extUrl: 'https://www.mysql.com/',
+      title: 'MySQL'
     }]
   }
     ];

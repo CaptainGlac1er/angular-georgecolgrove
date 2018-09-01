@@ -1,14 +1,27 @@
-import {StartEndObject} from '../interfaces/start-end-object';
-import {Link} from './link';
+import {Tile} from './tile';
 
-export class Project implements StartEndObject {
+export class Project extends Tile {
   tag: string;
-  name: string;
-  description: string;
   job?: string;
-  startDate: Date;
-  endDate?: Date;
-  links?: Link[];
+  links?: Tile[];
+  description?: string;
+
+  static decode(json): Project {
+    const job = Object.create(Tile.prototype);
+    let startDate: Date;
+    let endDate: Date;
+    if (json.startDate) {
+      startDate = new Date(json.startDate);
+    }
+    if (json.endDate) {
+      endDate = new Date(json.endDate);
+    }
+    return Object.assign(job, json, {
+      startDate: startDate,
+      endDate: endDate,
+      relUrl: '/projects/' + json.tag
+    });
+  }
 }
 
 

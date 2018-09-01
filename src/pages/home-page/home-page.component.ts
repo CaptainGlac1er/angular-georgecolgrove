@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ExperienceService} from '../../service/experience.service';
 import {Job} from '../../classes/job';
 import {Router} from '@angular/router';
-import {Displayable} from '../../interfaces/displayable';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -24,44 +24,37 @@ export class HomePageComponent implements OnInit {
   jobs: Map<string, Job>;
   homepage = {
     jobs: {
-      title: 'Experience:',
-      positions: null
+      title: 'Experience:'
     },
     links: {
       title: 'Links:',
       urls: [
         {
           title: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/georgecolgrove'
+          extUrl: 'https://www.linkedin.com/in/georgecolgrove'
         },
         {
           title: 'Github',
-          url: 'https://github.com/CaptainGlac1er'
+          extUrl: 'https://github.com/CaptainGlac1er'
         },
         {
           title: 'HackerRank',
-          url: 'https://www.hackerrank.com/georgecolgrove'
+          extUrl: 'https://www.hackerrank.com/georgecolgrove'
         },
       ]
     }
   };
 
-  constructor(private experienceService: ExperienceService, private router: Router) {
+  constructor(
+    private experienceService: ExperienceService,
+    private router: Router,
+    private meta: Meta) {
     this.jobs = this.experienceService.getJobs();
+    this.meta.addTag({name: 'description', content: 'C#, Java, JavaScript, PHP developer'});
+    this.meta.addTag({name: 'title', content: 'George Walter Colgrove IV'});
   }
 
   ngOnInit() {
-  }
-
-  newestFirst = (a, b) => {
-    if (a.value.startDate > b.value.startDate) {
-      return a.key;
-    }
-  }
-
-  goToJobPage(job: Displayable) {
-    console.log(this);
-    this.router.navigate(['/experiences/' + job.getTag()]);
   }
 
   getJobs(): Job[] {
