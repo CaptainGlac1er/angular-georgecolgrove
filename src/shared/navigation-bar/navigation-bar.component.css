@@ -19,7 +19,7 @@
   justify-content: center;
   cursor: pointer;
 }
-.navbar{
+.nav-bar{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -38,6 +38,8 @@
   display: flex;
   margin-bottom: 3px;
   border-bottom: #444444 2px solid;
+  text-decoration: none;
+  color: inherit;
 }
 .nav-link:hover{
   background-color: #333333;
@@ -60,10 +62,10 @@
     bottom: 0;
     width: 100%;
   }
-  .navbar{
+  .nav-bar{
     display: none;
   }
-  .navbar.hamburgerShow{
+  .nav-bar.hamburgerShow{
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -81,9 +83,9 @@
       transform: translate(0px);
     }
   }
-  .navbar.hamburgerShow > .nav-link{
+  .nav-bar.hamburgerShow > .nav-link{
   }
-  .navbar > .nav-link {
+  .nav-bar > .nav-link {
     max-width: 100%;
     flex: 0 1 60px;
   }

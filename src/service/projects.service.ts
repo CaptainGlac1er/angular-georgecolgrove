@@ -57,7 +57,23 @@ export class ProjectsService {
           extUrl: 'https://github.com/CaptainGlac1er/ChemistryToolsUWP'
         }
       ]
-    }
+    },
+    {
+      tag: 'web-server',
+      title: 'Web Server',
+      shortDescription: 'Setup my server to use Docker to host my websites (including this one) and projects.',
+      startDate: '06-22-2018',
+      links: [
+        {
+          title: 'This Site',
+          extUrl: 'https://www.georgecolgrove.com/'
+        },
+        {
+          title: 'Old Sites Portal',
+          extUrl: 'http://gwcprojects.com/'
+        }
+      ]
+    },
   ];
   constructor() {
     const projects = new Map<string, Project>();

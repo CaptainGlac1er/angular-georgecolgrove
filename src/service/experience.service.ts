@@ -39,6 +39,9 @@ export class ExperienceService {
       }, {
         extUrl: 'https://getcomposer.org/',
         title: 'Composer'
+      }, {
+        extUrl: 'https://angular.io/',
+        title: 'Angular 6'
       }]
     }, {
   tag: 'rit',

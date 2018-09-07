@@ -41,8 +41,8 @@ export class ExperienceComponent implements OnInit {
       return a.key;
     }
   }
-  selectJob(job: Job) {
-    return this.router.navigate([job.relUrl]);
+  async selectJob(job: Job) {
+    return await this.router.navigate([job.relUrl]);
   }
   selectProject(project: Project) {
     return this.router.navigate([project.relUrl]);

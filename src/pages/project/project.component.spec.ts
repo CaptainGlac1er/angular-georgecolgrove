@@ -1,25 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectComponent } from './project.component';
+import {PanelRowComponent} from '../../shared/panel-row/panel-row.component';
+import {MockComponent, MockPipe} from 'ng-mocks';
+import {OrderDatePipe} from '../../pipes/order-date.pipe';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ProjectComponent ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        ProjectComponent,
+        MockPipe(OrderDatePipe),
+        MockComponent(PanelRowComponent)
+      ]
     })
     .compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await expect(component).toBeTruthy();
   });
 });

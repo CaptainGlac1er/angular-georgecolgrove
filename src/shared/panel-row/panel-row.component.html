@@ -6,28 +6,30 @@
     <div *ngIf="contentText" [innerHTML] = "contentText">
 
     </div>
+    <div class="flex-row">
     <div *ngIf="sortByDate; then dateSorting; else noDateSorting"></div>
-    <ng-template #dateSorting>
-      <div class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles | orderDate:newestFirst" (click)="tileClicked(item)">
-        <h4>
-          {{item.title}}
-        </h4>
-        <h3 *ngIf="item.subTitle">
-          {{item.subTitle}}
-        </h3>
-        <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-      </div>
-    </ng-template>
-    <ng-template #noDateSorting>
-      <div class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles" (click)="tileClicked(item)">
-        <h4>
-          {{item.title}}
-        </h4>
-        <h3 *ngIf="item.subTitle">
-          {{item.subTitle}}
-        </h3>
-        <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-      </div>
-    </ng-template>
+      <ng-template #dateSorting>
+        <a class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles | orderDate:newestFirst" (click)="tileClicked(item)">
+          <h4>
+            {{item.title}}
+          </h4>
+          <h3 *ngIf="item.subTitle">
+            {{item.subTitle}}
+          </h3>
+          <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
+        </a>
+      </ng-template>
+      <ng-template #noDateSorting>
+        <a class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles" (click)="tileClicked(item)">
+          <h4>
+            {{item.title}}
+          </h4>
+          <h3 *ngIf="item.subTitle">
+            {{item.subTitle}}
+          </h3>
+          <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
+        </a>
+      </ng-template>
+    </div>
   </div>
 </div>

@@ -1,12 +1,12 @@
-import {DataRow} from './data-row';
 import {Tile} from './tile';
 
-export class Project extends DataRow {
+export class DataRow extends Tile {
   tag: string;
-  job?: string;
+  description?: string;
+  links?: Tile[];
 
-  static decode(json): Project {
-    const job = Object.create(Tile.prototype);
+  static decode(json): DataRow {
+    const dataRow = Object.create(DataRow.prototype);
     let startDate: Date;
     let endDate: Date;
     if (json.startDate) {
@@ -15,12 +15,9 @@ export class Project extends DataRow {
     if (json.endDate) {
       endDate = new Date(json.endDate);
     }
-    return Object.assign(job, json, {
+    return Object.assign(dataRow, json, {
       startDate: startDate,
-      endDate: endDate,
-      relUrl: '/projects/' + json.tag
+      endDate: endDate
     });
   }
 }
-
-
