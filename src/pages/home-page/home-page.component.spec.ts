@@ -5,6 +5,7 @@ import {OrderDatePipe} from '../../pipes/order-date.pipe';
 import {MockComponent, MockPipe} from 'ng-mocks';
 import {PanelRowComponent} from '../../shared/panel-row/panel-row.component';
 import {RouterModule} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -12,12 +13,12 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [ HomePageComponent,
         MockPipe(OrderDatePipe),
         MockComponent(PanelRowComponent)
-      ],
-      imports: [
-        RouterModule.forRoot([])
       ]
     })
     .compileComponents();

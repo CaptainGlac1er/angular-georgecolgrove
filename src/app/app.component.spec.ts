@@ -3,16 +3,19 @@ import { AppComponent } from './app.component';
 import {MockComponent} from 'ng-mocks';
 import {HeaderComponent} from '../shared/header/header.component';
 import {Router, RouterModule} from '@angular/router';
+import {FooterComponent} from '../shared/footer/footer.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async() => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         AppComponent,
-        MockComponent(HeaderComponent)
-      ],
-      imports: [
-        RouterModule.forRoot([])
+        MockComponent(HeaderComponent),
+        MockComponent(FooterComponent)
       ]
     }).compileComponents();
   });

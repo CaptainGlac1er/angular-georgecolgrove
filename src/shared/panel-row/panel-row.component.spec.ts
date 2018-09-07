@@ -3,6 +3,7 @@ import {MockComponent, MockPipe, MockDeclaration} from 'ng-mocks';
 
 import { PanelRowComponent } from './panel-row.component';
 import {OrderDatePipe} from '../../pipes/order-date.pipe';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('PanelRowComponent', () => {
   let component: PanelRowComponent;
@@ -10,6 +11,9 @@ describe('PanelRowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         PanelRowComponent,
         MockPipe(OrderDatePipe),

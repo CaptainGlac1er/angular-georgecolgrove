@@ -3,6 +3,8 @@ import {MockComponent, MockPipe} from 'ng-mocks';
 
 import { HobbiesComponent } from './hobbies.component';
 import {PanelRowComponent} from '../../shared/panel-row/panel-row.component';
+import {RouterModule} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HobbiesComponent', () => {
   let component: HobbiesComponent;
@@ -10,6 +12,9 @@ describe('HobbiesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         HobbiesComponent,
         MockComponent(PanelRowComponent)
@@ -24,7 +29,7 @@ describe('HobbiesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await expect(component).toBeTruthy();
   });
 });

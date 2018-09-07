@@ -15,6 +15,6 @@
       <h3>{{project.startDate | date:'shortDate'}} - {{(project.endDate | date:'shortDate') || 'Current'}}</h3>
     </div>
   </div>
-  <app-panel-row [title]="myAbout" [contentText]="project.description" class="page-panel"></app-panel-row>
-  <app-panel-row [title]="myLinks" [contentTiles]="project.links" class="page-panel" [useExtUrlFirst]="true"></app-panel-row>
+  <app-panel-row [title]="myAbout" [contentText]="project.description || project.shortDescription" class="page-panel"></app-panel-row>
+  <app-panel-row *ngIf="project.links" [title]="myLinks" [contentTiles]="project.links" class="page-panel" [useExtUrlFirst]="true"></app-panel-row>
 </ng-template>

@@ -3,6 +3,8 @@ import {MockComponent} from 'ng-mocks';
 
 import {NavigationBarComponent} from './navigation-bar.component';
 import {MatIcon} from '@angular/material';
+import {RouterModule} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('NavigationBarComponent', () => {
   let component: NavigationBarComponent;
@@ -10,6 +12,9 @@ describe('NavigationBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         NavigationBarComponent,
         MockComponent(MatIcon)

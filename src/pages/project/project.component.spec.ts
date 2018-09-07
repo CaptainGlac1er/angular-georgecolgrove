@@ -4,7 +4,7 @@ import { ProjectComponent } from './project.component';
 import {PanelRowComponent} from '../../shared/panel-row/panel-row.component';
 import {MockComponent, MockPipe} from 'ng-mocks';
 import {OrderDatePipe} from '../../pipes/order-date.pipe';
-import {RouterModule} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -12,19 +12,17 @@ describe('ProjectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         ProjectComponent,
         MockPipe(OrderDatePipe),
         MockComponent(PanelRowComponent)
-      ],
-      imports: [
-        RouterModule.forRoot([])
       ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
