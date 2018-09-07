@@ -118,37 +118,9 @@ div {
 .page-panel:nth-child(odd){
   background-color: #111111;
 }
-.page-panel-title {
-  flex: 1 1 300px;
-  padding-bottom: 30px;
-}
 
-.page-panel-content {
-  flex: 1 1 100%;
-  line-height: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-}
-
-.page-panel-tile {
-  flex: 1 1 350px;
-  background-color: rgba(255,255,255,.1);
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  border-right: 3px solid #333333;
-  border-bottom: 3px solid #333333;
-  -webkit-transition: 100ms linear;
-  -moz-transition: 100ms linear;
-  -o-transition: 100ms linear;
-  transition: 100ms linear;
-}
 .text-center {
   text-align: center;
-}
-.page-panel-tile:hover {
-  transform: scale(1.02);
 }
 
 @media screen and (min-width: 1300px) {

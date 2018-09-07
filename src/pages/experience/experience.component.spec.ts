@@ -1,17 +1,28 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ExperienceComponent} from './experience.component';
+import {OrderDatePipe} from '../../pipes/order-date.pipe';
+import {MockPipe, MockComponent} from 'ng-mocks';
+import {PanelRowComponent} from '../../shared/panel-row/panel-row.component';
+import {RouterModule} from '@angular/router';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;
   let fixture: ComponentFixture<ExperienceComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExperienceComponent ]
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
+      declarations: [
+        ExperienceComponent,
+        MockPipe(OrderDatePipe),
+        MockComponent(PanelRowComponent)
+      ],
+      imports: [
+        RouterModule.forRoot([])
+      ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExperienceComponent);

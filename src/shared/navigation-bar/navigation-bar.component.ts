@@ -9,12 +9,16 @@ import {MobileService} from '../../service/mobile.service';
 export class NavigationBarComponent implements OnInit {
   links = [
     {
-      title: 'Experiences',
+      title: 'Experience',
       link: 'experiences'
     },
     {
       title: 'Projects',
       link: 'projects'
+    },
+    {
+      title: 'Hobbies',
+      link: 'hobbies'
     }
   ];
   constructor(

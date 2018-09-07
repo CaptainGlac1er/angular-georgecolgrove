@@ -7,7 +7,7 @@ import {Meta} from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'GWC Website';
+  title = 'George Walter Colgrove IV - Personal Website';
 
   constructor(
     private meta: Meta

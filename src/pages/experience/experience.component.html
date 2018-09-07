@@ -1,5 +1,5 @@
 <div *ngIf="job === undefined; else showJob" class="listing-body">
-  <div *ngFor="let aJob of getAllJobs() | orderDate:newestFirst" (click)="selectJob(aJob)" class="listing-row listing-single-column">
+  <a *ngFor="let aJob of getAllJobs() | orderDate:newestFirst" [routerLink]="[aJob.relUrl]" class="listing-row listing-single-column">
     <h3 class="listing-title">
       {{aJob.title}}
     </h3>
@@ -9,7 +9,7 @@
     <h4 class="listing-subtitle">
       {{aJob.startDate | date:'shortDate'}} - {{(aJob.endDate | date:'shortDate') || 'Current'}}
     </h4>
-  </div>
+  </a>
 </div>
 <ng-template #showJob>
   <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">

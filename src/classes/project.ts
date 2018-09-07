@@ -1,10 +1,9 @@
+import {DataRow} from './data-row';
 import {Tile} from './tile';
 
-export class Project extends Tile {
+export class Project extends DataRow {
   tag: string;
   job?: string;
-  links?: Tile[];
-  description?: string;
 
   static decode(json): Project {
     const job = Object.create(Tile.prototype);

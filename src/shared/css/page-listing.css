@@ -3,6 +3,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+a.listing-row{
+  text-decoration: none;
+  color: inherit;
+}
 .listing-row {
   box-sizing: border-box;
   padding: 10px;

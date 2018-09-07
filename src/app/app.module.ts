@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule, MatMenu} from '@angular/material';
 import { PanelRowComponent } from '../shared/panel-row/panel-row.component';
 import { OrderDatePipe } from '../pipes/order-date.pipe';
+import { HobbiesComponent } from '../pages/hobbies/hobbies.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'experiences', component: ExperienceComponent},
   { path: 'projects/:project', component: ProjectComponent},
   { path: 'projects', component: ProjectComponent},
+  { path: 'hobbies', component: HobbiesComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     ProjectComponent,
     HeaderComponent,
     PanelRowComponent,
-    OrderDatePipe
+    OrderDatePipe,
+    HobbiesComponent
   ],
   imports: [
     BrowserModule,

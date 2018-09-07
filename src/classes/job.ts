@@ -1,12 +1,10 @@
 import {ILink} from '../interfaces/ILink';
-import {Tile} from './tile';
+import {DataRow} from './data-row';
 
-export class Job extends Tile {
-  tag: string;
+export class Job extends DataRow {
   company: string;
   location: string;
   position: string;
-  shortDescription: string;
   logoUrl: string;
   frameworksUsed?: ILink[];
 
