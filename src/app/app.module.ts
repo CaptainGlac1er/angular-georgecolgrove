@@ -15,6 +15,7 @@ import {MatIconModule, MatMenu} from '@angular/material';
 import { PanelRowComponent } from '../shared/panel-row/panel-row.component';
 import { OrderDatePipe } from '../pipes/order-date.pipe';
 import { HobbiesComponent } from '../pages/hobbies/hobbies.component';
+import { AboutComponent } from '../pages/about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'projects/:project', component: ProjectComponent},
   { path: 'projects', component: ProjectComponent},
   { path: 'hobbies', component: HobbiesComponent},
+  { path: 'about', component: AboutComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     PanelRowComponent,
     OrderDatePipe,
-    HobbiesComponent
+    HobbiesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

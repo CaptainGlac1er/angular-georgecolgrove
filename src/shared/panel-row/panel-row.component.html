@@ -6,6 +6,9 @@
     <div *ngIf="contentText" [innerHTML] = "contentText">
 
     </div>
+    <div *ngFor="let html of htmls">
+      <comp
+    </div>
     <div class="flex-row">
     <div *ngIf="sortByDate; then dateSorting; else noDateSorting"></div>
       <ng-template #dateSorting>
