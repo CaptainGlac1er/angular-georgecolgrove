@@ -1,11 +1,14 @@
 <div *ngIf="project === undefined; else showProject" class="listing-body">
-  <a *ngFor="let aProject of getAllProjects() | orderDate:newestFirst" [routerLink]="[aProject.relUrl]" class="listing-row listing-single-column">
+  <a *ngFor="let aProject of projects | orderDate:'newestFirst'" [routerLink]="[aProject.relUrl]" class="listing-row listing-single-column">
     <h3 class="listing-title">
       {{aProject.title}}
     </h3>
     <h4 class="listing-subtitle">
       {{aProject.startDate | date:'shortDate'}} - {{(aProject.endDate | date:'shortDate') || 'Current'}}
     </h4>
+    <div>
+      {{aProject.shortDescription}}
+    </div>
   </a>
 </div>
 <ng-template #showProject>

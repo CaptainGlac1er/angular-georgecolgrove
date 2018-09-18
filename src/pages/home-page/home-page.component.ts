@@ -19,7 +19,8 @@ export class HomePageComponent implements OnInit {
     text: 'Constructing well built secure software is what I strive for. <br />'
       + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
       + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
-      + 'secure and modular for reusability and future development.'
+      + 'secure and modular for reusability and future development.',
+    headerImage: '/assets/profile.jpg'
   };
   jobs: Map<string, Job>;
   homepage = {

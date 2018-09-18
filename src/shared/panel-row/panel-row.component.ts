@@ -9,6 +9,7 @@ import {Tile} from '../../classes/tile';
 })
 export class PanelRowComponent implements OnInit {
   @Input() public title: string;
+  @Input() public headerImage?: string;
   @Input() public contentText?: string;
   @Input() public contentTiles: Tile[];
   @Input() public sortByDate: boolean;

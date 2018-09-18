@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MobileService} from '../../service/mobile.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   header = 'George Colgrove';
 
-  constructor() { }
+  constructor(
+    private mobile: MobileService) { }
 
   ngOnInit() {
   }
 
+  closeHamburger() {
+    this.mobile.closeHamburgerMenu();
+  }
 }

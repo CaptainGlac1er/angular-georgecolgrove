@@ -23,7 +23,7 @@ export class NavigationBarComponent implements OnInit {
   ];
   constructor(
     public mobileInterface: MobileService
-  ) {
+    ) {
   }
 
   ngOnInit() {

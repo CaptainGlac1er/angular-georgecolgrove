@@ -9,10 +9,6 @@
 #top-splash {
   background: url("../../assets/splash.jpg") center center;
   background-size: cover;
-  height: 25vw;
-  max-height: 500px;
-  align-content: center;
-  justify-content: center;
 }
 
 .page-panel-tile {

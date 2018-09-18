@@ -6,6 +6,7 @@
 }
 #contentLockout{
   height: inherit;
+  width: 100%;
 }
 #btnNavHamburger{
   display: none;
@@ -29,8 +30,8 @@
 .nav-link{
   height: inherit;
   box-sizing: border-box;
-  flex: 1 0 120px;
-  max-width: 175px;
+  flex: 1 1 100px;
+  max-width: 150px;
   margin-left: 5px;
   text-align: center;
   align-items: center;
@@ -47,11 +48,14 @@
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   #navElements {
   }
   #btnNavHamburger{
     display: flex;
+  }
+  #contentLockout{
+    display: none;
   }
   #contentLockout.lockoutShow{
     display: flex;
