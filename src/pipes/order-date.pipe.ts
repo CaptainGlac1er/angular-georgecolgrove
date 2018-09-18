@@ -1,10 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {StartEndObject} from '../interfaces/start-end-object';
+import {Tile} from '../classes/tile';
 
 @Pipe({
   name: 'orderDate'
 })
 export class OrderDatePipe implements PipeTransform {
-  transform(value: (any)[], args?: any): (any)[] {
-    return value;
+  transform(list: (StartEndObject)[], orderType?: string): (any)[] {
+    switch (orderType) {
+      case 'newestFirst':
+        list.sort(this.newestFirst);
+        break;
+    }
+    return list;
   }
+  newestFirst: (a: StartEndObject, b: StartEndObject) => number = (a, b) => {
+    if (a.startDate > b.startDate) {
+      return -1;
+    } else if (a.startDate === b.startDate) {
+      return 0;
+    } else if (a.startDate < b.startDate) {
+      return 1;
+    }
+  }
+
 }

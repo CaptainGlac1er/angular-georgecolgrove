@@ -19,7 +19,7 @@ export class Project extends DataRow {
       startDate: startDate,
       endDate: endDate,
       relUrl: '/projects/' + json.tag
-    });
+    }) as Project;
   }
 }
 

@@ -15,8 +15,8 @@ export class ProjectsService {
       description: 'Overhauled the RIT start page for computer registration.',
       shortDescription: 'Overhauled the RIT start page for computer registration.',
       job: 'rit',
-      startDate: new Date('07-01-2015'),
-      endDate: new Date('12-20-2015'),
+      startDate: '07-01-2015',
+      endDate: '12-20-2015',
       links: [
         {
           title: 'start.rit.edu',
@@ -31,7 +31,7 @@ export class ProjectsService {
       title: '3uler Discord Bot',
       description: 'Uses Discord.net library version 1.0, has both a console and gui interface.',
       shortDescription: 'Uses Discord.net library version 1.0, has both a console and gui interface.',
-      startDate: new Date('06-22-2017'),
+      startDate: '06-22-2017',
       links: [
         {
           title: 'Github Repository',
@@ -42,11 +42,11 @@ export class ProjectsService {
       ]
     },
     {
-      tag: 'chem-tools-uwp',
+      tag: 'chemistryuwp',
       title: 'Chemistry Tools UWP',
       description: 'Rewrite of the original Chemistry Tools app that I made for Windows Phone 8.1. This version was made to use the UWP ' +
         'framework',
-      startDate: new Date('08-07-2017'),
+      startDate: '08-07-2017',
       links: [
         {
           title: 'Windows Store Link',
@@ -74,6 +74,19 @@ export class ProjectsService {
         }
       ]
     },
+    {
+      tag: 'tigertenant',
+      title: 'TigerTenant',
+      shortDescription: 'Online posting board to advertise a sublet. Worked in a team of 5 with the scrum process.',
+      startDate: '02-14-2017',
+      endDate: '03-5-2017',
+      links: [
+        {
+          title: 'Github Repository',
+          extUrl: 'https://github.com/CaptainGlac1er/swen-356-sublet'
+        }
+      ]
+    }
   ];
   constructor() {
     const projects = new Map<string, Project>();

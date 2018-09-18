@@ -3,16 +3,14 @@
     {{title}}
   </h2>
   <div class="page-panel-content">
-    <div *ngIf="contentText" [innerHTML] = "contentText">
-
-    </div>
-    <div *ngFor="let html of htmls">
-      <comp
+    <div class="flex-row">
+      <div *ngIf="contentText" [innerHTML] = "contentText">
+      </div>
     </div>
     <div class="flex-row">
     <div *ngIf="sortByDate; then dateSorting; else noDateSorting"></div>
       <ng-template #dateSorting>
-        <a class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles | orderDate:newestFirst" (click)="tileClicked(item)">
+        <a class="page-panel-tile text-link text-center" *ngFor="let item of contentTiles | orderDate:'newestFirst'" (click)="tileClicked(item)">
           <h4>
             {{item.title}}
           </h4>
