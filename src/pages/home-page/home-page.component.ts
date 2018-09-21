@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import {ExperienceService} from '../../service/experience.service';
 import {Job} from '../../classes/job';
 import {Router} from '@angular/router';
@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
       + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
       + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
       + 'secure and modular for reusability and future development.',
-    headerImage: '/assets/profile.jpg'
+    headerImage: 'https://cdn.georgecolgrove.com-/img/profile.jpg'
   };
   jobs: Map<string, Job>;
   homepage = {
