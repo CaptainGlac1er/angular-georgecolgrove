@@ -1,12 +1,12 @@
 <div class="div-center-content" id="top-splash">
   <div class="main-tile">
-    <div><img id="logo" src="../../assets/personalLogo2.png"/></div>
+    <div><img id="logo" src="https://cdn.georgecolgrove.com/img/personalLogo2.png"/></div>
     <h1>{{name}}</h1>
     <h2>{{gamertag}}</h2>
     <h3>{{phone}}</h3>
   </div>
 </div>
-<app-panel-row [headerImage]="about.headerImage" [title]="about.title" [contentText]="about.text" class="page-panel">
+<app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
 </app-panel-row>
 <app-panel-row [title]="homepage.jobs.title" [contentTiles]="getJobs()" [sortByDate]="true" class="page-panel">
 </app-panel-row>
