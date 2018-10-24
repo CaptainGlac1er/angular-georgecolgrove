@@ -20,7 +20,8 @@
     "compile:server": "tsc -p server.tsconfig.json",
     "generate:prerender": "cd dist && node prerender",
     "serve:prerender": "cd dist/browser && http-server",
-    "serve:ssr": "node dist/server"
+    "serve:ssr": "node dist/server",
+    "start:ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "pre-commit": [],
   "private": true,
@@ -52,6 +53,7 @@
     "@angular/cli": "^7.0.0",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
+    "@types/express": "^4.16.0",
     "@types/node": "^10.12.0",
     "codelyzer": "^4.5.0",
     "http-server": "^0.10.0",

@@ -3,9 +3,13 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "module": "es2015",
+    "target": "es2018",
     "types": [
       "node"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
     ]
   },
   "exclude": [

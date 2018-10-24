@@ -87,22 +87,26 @@ export class ExperienceService {
     ];
   constructor(
     private projectService: ProjectsService) {
-    this.jobs$ = new BehaviorSubject<Map<string, Job>>(new Map<string, Job>());
+    this.jobs$ = new BehaviorSubject<Map<string, Job>>(this.getExperiencesData());
   }
-  updateExperiencesData(): Promise<void> {
-    return new Promise((resolve) => {
+  getExperiencesData(): Map<string, Job> {
       const jobs: Job[] = [];
       this.experiences.forEach((item) => {
-        jobs.push(Job.decode(item));
+          jobs.push(Job.decode(item));
       });
       const jobsMap = new Map<string, Job>();
       jobs.forEach((job: Job) => {
-        jobsMap.set(job.tag, job);
+          jobsMap.set(job.tag, job);
       });
+      return jobsMap;
+  }
+  updateExperiencesData(): Promise<Map<string, Job>> {
+    return new Promise((resolve) => {
+      const jobsMap = this.getExperiencesData();
       if (jobsMap.size > 0) {
         this.jobs$.next(jobsMap);
       }
-      resolve();
+      resolve(jobsMap);
     });
   }
   getProjectsForJob(job: Job): Project[] {
