@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DataRow} from '../classes/data-row';
 
 @Injectable({
@@ -34,7 +34,9 @@ export class HobbiesService {
       ]
     },
   ];
-  constructor() { }
+
+  constructor() {
+  }
 
   getHobbiesData(): DataRow[] {
     const hobbies: DataRow[] = [];

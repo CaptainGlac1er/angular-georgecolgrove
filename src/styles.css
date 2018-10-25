@@ -1,18 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  margin: 0;
-  background: linear-gradient(to right bottom, rgb(16, 0, 0) 0%, rgb(48, 0, 0) 10%, rgb(16, 0, 0) 25%, rgb(48, 0, 0) 40%, rgb(16, 0, 0) 60%, rgb(48, 0, 0) 85%, rgb(16, 0, 0) 100%) fixed;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #d3d3d3;
-  overflow: hidden;
+    margin: 0;
+    background: linear-gradient(to right bottom, rgb(16, 0, 0) 0%, rgb(48, 0, 0) 10%, rgb(16, 0, 0) 25%, rgb(48, 0, 0) 40%, rgb(16, 0, 0) 60%, rgb(48, 0, 0) 85%, rgb(16, 0, 0) 100%) fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #d3d3d3;
+    overflow: hidden;
 }
 
 html {
-  font-family: Futura, Trebuchet MS, Arial, sans-serif;
-  font-size: 18px;
-  height: 100%;
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-size: 18px;
+    height: 100%;
 }
 
 a {
@@ -20,194 +20,217 @@ a {
 }
 
 .scrollable {
-  overflow-y: auto;
-  overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
 .div-center-content {
-  text-align: center;
-  display: flex;
-  justify-content: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .content {
-  margin: 0 auto;
-  width: 100%;
-  flex: 1 1 auto;
-  background-color: #eeeeee;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1 1 auto;
+    background-color: #eeeeee;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 .page-title {
-  justify-content: center;
-  display: flex;
-  font-size: xx-large;
-  padding: 10px;
+    justify-content: center;
+    display: flex;
+    font-size: xx-large;
+    padding: 10px;
 }
 
 .flex-vertical {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-full-height {
-  height: 100%;
+    height: 100%;
 }
 
 .text-link {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 #top-splash {
-  background: black;
-  background-size: cover;
-  height: 25vw;
-  min-height: 125px;
-  max-height: 500px;
-  align-content: center;
-  justify-content: center;
+    background: black;
+    background-size: cover;
+    height: 25vw;
+    min-height: 125px;
+    max-height: 500px;
+    align-content: center;
+    justify-content: center;
 }
 
 .main-tile {
-  box-sizing: border-box;
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(20, 20, 20, 0.7) center center;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(20, 20, 20, 0.7) center center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
 }
 
 .main-tile > div {
-  display: flex;
-  align-content: center;
-  justify-content: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .nav-button {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .nav-button:hover {
-  background-color: #333333;
+    background-color: #333333;
 }
 
 h1 {
-  margin: 5px 0;
+    margin: 5px 0;
 }
- h2 {
-  margin: 3px 0;
+
+h2 {
+    margin: 3px 0;
 }
+
 h3 {
-  margin: 2px 0;
+    margin: 2px 0;
 }
+
 h4 {
-  margin: 1px 0;
+    margin: 1px 0;
 }
+
 div {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 .page-panel {
-  display: block;
+    display: block;
 }
-.page-panel:nth-child(even){
-  background-color: #222222;
+
+.page-panel:nth-child(even) {
+    background-color: #222222;
 }
-.page-panel:nth-child(odd){
-  background-color: #111111;
+
+.page-panel:nth-child(odd) {
+    background-color: #111111;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 @media screen and (min-width: 1300px) {
-  #logo {
-    width: 150px;
-  }
+    #logo {
+        width: 150px;
+    }
 
-  #top-splash > .main-tile {
-    /*font-size: 32px;*/
-  }
+    #top-splash > .main-tile {
+        /*font-size: 32px;*/
+    }
 
-  h1{
-    font-size: 40px;
-    margin: 5px 0;
-  }
-  h2 {
-    font-size: 30px;
-    margin: 3px 0;
-  }
-  h3 {
-    font-size: 25px;
-    margin: 2px 0;
-  }
-  h4 {
-    font-size: 20px;
-    margin: 1px 0;
-  }
-  div {
-    font-size: 18px;
-  }
+    h1 {
+        font-size: 40px;
+        margin: 5px 0;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin: 3px 0;
+    }
+
+    h3 {
+        font-size: 25px;
+        margin: 2px 0;
+    }
+
+    h4 {
+        font-size: 20px;
+        margin: 1px 0;
+    }
+
+    div {
+        font-size: 18px;
+    }
 
 }
 
 @media screen and (max-width: 1000px) {
-  #logo {
-    display: none;
-  }
+    #logo {
+        display: none;
+    }
 
-  h1{
-    font-size: 40px;
-    margin: 5px 0;
-  }
+    h1 {
+        font-size: 40px;
+        margin: 5px 0;
+    }
 
-  h2 {
-    font-size: 25px;
-    margin: 3px 0;
-  }
+    h2 {
+        font-size: 25px;
+        margin: 3px 0;
+    }
 
-  h3 {
-    font-size: 18px;
-    margin: 2px 0;
-  }
+    h3 {
+        font-size: 18px;
+        margin: 2px 0;
+    }
 
-  h4 {
-    font-size: 14px;
-    margin: 1px 0;
-  }
+    h4 {
+        font-size: 14px;
+        margin: 1px 0;
+    }
 
-  div {
-    font-size: 13px;
-  }
+    div {
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width: 700px) {
-  h1{
-    font-size: 20px;
-    margin: 5px 0;
-  }
-  h2 {
-    font-size: 15px;
-    margin: 3px 0;
-  }
-  h3 {
-    font-size: 13px;
-    margin: 2px 0;
-  }
-  h4 {
-    font-size: 12px;
-    margin: 1px 0;
-  }
-  div {
-    font-size: 12px;
-  }
+    h1 {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin: 3px 0;
+    }
+
+    h3 {
+        font-size: 13px;
+        margin: 2px 0;
+    }
+
+    h4 {
+        font-size: 12px;
+        margin: 1px 0;
+    }
+
+    div {
+        font-size: 12px;
+    }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}

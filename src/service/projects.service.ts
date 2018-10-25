@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Project} from '../classes/project';
 import {Job} from '../classes/job';
 
@@ -88,6 +88,7 @@ export class ProjectsService {
       ]
     }
   ];
+
   constructor() {
     const projects = new Map<string, Project>();
     this.getProjectsData().forEach(function (project: Project) {

@@ -1,29 +1,32 @@
 <div *ngIf="job === undefined; else showJob" class="listing-body">
-  <a *ngFor="let aJob of jobs | orderDate:newestFirst" [routerLink]="[aJob.relUrl]" class="listing-row listing-single-column">
-    <h3 class="listing-title">
-      {{aJob.title}}
-    </h3>
-    <h4 class="listing-subtitle">
-      {{aJob.position}}
-    </h4>
-    <h4 class="listing-subtitle">
-      {{aJob.startDate | date:'shortDate'}} - {{(aJob.endDate | date:'shortDate') || 'Current'}}
-    </h4>
-    <div>
-      {{aJob.shortDescription}}
-    </div>
-  </a>
+    <a *ngFor="let aJob of jobs | orderDate:newestFirst" [routerLink]="[aJob.relUrl]"
+       class="listing-row listing-single-column">
+        <h3 class="listing-title">
+            {{aJob.title}}
+        </h3>
+        <h4 class="listing-subtitle">
+            {{aJob.position}}
+        </h4>
+        <h4 class="listing-subtitle">
+            {{aJob.startDate | date:'shortDate'}} - {{(aJob.endDate | date:'shortDate') || 'Current'}}
+        </h4>
+        <div>
+            {{aJob.shortDescription}}
+        </div>
+    </a>
 </div>
 <ng-template #showJob>
-  <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
-    <div class="main-tile">
-      <h1>{{job.title}}</h1>
-      <h2>{{job.subTitle}}</h2>
-      <h3>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</h3>
-      <h3>{{job.location}}</h3>
+    <div id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job.logoUrl + ')'}">
+        <div class="main-tile">
+            <h1>{{job.title}}</h1>
+            <h2>{{job.subTitle}}</h2>
+            <h3>{{job.startDate | date:'shortDate'}} - {{(job.endDate | date:'shortDate') || 'Current'}}</h3>
+            <h3>{{job.location}}</h3>
+        </div>
     </div>
-  </div>
-  <app-panel-row [title]="experienceTitle" [contentText]="job.shortDescription" class="page-panel"></app-panel-row>
-  <app-panel-row [title]="projectTitle" [contentTiles]="projectsForJob" class="page-panel" *ngIf="projectsForJob.length > 0"></app-panel-row>
-  <app-panel-row [title]="frameworkTitle" [contentTiles]="job.frameworksUsed" class="page-panel" *ngIf="job.frameworksUsed.length > 0"></app-panel-row>
+    <app-panel-row [title]="experienceTitle" [contentText]="job.shortDescription" class="page-panel"></app-panel-row>
+    <app-panel-row [title]="projectTitle" [contentTiles]="projectsForJob" class="page-panel"
+                   *ngIf="projectsForJob.length > 0"></app-panel-row>
+    <app-panel-row [title]="frameworkTitle" [contentTiles]="job.frameworksUsed" class="page-panel"
+                   *ngIf="job.frameworksUsed.length > 0"></app-panel-row>
 </ng-template>

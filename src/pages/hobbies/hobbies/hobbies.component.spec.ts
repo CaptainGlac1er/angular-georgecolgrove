@@ -1,10 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {MockComponent, MockPipe} from 'ng-mocks';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HobbiesComponent } from './hobbies.component';
-import {PanelRowComponent} from '../../../shared/panel-row/panel-row.component';
-import {RouterModule} from '@angular/router';
+import {HobbiesComponent} from './hobbies.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('HobbiesComponent', () => {
   let component: HobbiesComponent;
@@ -16,11 +14,13 @@ describe('HobbiesComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        HobbiesComponent,
-        MockComponent(PanelRowComponent)
+        HobbiesComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

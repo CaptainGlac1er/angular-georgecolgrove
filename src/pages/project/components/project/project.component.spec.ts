@@ -1,10 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProjectComponent } from './project.component';
-import {PanelRowComponent} from '../../../../shared/panel-row/panel-row.component';
-import {MockComponent, MockPipe} from 'ng-mocks';
-import {OrderDatePipe} from '../../../../shared/pipes/order-date.pipe';
+import {ProjectComponent} from './project.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {OrderDatePipe} from '../../../../shared/pipes/order-date.pipe';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -17,11 +16,13 @@ describe('ProjectComponent', () => {
       ],
       declarations: [
         ProjectComponent,
-        MockPipe(OrderDatePipe),
-        MockComponent(PanelRowComponent)
+        OrderDatePipe
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;

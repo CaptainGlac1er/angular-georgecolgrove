@@ -1,4 +1,4 @@
-import { ProjectModule } from './project.module';
+import {ProjectModule} from './project.module';
 
 describe('ProjectModule', () => {
   let projectModule: ProjectModule;
@@ -7,7 +7,8 @@ describe('ProjectModule', () => {
     projectModule = new ProjectModule();
   });
 
-  it('should create an instance', () => {
+  it('should create an instance', async (done) => {
     expect(projectModule).toBeTruthy();
+    done();
   });
 });

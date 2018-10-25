@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ExperienceComponent} from './experience/experience.component';
 import {routing} from './experience.routing';
 import {SharedModule} from '../../shared/shared/shared.module';
@@ -15,4 +15,5 @@ import {SharedModule} from '../../shared/shared/shared.module';
     ExperienceComponent,
   ]
 })
-export class ExperienceModule { }
+export class ExperienceModule {
+}

@@ -1,9 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {MockComponent} from 'ng-mocks';
 
 import {NavigationBarComponent} from './navigation-bar.component';
-import {MatIcon} from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('NavigationBarComponent', () => {
   let component: NavigationBarComponent;
@@ -15,11 +14,13 @@ describe('NavigationBarComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        NavigationBarComponent,
-        MockComponent(MatIcon)
+        NavigationBarComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

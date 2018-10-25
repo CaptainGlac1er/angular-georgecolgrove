@@ -1,4 +1,4 @@
-import { ExperienceModule } from './experience.module';
+import {ExperienceModule} from './experience.module';
 
 describe('ExperienceModule', () => {
   let experienceModule: ExperienceModule;

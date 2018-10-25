@@ -45,61 +45,64 @@ export class ExperienceService {
         title: 'Angular 6'
       }]
     }, {
-  tag: 'rit',
-  company: 'Rochester Institute of Technology',
-  position: 'Developer',
-  shortDescription: 'Worked on the visual overhaul of start.rit.edu and updated code to PHP 7',
-  startDate: '2015-07-01',
-  endDate: '2018-05-19',
-  logoUrl: 'https://www.rit.edu/_assets/images/idbar.png',
-  location: 'Rochester, New York',
-  frameworksUsed: [{
-    extUrl: 'https://secure.php.net/',
-    title: 'PHP'
-  }, {
-    extUrl: 'https://gitlab.com/',
-    title: 'Gitlab'
-  }, {
-    extUrl: 'https://www.mysql.com/',
-    title: 'MySQL'
-  }]
-}, {
-    tag: 'vtc',
-    company: 'Vermont Technical College',
-    position: 'Java and Web Dev TA, and IT helpdesk',
-    shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers and ' +
-      'handled phone calls',
-    startDate: '2014-07-17',
-    endDate: '2015-05-06',
-    logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg',
-    location: 'Randolph, Vermont',
-    frameworksUsed: [{
-      extUrl: 'https://secure.php.net/',
-      title: 'PHP'
+      tag: 'rit',
+      company: 'Rochester Institute of Technology',
+      position: 'Developer',
+      shortDescription: 'Worked on the visual overhaul of start.rit.edu and updated code to PHP 7',
+      startDate: '2015-07-01',
+      endDate: '2018-05-19',
+      logoUrl: 'https://www.rit.edu/_assets/images/idbar.png',
+      location: 'Rochester, New York',
+      frameworksUsed: [{
+        extUrl: 'https://secure.php.net/',
+        title: 'PHP'
+      }, {
+        extUrl: 'https://gitlab.com/',
+        title: 'Gitlab'
+      }, {
+        extUrl: 'https://www.mysql.com/',
+        title: 'MySQL'
+      }]
     }, {
-      extUrl: 'https://www.java.com/en/',
-      title: 'Java'
-    }, {
-      extUrl: 'https://www.mysql.com/',
-      title: 'MySQL'
-    }]
-  }
-    ];
+      tag: 'vtc',
+      company: 'Vermont Technical College',
+      position: 'Java and Web Dev TA, and IT helpdesk',
+      shortDescription: 'Worked with students to help them learn Web Development and Java, worked at the IT help desk fixing computers ' +
+        'and handled phone calls',
+      startDate: '2014-07-17',
+      endDate: '2015-05-06',
+      logoUrl: 'https://www.vtc.edu/sites/all/themes/vtc/images/logo.svg',
+      location: 'Randolph, Vermont',
+      frameworksUsed: [{
+        extUrl: 'https://secure.php.net/',
+        title: 'PHP'
+      }, {
+        extUrl: 'https://www.java.com/en/',
+        title: 'Java'
+      }, {
+        extUrl: 'https://www.mysql.com/',
+        title: 'MySQL'
+      }]
+    }
+  ];
+
   constructor(
     private projectService: ProjectsService) {
     this.jobs$ = new BehaviorSubject<Map<string, Job>>(this.getExperiencesData());
   }
+
   getExperiencesData(): Map<string, Job> {
-      const jobs: Job[] = [];
-      this.experiences.forEach((item) => {
-          jobs.push(Job.decode(item));
-      });
-      const jobsMap = new Map<string, Job>();
-      jobs.forEach((job: Job) => {
-          jobsMap.set(job.tag, job);
-      });
-      return jobsMap;
+    const jobs: Job[] = [];
+    this.experiences.forEach((item) => {
+      jobs.push(Job.decode(item));
+    });
+    const jobsMap = new Map<string, Job>();
+    jobs.forEach((job: Job) => {
+      jobsMap.set(job.tag, job);
+    });
+    return jobsMap;
   }
+
   updateExperiencesData(): Promise<Map<string, Job>> {
     return new Promise((resolve) => {
       const jobsMap = this.getExperiencesData();
@@ -109,6 +112,7 @@ export class ExperienceService {
       resolve(jobsMap);
     });
   }
+
   getProjectsForJob(job: Job): Project[] {
     return this.projectService.getProjectsForJob(job);
   }

@@ -2,6 +2,7 @@ import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Meta} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
+
 declare let ga: Function;
 
 @Component({
@@ -21,14 +22,15 @@ export class AppComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
     this.meta.addTag({name: 'author', content: 'George Walter Colgrove IV'});
   }
+
   ngOnInit() {
     if (this.isBrowser) {
-        this.router.events.subscribe(event => {
-            if (event instanceof NavigationEnd) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
-            }
-        });
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          ga('set', 'page', event.urlAfterRedirects);
+          ga('send', 'pageview');
+        }
+      });
     }
   }
 }

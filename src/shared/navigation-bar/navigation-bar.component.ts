@@ -21,9 +21,10 @@ export class NavigationBarComponent implements OnInit {
       link: 'hobbies'
     }
   ];
+
   constructor(
     public mobileInterface: MobileService
-    ) {
+  ) {
   }
 
   ngOnInit() {

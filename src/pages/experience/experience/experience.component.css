@@ -1,10 +1,11 @@
-#top-splash{
-  background-size: contain;
-  background-position-x: center;
-  background-position-y: center;
-  background-repeat: no-repeat;
+#top-splash {
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
 }
+
 .page-panel-tile {
-  flex: 1 1 200px;
+    flex: 1 1 200px;
 }
 

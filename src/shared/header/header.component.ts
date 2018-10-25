@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MobileService} from '../../service/mobile.service';
 
 @Component({
@@ -9,7 +9,8 @@ import {MobileService} from '../../service/mobile.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private mobile: MobileService) { }
+    private mobile: MobileService) {
+  }
 
   ngOnInit() {
   }

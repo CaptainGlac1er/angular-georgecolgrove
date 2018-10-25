@@ -7,7 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   companyName = 'GlacierByte™';
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

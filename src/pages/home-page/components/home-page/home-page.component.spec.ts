@@ -1,36 +1,34 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {HomePageComponent} from './home-page.component';
-import {OrderDatePipe} from '../../../../shared/pipes/order-date.pipe';
-import {MockComponent, MockPipe} from 'ng-mocks';
-import {PanelRowComponent} from '../../../../shared/panel-row/panel-row.component';
-import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
-      declarations: [ HomePageComponent,
-        MockPipe(OrderDatePipe),
-        MockComponent(PanelRowComponent)
+      declarations: [
+        HomePageComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
+      .compileComponents();
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    done();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async (done) => {
+    await expect(component).toBeTruthy();
+    done();
   });
 });

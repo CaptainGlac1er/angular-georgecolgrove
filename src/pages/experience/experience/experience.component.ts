@@ -26,7 +26,7 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit() {
     this.experienceService.jobs$.subscribe(async next => {
-      if (next.size === 0 ) {
+      if (next.size === 0) {
         await this.experienceService.updateExperiencesData();
       } else {
         this.jobs = [...next.values()];
@@ -40,9 +40,10 @@ export class ExperienceComponent implements OnInit {
       }
     });
   }
+
   newestFirst = (a, b) => {
     if (a.value.startDate > b.value.startDate) {
       return a.key;
     }
-  }
+  };
 }

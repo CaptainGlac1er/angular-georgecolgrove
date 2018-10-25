@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {PanelRowComponent} from '../panel-row/panel-row.component';
 import {OrderDatePipe} from '../pipes/order-date.pipe';
 import {RouterModule} from '@angular/router';
@@ -18,4 +18,5 @@ import {RouterModule} from '@angular/router';
     OrderDatePipe
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

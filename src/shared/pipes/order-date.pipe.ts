@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {StartEndObject} from '../../interfaces/start-end-object';
 
 @Pipe({
@@ -13,6 +13,7 @@ export class OrderDatePipe implements PipeTransform {
     }
     return list;
   }
+
   newestFirst: (a: StartEndObject, b: StartEndObject) => number = (a, b) => {
     if (a.startDate > b.startDate) {
       return -1;

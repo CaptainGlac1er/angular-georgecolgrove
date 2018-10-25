@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Tile} from '../../classes/tile';
 
@@ -17,15 +17,17 @@ export class PanelRowComponent implements OnInit {
 
   newestFirst: (a: Tile, b: Tile) => (Tile) = (a, b) => {
     if (a.startDate > b.startDate) {
-    return a;
+      return a;
     }
-  }
+  };
 
   constructor(
-    private router: Router) { }
+    private router: Router) {
+  }
 
   ngOnInit() {
   }
+
   async tileClicked(item: Tile) {
     if (item.relUrl && (this.useExtUrlFirst || !item.extUrl)) {
       await this.router.navigate([item.relUrl]);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Project} from '../../../../classes/project';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectsService} from '../../../../service/projects.service';
@@ -14,10 +14,12 @@ export class ProjectComponent implements OnInit {
   project: Project;
   myAbout = 'About:';
   myLinks = 'Links:';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectService: ProjectsService) { }
+    private projectService: ProjectsService) {
+  }
 
   ngOnInit() {
     this.projects = this.projectService.getProjectsData();
