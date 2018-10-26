@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProjectComponent} from './components/project/project.component';
 import {projectRouting} from './project.routing';
 import {SharedModule} from '../../shared/shared/shared.module';
+import {ProjectsComponent} from './components/projects/projects.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {SharedModule} from '../../shared/shared/shared.module';
     SharedModule,
   ],
   declarations: [
-    ProjectComponent
+    ProjectComponent,
+    ProjectsComponent
   ]
 })
 export class ProjectModule {

@@ -72,8 +72,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "./src/test.ts",
-            "karmaConfig": "./src/karma.conf.js",
+            "main": "./test.ts",
+            "karmaConfig": "./karma.conf.js",
             "polyfills": "./src/polyfills.ts",
             "tsConfig": "./src/tsconfig.spec.json",
             "scripts": [],
@@ -156,9 +156,9 @@
       "spec": false
     },
     "@schematics/angular:component": {
-      "spec": false,
-      "inlineStyle": true,
-      "inlineTemplate": true,
+      "spec": true,
+      "inlineStyle": false,
+      "inlineTemplate": false,
       "prefix": "app",
       "styleext": "css"
     },
@@ -178,5 +178,6 @@
     "@schematics/angular:service": {
       "spec": false
     }
-  }
+  },
+  "defaultProject": "angular-georgecolgrove"
 }

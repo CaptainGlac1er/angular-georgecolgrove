@@ -8,7 +8,7 @@ describe('NavigationBarComponent', () => {
   let component: NavigationBarComponent;
   let fixture: ComponentFixture<NavigationBarComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -21,15 +21,13 @@ describe('NavigationBarComponent', () => {
       ]
     })
       .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(NavigationBarComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    done();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async (done) => {
+    await expect(component).toBeTruthy();
+    done();
   });
 });

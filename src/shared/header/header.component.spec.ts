@@ -8,7 +8,7 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -24,10 +24,11 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    done();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async (done) => {
+    await expect(component).toBeTruthy();
+    done();
   });
 });

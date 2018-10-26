@@ -9,7 +9,7 @@ describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -26,10 +26,11 @@ describe('ProjectComponent', () => {
 
     fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    done();
   });
 
-  it('should create', async () => {
+  it('should create', async (done) => {
     await expect(component).toBeTruthy();
+    done();
   });
 });

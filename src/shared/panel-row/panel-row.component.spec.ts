@@ -9,7 +9,7 @@ describe('PanelRowComponent', () => {
   let component: PanelRowComponent;
   let fixture: ComponentFixture<PanelRowComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -27,9 +27,11 @@ describe('PanelRowComponent', () => {
     fixture = TestBed.createComponent(PanelRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    done();
   });
 
-  it('should create', async () => {
+  it('should create', async (done) => {
     await expect(component).toBeTruthy();
+    done();
   });
 });

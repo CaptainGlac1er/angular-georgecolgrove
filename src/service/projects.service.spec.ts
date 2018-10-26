@@ -8,12 +8,12 @@ describe('ProjectsService', () => {
     await TestBed.configureTestingModule({
       providers: [ProjectsService]
     }).compileComponents();
-    this.service = TestBed.get(ProjectsService);
+    service = TestBed.get(ProjectsService);
     done();
   });
 
   it('should be created', async(done) => {
-    await expect(this.service).toBeTruthy();
+    await expect(service).toBeTruthy();
     done();
   });
 });

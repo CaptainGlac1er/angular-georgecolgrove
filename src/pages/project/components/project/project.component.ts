@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Project} from '../../../../classes/project';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectsService} from '../../../../service/projects.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project',
@@ -10,7 +11,6 @@ import {ProjectsService} from '../../../../service/projects.service';
   providers: [ProjectsService]
 })
 export class ProjectComponent implements OnInit {
-  projects: Project[];
   project: Project;
   myAbout = 'About:';
   myLinks = 'Links:';
@@ -18,16 +18,19 @@ export class ProjectComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectService: ProjectsService) {
+    private projectService: ProjectsService,
+    private titleService: Title) {
   }
 
   ngOnInit() {
-    this.projects = this.projectService.getProjectsData();
-    this.route.params.subscribe(params => {
-      this.project = this.projectService.getProject(params['project']);
-      if (this.project === undefined) {
-        return this.router.navigate(['/projects']);
+    this.route.paramMap.subscribe(params => {
+      if (params.has('project')) {
+        this.project = this.projectService.getProject(params.get('project'));
+        if (this.project === undefined) {
+          return this.router.navigate(['/projects']);
+        }
       }
     });
+    this.titleService.setTitle(`George Walter Colgrove IV - ${this.project ? this.project.title : 'project'}`);
   }
 }

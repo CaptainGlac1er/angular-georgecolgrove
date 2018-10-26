@@ -25,7 +25,6 @@ describe('ExperienceComponent', () => {
       .compileComponents();
     fixture = TestBed.createComponent(ExperienceComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     done();
   });
 

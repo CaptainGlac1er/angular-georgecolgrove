@@ -1,26 +1,10 @@
-<div *ngIf="project === undefined; else showProject" class="listing-body">
-    <a *ngFor="let aProject of projects | orderDate:'newestFirst'" [routerLink]="[aProject.relUrl]"
-       class="listing-row listing-single-column">
-        <h3 class="listing-title">
-            {{aProject.title}}
-        </h3>
-        <h4 class="listing-subtitle">
-            {{aProject.startDate | date:'shortDate'}} - {{(aProject.endDate | date:'shortDate') || 'Current'}}
-        </h4>
-        <div>
-            {{aProject.shortDescription}}
-        </div>
-    </a>
-</div>
-<ng-template #showProject>
-    <div id="top-splash" class="div-center-content">
-        <div class="main-tile">
-            <h1>{{project.title}}</h1>
-            <h3>{{project.startDate | date:'shortDate'}} - {{(project.endDate | date:'shortDate') || 'Current'}}</h3>
-        </div>
+<div id="top-splash" class="div-center-content">
+    <div class="main-tile">
+        <h1>{{project.title}}</h1>
+        <h3>{{project.startDate | date:'shortDate'}} - {{(project.endDate | date:'shortDate') || 'Current'}}</h3>
     </div>
+</div>
     <app-panel-row [title]="myAbout" [contentText]="project.description || project.shortDescription"
                    class="page-panel"></app-panel-row>
     <app-panel-row *ngIf="project.links" [title]="myLinks" [contentTiles]="project.links" class="page-panel"
                    [useExtUrlFirst]="true"></app-panel-row>
-</ng-template>

@@ -7,7 +7,8 @@ describe('SharedModule', () => {
     sharedModule = new SharedModule();
   });
 
-  it('should create an instance', () => {
-    expect(sharedModule).toBeTruthy();
+  it('should create an instance', async (done) => {
+    await expect(sharedModule).toBeTruthy();
+    done();
   });
 });

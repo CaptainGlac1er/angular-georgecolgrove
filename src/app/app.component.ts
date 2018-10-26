@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {Meta} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 
@@ -16,14 +16,30 @@ export class AppComponent implements OnInit {
 
   constructor(
     private meta: Meta,
+    private titleService: Title,
     private router: Router,
     @Inject(PLATFORM_ID) platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
-    this.meta.addTag({name: 'author', content: 'George Walter Colgrove IV'});
   }
 
   ngOnInit() {
+    this.meta.addTags([
+      {
+        name: 'author',
+        content: 'George Walter Colgrove IV'
+      },
+      {
+        name: 'description',
+        content: 'Personal website of a Software Engineer with 4 years experience working with a PHP developer, Angular, Java, ' +
+          'JavaScript, C#'
+      },
+      {
+        name: 'keywords',
+        content: 'personal website'
+      }
+    ]);
+    this.titleService.setTitle(this.title);
     if (this.isBrowser) {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {

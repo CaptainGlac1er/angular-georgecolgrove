@@ -83,7 +83,6 @@
         flex-direction: column;
         max-width: 300px;
         width: 80%;
-        z-index: 1;
         background-color: black;
         justify-content: flex-start;
         animation: slideHamburger ease-in 200ms;

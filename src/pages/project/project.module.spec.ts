@@ -8,7 +8,7 @@ describe('ProjectModule', () => {
   });
 
   it('should create an instance', async (done) => {
-    expect(projectModule).toBeTruthy();
+    await expect(projectModule).toBeTruthy();
     done();
   });
 });

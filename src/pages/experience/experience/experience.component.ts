@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ExperienceService} from '../../../service/experience.service';
 import {Job} from '../../../classes/job';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Project} from '../../../classes/project';
+import {isPlatformBrowser} from '@angular/common';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
@@ -16,12 +18,16 @@ export class ExperienceComponent implements OnInit {
   projectsForJob: Project[];
   job: Job;
   jobs: Job[];
+  isBrowser: boolean;
 
 
   constructor(
     private route: ActivatedRoute,
     private experienceService: ExperienceService,
-    private router: Router) {
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object,
+    private titleService: Title) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
@@ -30,15 +36,19 @@ export class ExperienceComponent implements OnInit {
         await this.experienceService.updateExperiencesData();
       } else {
         this.jobs = [...next.values()];
-        this.route.params.subscribe(params => {
-          this.job = this.experienceService.jobs$.value.get(params['company']);
-          if (this.job === undefined) {
-            return this.router.navigate(['/experiences']);
-          }
-          this.projectsForJob = this.experienceService.getProjectsForJob(this.job);
-        });
       }
     });
+    this.route.paramMap.subscribe(params => {
+      if (params.has('company')) {
+        this.job = this.experienceService.getJob(params.get('company'));
+        if (this.job === undefined) {
+          return this.router.navigate(['/experiences']);
+        } else {
+          this.projectsForJob = this.experienceService.getProjectsForJob(this.job);
+        }
+      }
+    });
+    this.titleService.setTitle(`George Walter Colgrove IV - ${this.job ? this.job.title : 'Jobs'}`);
   }
 
   newestFirst = (a, b) => {

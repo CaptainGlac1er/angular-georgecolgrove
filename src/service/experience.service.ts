@@ -113,6 +113,10 @@ export class ExperienceService {
     });
   }
 
+  getJob(tag: string) {
+    return this.jobs$.value.get(tag);
+  }
+
   getProjectsForJob(job: Job): Project[] {
     return this.projectService.getProjectsForJob(job);
   }

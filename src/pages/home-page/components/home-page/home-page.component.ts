@@ -1,7 +1,7 @@
 import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {Job} from '../../../../classes/job';
 import {Router} from '@angular/router';
-import {Meta} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {ExperienceService} from '../../../../service/experience.service';
 import {isPlatformBrowser} from '@angular/common';
 
@@ -52,16 +52,16 @@ export class HomePageComponent implements OnInit, OnDestroy {
     private experienceService: ExperienceService,
     private router: Router,
     private meta: Meta,
+    private titleService: Title,
     @Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
-    this.meta.addTag({name: 'description', content: 'C#, Java, JavaScript, PHP developer'});
-    this.meta.addTag({name: 'title', content: 'George Walter Colgrove IV'});
   }
 
   ngOnInit() {
     if (this.isBrowser) {
       this.experienceService.jobs$.subscribe(next => this.jobs = [...next.values()]);
     }
+    this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
   }
 
   ngOnDestroy(): void {

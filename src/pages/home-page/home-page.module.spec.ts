@@ -7,7 +7,8 @@ describe('HomePageModule', () => {
     homePageModule = new HomePageModule();
   });
 
-  it('should create an instance', () => {
-    expect(homePageModule).toBeTruthy();
+  it('should create an instance', async (done) => {
+    await expect(homePageModule).toBeTruthy();
+    done();
   });
 });

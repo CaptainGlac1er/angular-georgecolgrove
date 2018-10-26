@@ -8,7 +8,7 @@ describe('HobbiesComponent', () => {
   let component: HobbiesComponent;
   let fixture: ComponentFixture<HobbiesComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -21,15 +21,13 @@ describe('HobbiesComponent', () => {
       ]
     })
       .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(HobbiesComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    done();
   });
 
-  it('should create', async () => {
+  it('should create', async (done) => {
     await expect(component).toBeTruthy();
+    done();
   });
 });
