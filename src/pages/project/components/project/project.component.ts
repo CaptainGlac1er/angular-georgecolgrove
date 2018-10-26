@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Project} from '../../../../classes/project';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ProjectsService} from '../../../../service/projects.service';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { Project } from '../../../../classes/project';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectsService } from '../../../../service/projects.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project',

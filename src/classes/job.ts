@@ -1,5 +1,5 @@
-import {ILink} from '../interfaces/ILink';
-import {DataRow} from './data-row';
+import { ILink } from '../interfaces/ILink';
+import { DataRow } from './data-row';
 
 export class Job extends DataRow {
   company: string;

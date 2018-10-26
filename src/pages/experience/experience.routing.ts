@@ -1,6 +1,6 @@
-import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
-import {ExperienceComponent} from './experience/experience.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { ExperienceComponent } from './experience/experience.component';
 
 export const appRoutes: Routes = [
   {path: ':company', component: ExperienceComponent},

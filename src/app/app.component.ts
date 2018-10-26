@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
-import {NavigationEnd, Router} from '@angular/router';
-import {isPlatformBrowser} from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 declare let ga: Function;
 

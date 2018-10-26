@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Tile} from '../../classes/tile';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Tile } from '../../classes/tile';
 
 @Component({
   selector: 'app-panel-row',

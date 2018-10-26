@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {StartEndObject} from '../../interfaces/start-end-object';
+import { Pipe, PipeTransform } from '@angular/core';
+import { StartEndObject } from '../../interfaces/start-end-object';
 
 @Pipe({
   name: 'orderDate'

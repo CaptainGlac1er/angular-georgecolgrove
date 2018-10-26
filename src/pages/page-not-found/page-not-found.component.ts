@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit, Optional, PLATFORM_ID} from '@angular/core';
-import {RESPONSE} from '@nguniversal/express-engine/tokens';
-import {isPlatformBrowser} from '@angular/common';
+import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { isPlatformBrowser } from '@angular/common';
 import { Response } from 'express';
 
 @Component({

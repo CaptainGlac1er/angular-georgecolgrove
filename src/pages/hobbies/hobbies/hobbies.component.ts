@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {DataRow} from '../../../classes/data-row';
-import {HobbiesService} from '../../../service/hobbies.service';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { DataRow } from '../../../classes/data-row';
+import { HobbiesService } from '../../../service/hobbies.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hobbies',

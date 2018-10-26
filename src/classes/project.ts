@@ -1,5 +1,5 @@
-import {DataRow} from './data-row';
-import {Tile} from './tile';
+import { DataRow } from './data-row';
+import { Tile } from './tile';
 
 export class Project extends DataRow {
   tag: string;

@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Job} from '../classes/job';
-import {ProjectsService} from './projects.service';
-import {Project} from '../classes/project';
-import {BehaviorSubject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Job } from '../classes/job';
+import { ProjectsService } from './projects.service';
+import { Project } from '../classes/project';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

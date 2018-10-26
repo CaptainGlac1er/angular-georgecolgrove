@@ -1,5 +1,5 @@
-import {ILink} from '../interfaces/ILink';
-import {StartEndObject} from '../interfaces/start-end-object';
+import { ILink } from '../interfaces/ILink';
+import { StartEndObject } from '../interfaces/start-end-object';
 
 export class Tile implements ILink, StartEndObject {
   icon?: string;

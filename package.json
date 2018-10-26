@@ -14,6 +14,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint angular-georgecolgrove",
+    "lint-fix": "ng lint angular-georgecolgrove --fix",
     "test": "ng test",
     "build:client-and-server-bundles": "ng build --prod && ng run angular-georgecolgrove:server:production",
     "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",

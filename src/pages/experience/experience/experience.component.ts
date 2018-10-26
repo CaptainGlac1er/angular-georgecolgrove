@@ -1,10 +1,10 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {ExperienceService} from '../../../service/experience.service';
-import {Job} from '../../../classes/job';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Project} from '../../../classes/project';
-import {isPlatformBrowser} from '@angular/common';
-import {Title} from '@angular/platform-browser';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ExperienceService } from '../../../service/experience.service';
+import { Job } from '../../../classes/job';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Project } from '../../../classes/project';
+import { isPlatformBrowser } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
@@ -55,5 +55,5 @@ export class ExperienceComponent implements OnInit {
     if (a.value.startDate > b.value.startDate) {
       return a.key;
     }
-  };
+  }
 }

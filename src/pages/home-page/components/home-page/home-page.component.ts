@@ -1,9 +1,9 @@
-import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
-import {Job} from '../../../../classes/job';
-import {Router} from '@angular/router';
-import {Meta, Title} from '@angular/platform-browser';
-import {ExperienceService} from '../../../../service/experience.service';
-import {isPlatformBrowser} from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Job } from '../../../../classes/job';
+import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
+import { ExperienceService } from '../../../../service/experience.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
