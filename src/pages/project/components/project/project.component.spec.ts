@@ -1,9 +1,10 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ProjectComponent} from './project.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {OrderDatePipe} from '../../../../shared/pipes/order-date.pipe';
+import { ProjectComponent } from './project.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, PLATFORM_ID } from '@angular/core';
+import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
+import { ProjectsService } from '../../../../service/projects.service';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -17,6 +18,10 @@ describe('ProjectComponent', () => {
       declarations: [
         ProjectComponent,
         OrderDatePipe
+      ],
+      providers: [
+        ProjectsService,
+        {provide: PLATFORM_ID, useValue: 'browser'},
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { ExperienceService } from '../../../service/experience.service';
-import { Job } from '../../../classes/job';
+import { ExperienceService } from '../../../../service/experience.service';
+import { Job } from '../../../../classes/job';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../../../classes/project';
+import { Project } from '../../../../classes/project';
 import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css', '../../../shared/css/page-listing.css']
+  styleUrls: ['./experience.component.css', '../../../../shared/css/page-listing.css']
 })
 export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';
@@ -17,7 +17,6 @@ export class ExperienceComponent implements OnInit {
   frameworkTitle = 'Frameworks:';
   projectsForJob: Project[];
   job: Job;
-  jobs: Job[];
   isBrowser: boolean;
 
 
@@ -31,13 +30,6 @@ export class ExperienceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.experienceService.jobs$.subscribe(async next => {
-      if (next.size === 0) {
-        await this.experienceService.updateExperiencesData();
-      } else {
-        this.jobs = [...next.values()];
-      }
-    });
     this.route.paramMap.subscribe(params => {
       if (params.has('company')) {
         this.job = this.experienceService.getJob(params.get('company'));
@@ -48,7 +40,7 @@ export class ExperienceComponent implements OnInit {
         }
       }
     });
-    this.titleService.setTitle(`George Walter Colgrove IV - ${this.job ? this.job.title : 'Jobs'}`);
+    this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
   }
 
   newestFirst = (a, b) => {

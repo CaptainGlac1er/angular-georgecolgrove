@@ -1,9 +1,11 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ExperienceComponent} from './experience.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {OrderDatePipe} from '../../../shared/pipes/order-date.pipe';
+import { ExperienceComponent } from './experience.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, PLATFORM_ID } from '@angular/core';
+import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
+import { ExperienceService } from '../../../../service/experience.service';
+import { Title } from '@angular/platform-browser';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;
@@ -15,8 +17,11 @@ describe('ExperienceComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        ExperienceComponent,
-        OrderDatePipe
+        ExperienceComponent
+      ],
+      providers: [
+        ExperienceService,
+        {provide: PLATFORM_ID, useValue: 'browser'},
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

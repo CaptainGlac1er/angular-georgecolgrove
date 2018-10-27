@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExperienceComponent } from './experience/experience.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 import { routing } from './experience.routing';
 import { SharedModule } from '../../shared/shared/shared.module';
+import { ExperiencesComponent } from './components/experiences/experiences.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../../shared/shared/shared.module';
   ],
   declarations: [
     ExperienceComponent,
+    ExperiencesComponent,
   ]
 })
 export class ExperienceModule {

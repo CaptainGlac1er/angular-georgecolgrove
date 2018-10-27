@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { HobbiesComponent } from './hobbies/hobbies.component';
+import { HobbiesComponent } from './components/hobbies/hobbies.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HobbiesComponent}

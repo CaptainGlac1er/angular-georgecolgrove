@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       },
       {
         name: 'description',
-        content: 'Personal website of a Software Engineer with 4 years experience working with a PHP developer, Angular, Java, ' +
+        content: 'Personal website of a Software Engineer with 4 years experience working with PHP, Angular, Java, ' +
           'JavaScript, C#'
       },
       {

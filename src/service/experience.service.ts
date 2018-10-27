@@ -103,17 +103,7 @@ export class ExperienceService {
     return jobsMap;
   }
 
-  updateExperiencesData(): Promise<Map<string, Job>> {
-    return new Promise((resolve) => {
-      const jobsMap = this.getExperiencesData();
-      if (jobsMap.size > 0) {
-        this.jobs$.next(jobsMap);
-      }
-      resolve(jobsMap);
-    });
-  }
-
-  getJob(tag: string) {
+  getJob(tag: string): Job {
     return this.jobs$.value.get(tag);
   }
 
