@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
-import { ExperienceService } from '../../../../service/experience.service';
+import { ExperienceService } from '@service/experience.service';
 import { Job } from '../../../../classes/job';
 
 @Component({
@@ -13,11 +13,6 @@ import { Job } from '../../../../classes/job';
 export class ExperiencesComponent implements OnInit {
   jobs: Job[];
   isBrowser: boolean;
-  newestFirst = (a, b) => {
-    if (a.value.startDate > b.value.startDate) {
-      return a.key;
-    }
-  };
 
   constructor(
     private route: ActivatedRoute,

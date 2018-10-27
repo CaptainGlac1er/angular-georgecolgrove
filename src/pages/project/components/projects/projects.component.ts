@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectsService } from '../../../../service/projects.service';
+import { ProjectsService } from '@service/projects.service';
 import { Project } from '../../../../classes/project';
 import { Title } from '@angular/platform-browser';
 

@@ -1,17 +1,17 @@
 // Load zone.js for the server.
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'fs';
-import {join} from 'path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { join } from 'path';
 
-import {enableProdMode} from '@angular/core';
+import { enableProdMode } from '@angular/core';
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
 // Import module map for lazy loading
-import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
-import {renderModuleFactory} from '@angular/platform-server';
-import {ROUTES} from './static.paths';
+import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { renderModuleFactory } from '@angular/platform-server';
+import { ROUTES } from './static.paths';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./server/main');
@@ -33,7 +33,7 @@ ROUTES.forEach(route => {
   }
 
   // Writes rendered HTML to index.html, replacing the file if it already exists.
-  previousRender = previousRender.then(_ => renderModuleFactory(AppServerModuleNgFactory, {
+  previousRender = previousRender.then(() => renderModuleFactory(AppServerModuleNgFactory, {
     document: index,
     url: route,
     extraProviders: [

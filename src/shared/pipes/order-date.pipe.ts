@@ -5,7 +5,7 @@ import { StartEndObject } from '../../interfaces/start-end-object';
   name: 'orderDate'
 })
 export class OrderDatePipe implements PipeTransform {
-  transform(list: (StartEndObject)[], orderType?: string): (any)[] {
+  transform(list: StartEndObject[], orderType?: string): StartEndObject[] {
     switch (orderType) {
       case 'newestFirst':
         list.sort(this.newestFirst);

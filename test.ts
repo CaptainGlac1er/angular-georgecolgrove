@@ -4,6 +4,7 @@ import 'zone.js/dist/zone-testing';
 import { getTestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
+// tslint:disable-next-line:no-any
 declare const require: any;
 
 // First, initialize the Angular testing environment.
@@ -14,5 +15,4 @@ getTestBed().initTestEnvironment(
 // Then we find all the tests.
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
-console.log(context);
 context.keys().map(context);

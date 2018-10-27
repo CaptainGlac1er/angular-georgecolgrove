@@ -46,6 +46,8 @@ export class ProjectsService {
       title: 'Chemistry Tools UWP',
       description: 'Rewrite of the original Chemistry Tools app that I made for Windows Phone 8.1. This version was made to use the UWP ' +
         'framework',
+      shortDescription: 'Chemistry Tools app that works on Windows 10 and Windows Mobile 10, ported over from a previous Windows Phone 8 ' +
+        'silverlight app',
       startDate: '2017-08-07',
       links: [
         {

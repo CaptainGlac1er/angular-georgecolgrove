@@ -1,5 +1,5 @@
-import {ExperienceModule} from './experience.module';
-import {TestBed} from '@angular/core/testing';
+import { ExperienceModule } from './experience.module';
+import { TestBed } from '@angular/core/testing';
 
 describe('ExperienceModule', () => {
   let experienceModule: ExperienceModule;

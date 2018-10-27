@@ -45,6 +45,7 @@
         ]
       }
     ],
+    "no-any": true,
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
@@ -53,7 +54,8 @@
       "info",
       "time",
       "timeEnd",
-      "trace"
+      "trace",
+      "log"
     ],
     "no-construct": true,
     "no-debugger": true,
@@ -108,7 +110,6 @@
         "variable-declaration": "nospace"
       }
     ],
-    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [

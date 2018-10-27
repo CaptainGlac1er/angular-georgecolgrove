@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Tile } from '../../classes/tile';
 
 @Component({
@@ -15,25 +14,10 @@ export class PanelRowComponent implements OnInit {
   @Input() public sortByDate: boolean;
   @Input() public useExtUrlFirst = false;
 
-  newestFirst: (a: Tile, b: Tile) => (Tile) = (a, b) => {
-    if (a.startDate > b.startDate) {
-      return a;
-    }
-  };
-
-  constructor(
-    private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  async tileClicked(item: Tile) {
-    if (item.relUrl && (this.useExtUrlFirst || !item.extUrl)) {
-      await this.router.navigate([item.relUrl]);
-    } else {
-      window.open(item.extUrl, '_blank');
-    }
   }
 
 }

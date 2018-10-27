@@ -1,5 +1,5 @@
-import {HobbiesModule} from './hobbies.module';
-import {TestBed} from '@angular/core/testing';
+import { HobbiesModule } from './hobbies.module';
+import { TestBed } from '@angular/core/testing';
 
 describe('HobbiesModule', () => {
   let hobbiesModule: HobbiesModule;

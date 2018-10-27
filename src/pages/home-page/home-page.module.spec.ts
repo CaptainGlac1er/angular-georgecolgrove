@@ -1,4 +1,4 @@
-import {HomePageModule} from './home-page.module';
+import { HomePageModule } from './home-page.module';
 
 describe('HomePageModule', () => {
   let homePageModule: HomePageModule;

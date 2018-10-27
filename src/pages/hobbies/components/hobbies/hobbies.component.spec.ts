@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {HobbiesComponent} from './hobbies.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { HobbiesComponent } from './hobbies.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HobbiesComponent', () => {
   let component: HobbiesComponent;

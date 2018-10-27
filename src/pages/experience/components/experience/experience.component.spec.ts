@@ -3,9 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ExperienceComponent } from './experience.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, PLATFORM_ID } from '@angular/core';
-import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
 import { ExperienceService } from '../../../../service/experience.service';
-import { Title } from '@angular/platform-browser';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;

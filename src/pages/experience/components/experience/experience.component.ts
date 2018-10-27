@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { ExperienceService } from '../../../../service/experience.service';
+import { ExperienceService } from '@service/experience.service';
 import { Job } from '../../../../classes/job';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../../../../classes/project';
@@ -41,11 +41,5 @@ export class ExperienceComponent implements OnInit {
       }
     });
     this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
-  }
-
-  newestFirst = (a, b) => {
-    if (a.value.startDate > b.value.startDate) {
-      return a.key;
-    }
   }
 }
