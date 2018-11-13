@@ -6,7 +6,9 @@
         <h3>{{job.location}}</h3>
     </div>
 </div>
-<app-panel-row [title]="experienceTitle" [contentText]="job.shortDescription" class="page-panel"></app-panel-row>
+<app-panel-row [title]="experienceTitle"
+               [contentText]="job.description || job.shortDescription"
+               class="page-panel"></app-panel-row>
 <app-panel-row [title]="projectTitle" [contentTiles]="projectsForJob" class="page-panel"
                *ngIf="projectsForJob.length > 0"></app-panel-row>
 <app-panel-row [title]="frameworkTitle" [contentTiles]="job.frameworksUsed" class="page-panel"
