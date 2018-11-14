@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import * as WebFont from 'webfontloader' ;
 
 if (environment.production) {
   enableProdMode();
@@ -10,4 +11,9 @@ if (environment.production) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await platformBrowserDynamic().bootstrapModule(AppModule);
+  WebFont.load({
+    google: {
+      families: ['Material Icons', 'Roboto']
+    }
+  });
 });
