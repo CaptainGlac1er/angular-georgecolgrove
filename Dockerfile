@@ -19,4 +19,4 @@ COPY --from=builder /project/dist /project/dist
 COPY ./package*.json /project/
 WORKDIR /project
 RUN npm ci --only=prod --quiet --no-progress
-CMD ["npm", "run", "serve:ssr"]
+CMD ["node", "dist/server"]

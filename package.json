@@ -1,6 +1,6 @@
 {
   "name": "angular-georgecolgrove",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "serve:ssr": "node dist/server",
     "start:ssr": "npm run build:ssr && npm run serve:ssr",
     "generate-bundle-report": "ng build --stats-json",
+    "generate-bundle-report-prod": "ng build --prod --stats-json",
     "bundle-report": "webpack-bundle-analyzer dist/browser/stats.json"
   },
   "pre-commit": [],
