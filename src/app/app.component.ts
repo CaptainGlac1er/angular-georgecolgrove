@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
     if (this.isBrowser) {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
+          ga('create', 'UA-124636170-1', 'auto');
           ga('set', 'page', event.urlAfterRedirects);
           ga('send', 'pageview');
         }

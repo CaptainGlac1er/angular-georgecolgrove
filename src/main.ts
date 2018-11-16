@@ -3,17 +3,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import * as WebFont from 'webfontloader' ;
+import * as WebFont from 'webfontloader';
 
 if (environment.production) {
   enableProdMode();
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await platformBrowserDynamic().bootstrapModule(AppModule);
-});
-
-async function addIcons(): Promise<void> {
+async function setupIcons(): Promise<void> {
   WebFont.load({
     google: {
       families: ['Material Icons', 'Roboto']
@@ -21,4 +17,8 @@ async function addIcons(): Promise<void> {
   });
   return Promise.resolve();
 }
-addIcons();
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await setupIcons();
+  await platformBrowserDynamic().bootstrapModule(AppModule);
+});
