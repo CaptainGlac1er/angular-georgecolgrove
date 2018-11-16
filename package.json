@@ -50,6 +50,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.7",
     "express": "^4.16.4",
+    "intl": "^1.2.5",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^6.3.3",
     "web-animations-js": "^2.3.1",
