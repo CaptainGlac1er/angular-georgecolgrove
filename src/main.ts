@@ -9,16 +9,11 @@ if (environment.production) {
   enableProdMode();
 }
 
-async function setupIcons(): Promise<void> {
-  WebFont.load({
-    google: {
-      families: ['Material Icons', 'Roboto']
-    }
-  });
-  return Promise.resolve();
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
-  await setupIcons();
   await platformBrowserDynamic().bootstrapModule(AppModule);
+});
+WebFont.load({
+  google: {
+    families: ['Material Icons', 'Roboto']
+  }
 });
