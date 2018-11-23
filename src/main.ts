@@ -12,8 +12,3 @@ if (environment.production) {
 document.addEventListener('DOMContentLoaded', async () => {
   await platformBrowserDynamic().bootstrapModule(AppModule);
 });
-WebFont.load({
-  google: {
-    families: ['Material Icons', 'Roboto']
-  }
-});

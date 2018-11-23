@@ -3,8 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SharedModule', () => {
-  let sharedModule: SharedModule;
-
   beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
@@ -14,12 +12,12 @@ describe('SharedModule', () => {
         CUSTOM_ELEMENTS_SCHEMA
       ]
     }).compileComponents();
-    sharedModule = TestBed.get(SharedModule);
+    this.sharedModule = TestBed.get(SharedModule);
     done();
   });
 
   it('should create an instance', async (done) => {
-    await expect(sharedModule).toBeTruthy();
+    await expect(this.sharedModule).toBeTruthy();
     done();
   });
 });

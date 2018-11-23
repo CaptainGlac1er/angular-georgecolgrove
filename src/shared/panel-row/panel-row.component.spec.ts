@@ -6,8 +6,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { OrderDatePipe } from '../pipes/order-date.pipe';
 
 describe('PanelRowComponent', () => {
-  let component: PanelRowComponent;
-  let fixture: ComponentFixture<PanelRowComponent>;
 
   beforeEach(async (done) => {
     await TestBed.configureTestingModule({
@@ -24,14 +22,13 @@ describe('PanelRowComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(PanelRowComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    this.fixture = TestBed.createComponent(PanelRowComponent);
+    this.component = this.fixture.componentInstance;
     done();
   });
 
   it('should create', async (done) => {
-    await expect(component).toBeTruthy();
+    await expect(this.component).toBeTruthy();
     done();
   });
 });

@@ -1,5 +1,5 @@
 <div id="navElements">
-    <mat-icon id="btnNavHamburger" class="nav-button" (click)="mobileInterface.toggleHamburgerMenu()">menu</mat-icon>
+    <i id="btnNavHamburger" class="nav-button material-icons" (click)="mobileInterface.toggleHamburgerMenu()">menu</i>
     <div id="contentLockout" [ngClass]="{lockoutShow: mobileInterface.hamburgerShown}"
          (click)="mobileInterface.closeHamburgerMenu()">
         <div class="nav-bar" id="navigationContent" [ngClass]="{hamburgerShow: mobileInterface.hamburgerShown}">
