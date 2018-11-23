@@ -5,9 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HobbiesComponent', () => {
-  let component: HobbiesComponent;
-  let fixture: ComponentFixture<HobbiesComponent>;
-
   beforeEach(async (done) => {
     await TestBed.configureTestingModule({
       imports: [
@@ -21,13 +18,13 @@ describe('HobbiesComponent', () => {
       ]
     })
       .compileComponents();
-    fixture = TestBed.createComponent(HobbiesComponent);
-    component = fixture.componentInstance;
+    this.fixture = TestBed.createComponent(HobbiesComponent);
+    this.component = this.fixture.componentInstance;
     done();
   });
 
   it('should create', async (done) => {
-    await expect(component).toBeTruthy();
+    await expect(this.component).toBeTruthy();
     done();
   });
 });

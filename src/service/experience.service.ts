@@ -15,9 +15,12 @@ export class ExperienceService {
       tag: 'softwareadvice',
       company: 'Software Advice',
       position: 'Software Developer Intern',
-      shortDescription: 'Maintained legacy PHP code in moving it to better code standards and newer features',
+      shortDescription: 'Maintained legacy PHP code in moving it to better security and code standards and newer features.',
+      description: 'Maintained legacy PHP code in moving it to better security and code standards and newer features. Fixed bugs' +
+        ' and cleaned out unused code. Helped set the foundation for unit testing that their angular project uses.',
       startDate: '2018-05-21',
-      logoUrl: 'https://www.softwareadvice.com/img/sa_logo_tm-reverse-2x-sm.png',
+      endDate: '2018-12-21',
+      logoUrl: 'https://software-advice.imgix.net/base/sa_logo_tm-reverse-2x-sm.png',
       location: 'Austin, Texas',
       frameworksUsed: [{
         extUrl: 'https://secure.php.net/',

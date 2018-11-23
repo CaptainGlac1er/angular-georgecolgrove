@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core
 import { Job } from '../../../../classes/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
-import { ExperienceService } from '../../../../service/experience.service';
+import { ExperienceService } from '@service/experience.service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -58,6 +58,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.jobs = [...this.experienceService.jobs$.getValue().values()];
     if (this.isBrowser) {
       this.experienceService.jobs$.subscribe(next => this.jobs = [...next.values()]);
     }
