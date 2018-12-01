@@ -88,6 +88,23 @@ export class ProjectsService {
           extUrl: 'https://github.com/CaptainGlac1er/swen-356-sublet'
         }
       ]
+    },
+    {
+      tag: 'webpagetest',
+      title: 'WebPageTest Wrapper',
+      shortDescription: 'Promise based webpagetest api wrapper',
+      startDate: '2018-11-30',
+      links: [
+        {
+          title: 'Github Repository',
+          extUrl: 'https://github.com/glacierbyte/webpagetest'
+        },
+        {
+          title: 'NPM Package',
+          extUrl: 'https://www.npmjs.com/package/@glacierbyte/webpagetest'
+        }
+
+      ]
     }
   ];
 
