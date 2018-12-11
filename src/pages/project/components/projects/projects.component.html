@@ -1,5 +1,5 @@
 <div class="listing-body">
-    <a *ngFor="let aProject of projects | orderDate:'newestFirst'" [routerLink]="[aProject.relUrl]"
+    <a *ngFor="let aProject of projects | orderDate:'newestFirst'" [routerLink]="['/projects', aProject.tag]"
        class="listing-row listing-single-column">
         <h3 class="listing-title">
             {{aProject.title}}

@@ -34,7 +34,7 @@
                             <h3 *ngIf="item.subTitle">
                                 {{item.subTitle}}
                             </h3>
-                            <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
+                            <p *ngIf="item?.shortDescription" [innerHTML]="item?.shortDescription"></p>
                         </a>
                     </ng-template>
                 </div>

@@ -24,9 +24,7 @@ export class ExperiencesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.experienceService.jobs$.subscribe(async next => {
-      this.jobs = [...next.values()];
-    });
+    this.experienceService.fetchProjects().then(data => this.jobs = data);
     this.titleService.setTitle(`George Walter Colgrove IV - Jobs`);
   }
 

@@ -9,6 +9,7 @@ import { NavigationBarComponent } from '@shared/navigation-bar/navigation-bar.co
 import { HeaderComponent } from '@shared/header/header.component';
 import { FooterComponent } from '@shared/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BrowserModule } from '@angular/platform-browser';
     routing,
     MatIconModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   exports: [],
   bootstrap: [AppComponent]

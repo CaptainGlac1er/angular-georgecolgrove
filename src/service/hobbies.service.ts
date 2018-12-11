@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { DataRow } from '../classes/data-row';
+import {Injectable} from '@angular/core';
+import {DataRow} from '../classes/data-row';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +39,6 @@ export class HobbiesService {
   }
 
   getHobbiesData(): DataRow[] {
-    const hobbies: DataRow[] = [];
-    this.hobbyArray.forEach(function (item) {
-      hobbies.push(DataRow.decode(item));
-    });
-    return hobbies;
+    return this.hobbyArray as DataRow[];
   }
 }

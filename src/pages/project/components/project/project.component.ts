@@ -25,10 +25,12 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       if (params.has('project')) {
-        this.project = this.projectService.getProject(params.get('project'));
-        if (this.project === undefined) {
-          return this.router.navigate(['/projects']);
-        }
+        this.projectService.getProject(params.get('project')).then(value => {
+          this.project = value;
+          if (this.project === undefined) {
+            return this.router.navigate(['/projects']);
+          }
+        });
       }
     });
     this.titleService.setTitle(`George Walter Colgrove IV - ${this.project ? this.project.title : 'project'}`);

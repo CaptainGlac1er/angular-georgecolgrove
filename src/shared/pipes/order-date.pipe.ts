@@ -8,7 +8,9 @@ export class OrderDatePipe implements PipeTransform {
   transform(list: StartEndObject[], orderType?: string): StartEndObject[] {
     switch (orderType) {
       case 'newestFirst':
-        list.sort(this.newestFirst);
+        if (list) {
+          list.sort(this.newestFirst);
+        }
         break;
     }
     return list;

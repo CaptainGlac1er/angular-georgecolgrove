@@ -1,5 +1,5 @@
 <div class="listing-body">
-    <a *ngFor="let aJob of jobs | orderDate:'newestFirst'" [routerLink]="[aJob.relUrl]"
+    <a *ngFor="let aJob of jobs | orderDate:'newestFirst'" [routerLink]="['/experiences', aJob.tag]"
        class="listing-row listing-single-column">
         <h3 class="listing-title">
             {{aJob.title}}

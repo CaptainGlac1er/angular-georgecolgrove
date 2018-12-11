@@ -11,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./home-page.component.css'],
   providers: [ExperienceService]
 })
-export class HomePageComponent implements OnInit, OnDestroy {
+export class HomePageComponent implements OnInit {
   isBrowser: boolean;
   name = 'George Walter Colgrove IV';
   gamertag = 'CaptainGlac1er';
@@ -22,7 +22,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       + 'I have worked with PHP, JavaScript, C#, Java, and SQL. I\'ve tinkered around with assembly and C++ '
       + 'along with learning microprocessor coding. My goal with my code learning is to make code more '
       + 'secure and modular for reusability and future development.',
-    headerImage: 'https://cdn.georgecolgrove.com-/img/profile.jpg'
+    headerImage: 'https://cdn.georgecolgrove.com/img/profile.jpg'
   };
   jobs: Job[] = [];
   homepage = {
@@ -58,16 +58,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.jobs = [...this.experienceService.jobs$.getValue().values()];
     if (this.isBrowser) {
-      this.experienceService.jobs$.subscribe(next => this.jobs = [...next.values()]);
+      this.experienceService.getExperiencesData().then(item => this.jobs = item);
     }
     this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
-  }
-
-  ngOnDestroy(): void {
-    if (this.experienceService.jobs$) {
-      this.experienceService.jobs$.unsubscribe();
-    }
   }
 }

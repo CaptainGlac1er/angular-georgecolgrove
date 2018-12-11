@@ -1,140 +1,60 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import { Project } from '../classes/project';
 import { Job } from '../classes/job';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProjectsService {
-  private projects: Map<string, Project>;
+  private readonly projects: Project[];
+  private readonly isBrowser: boolean;
 
-  private projectArray = [
-    {
-      tag: 'start-rit',
-      title: 'Start page for RIT',
-      description: 'Overhauled the RIT start page for computer registration.',
-      shortDescription: 'Overhauled the RIT start page for computer registration.',
-      job: 'rit',
-      startDate: '2015-07-01',
-      endDate: '2015-12-20',
-      links: [
-        {
-          title: 'start.rit.edu',
-          extUrl: 'https://start.rit.edu/',
-          shortDescription: 'Computer Registration site for RIT'
-        }
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    this.projects = [];
+  }
 
-      ]
-    },
-    {
-      tag: '3uler',
-      title: '3uler Discord Bot',
-      description: 'Uses Discord.net library version 1.0, has both a console and gui interface.',
-      shortDescription: 'Uses Discord.net library version 1.0, has both a console and gui interface.',
-      startDate: '2017-06-22',
-      links: [
-        {
-          title: 'Github Repository',
-          extUrl: 'https://github.com/CaptainGlac1er/3uler',
-          shortDescription: 'Discord bot built with the C# discord v1 api'
-        }
-
-      ]
-    },
-    {
-      tag: 'chemistryuwp',
-      title: 'Chemistry Tools UWP',
-      description: 'Rewrite of the original Chemistry Tools app that I made for Windows Phone 8.1. This version was made to use the UWP ' +
-        'framework',
-      shortDescription: 'Chemistry Tools app that works on Windows 10 and Windows Mobile 10, ported over from a previous Windows Phone 8 ' +
-        'silverlight app',
-      startDate: '2017-08-07',
-      links: [
-        {
-          title: 'Windows Store Link',
-          extUrl: 'https://www.microsoft.com/store/productId/9P4X65LM9MM1'
-        },
-        {
-          title: 'Github Repository',
-          extUrl: 'https://github.com/CaptainGlac1er/ChemistryToolsUWP'
-        }
-      ]
-    },
-    {
-      tag: 'web-server',
-      title: 'Web Server',
-      shortDescription: 'Setup my server to use Docker to host my websites (including this one) and projects.',
-      startDate: '2018-06-22',
-      links: [
-        {
-          title: 'This Site',
-          extUrl: 'https://www.georgecolgrove.com/'
-        },
-        {
-          title: 'Old Sites Portal',
-          extUrl: 'http://gwcprojects.com/'
-        }
-      ]
-    },
-    {
-      tag: 'tigertenant',
-      title: 'TigerTenant',
-      shortDescription: 'Online posting board to advertise a sublet. Worked in a team of 5 with the scrum process.',
-      startDate: '2017-02-14',
-      endDate: '2017-03-5',
-      links: [
-        {
-          title: 'Github Repository',
-          extUrl: 'https://github.com/CaptainGlac1er/swen-356-sublet'
-        }
-      ]
-    },
-    {
-      tag: 'webpagetest',
-      title: 'WebPageTest Wrapper',
-      shortDescription: 'Promise based webpagetest api wrapper',
-      startDate: '2018-11-30',
-      links: [
-        {
-          title: 'Github Repository',
-          extUrl: 'https://github.com/glacierbyte/webpagetest'
-        },
-        {
-          title: 'NPM Package',
-          extUrl: 'https://www.npmjs.com/package/@glacierbyte/webpagetest'
-        }
-
-      ]
+  async fetchProjects(): Promise<Project[]> {
+    if (this.isBrowser) {
+      return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`).toPromise<Project[]>();
     }
-  ];
-
-  constructor() {
-    const projects = new Map<string, Project>();
-    this.getProjectsData().forEach(function (project: Project) {
-      projects.set(project.tag, project);
-    });
-    this.projects = projects;
+    return [];
   }
 
-  getProjectsData(): Project[] {
-    const projects: Project[] = [];
-    this.projectArray.forEach(function (item) {
-      projects.push(Project.decode(item));
-    });
-    return projects;
-  }
-
-  getProject(tag: string): Project {
-    return this.projects.get(tag);
-  }
-
-  getProjectsForJob(job: Job): Project[] {
-    const projects: Project[] = [];
-    this.projects.forEach(function (project: Project) {
-      if (project.job === job.tag) {
-        projects.push(project);
+  async getProjectsData(): Promise<Project[]> {
+    if (this.projects.length === 0) {
+      for (const item of await this.fetchProjects()) {
+        this.projects.push(Project.getTile(item));
       }
-    });
+    }
+    return this.projects;
+  }
+
+  async getProject(tag: string): Promise<Project|undefined> {
+    const data = await this.getProjectsData();
+    for (const item of data) {
+      if (item.tag === tag) {
+        return item;
+      }
+    }
+    return undefined;
+  }
+
+  async getProjectsForJob(job: Job): Promise<Project[]> {
+    const projects: Project[] = [];
+    const data = await this.getProjectsData();
+    for (const item of data) {
+      if (item.job === job.tag) {
+        projects.push(item);
+      }
+    }
     return projects;
   }
 }

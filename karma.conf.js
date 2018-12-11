@@ -3,6 +3,7 @@
 
 module.exports = (config) => {
     config.set({
+        concurrency: 1,
         basePath: '',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
@@ -20,6 +21,11 @@ module.exports = (config) => {
             dir: './coverage/',
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true
+        },
+        browserConsoleLogOptions: {
+            level: 'debug',
+            format: "%b %T: %m",
+            terminal: true
         },
         reporters: ['progress', 'kjhtml'],
         port: 9876,

@@ -1,5 +1,6 @@
 import { ILink } from '../interfaces/ILink';
 import { DataRow } from './data-row';
+import { Tile } from './tile';
 
 export class Job extends DataRow {
   company: string;
@@ -8,7 +9,14 @@ export class Job extends DataRow {
   logoUrl: string;
   frameworksUsed?: ILink[];
 
-  static decode(json): Job {
+  static getTile(job: Job): Job {
+    return Object.assign({}, job, {
+              title: job.company,
+              subTitle: job.position,
+      }) as Job;
+  }
+
+  /*static decode(json): Job {
     const job = Object.create(Job.prototype);
     let startDate: Date;
     let endDate: Date;
@@ -25,5 +33,5 @@ export class Job extends DataRow {
       subTitle: json.position,
       relUrl: '/experiences/' + json.tag
     });
-  }
+  }*/
 }

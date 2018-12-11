@@ -32,14 +32,18 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       if (params.has('company')) {
-        this.job = this.experienceService.getJob(params.get('company'));
-        if (this.job === undefined) {
-          return this.router.navigate(['/experiences']);
-        } else {
-          this.projectsForJob = this.experienceService.getProjectsForJob(this.job);
-        }
+        this.experienceService.getJob(params.get('company')).then(item => {
+          this.job = item;
+          if (this.job === undefined) {
+            return this.router.navigate(['/experiences']);
+          } else {
+            this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
+            this.experienceService.getProjectsForJob(this.job).then((value => {
+              this.projectsForJob = value;
+            }));
+          }
+        });
       }
     });
-    this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
   }
 }

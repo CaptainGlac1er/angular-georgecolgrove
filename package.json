@@ -12,6 +12,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-dev": "ng run angular-georgecolgrove:serve-dev",
     "start-prod": "ng serve --prod",
     "build": "ng build",
     "lint": "ng lint angular-georgecolgrove",
@@ -50,6 +51,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.7",
     "express": "^4.16.4",
+    "moment": "^2.22.2",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"
