@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-home-page',
@@ -13,6 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class HomePageComponent implements OnInit {
   isBrowser: boolean;
+  logo = `${environment.cdn}/img/personalLogo2.png`;
   name = 'George Walter Colgrove IV';
   gamertag = 'CaptainGlac1er';
   phone = '+1 802 595-1798';
