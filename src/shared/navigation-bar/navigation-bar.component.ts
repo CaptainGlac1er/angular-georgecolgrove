@@ -10,15 +10,15 @@ export class NavigationBarComponent implements OnInit {
   links = [
     {
       title: 'Experience',
-      link: 'experiences'
+      link: ['/', 'experiences']
     },
     {
       title: 'Projects',
-      link: 'projects'
+      link: ['/', 'projects']
     },
     {
       title: 'Hobbies',
-      link: 'hobbies'
+      link: ['/', 'hobbies']
     }
   ];
 

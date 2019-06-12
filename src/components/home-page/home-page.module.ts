@@ -12,7 +12,6 @@ import { SharedModule } from '@shared/shared/shared.module';
   ],
   declarations: [
     HomePageComponent,
-    HomePageComponent
   ]
 })
 export class HomePageModule {
