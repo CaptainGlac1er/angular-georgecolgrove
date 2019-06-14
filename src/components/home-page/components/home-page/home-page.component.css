@@ -6,9 +6,56 @@
     padding: 10px;
 }
 
+#main-content {
+    flex: 1 1 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    max-width: 1700px;
+    background-color: #111111;
+}
+#company-name {
+    width: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    align-items: center;
+    height: 50px;
+    display: flex;
+}
+#company-name > a {
+    width: auto;
+    flex: 0 0 auto;
+}
+.home-nav-bar {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 50px;
+    z-index: +1;
+}
+.header {
+    height: 300px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+.home-nav-bar > .nav-bar {
+    align-items: center;
+    flex: 0 1 500px;
+}
+.padding-top {
+    padding-top: 300px;
+    box-sizing: border-box;
+}
+
 #top-splash {
     background: url("https://cdn.georgecolgrove.com/img/splash.jpg") center center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .page-panel-tile {

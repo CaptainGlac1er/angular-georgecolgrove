@@ -16,14 +16,6 @@ a.listing-row {
     cursor: pointer;
 }
 
-.listing-row:nth-child(even) {
-    background-color: #333333;
-}
-
-.listing-row:nth-child(odd) {
-    background-color: #222222;
-}
-
 .listing-row > .listing-title {
 
 }

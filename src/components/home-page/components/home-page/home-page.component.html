@@ -1,22 +1,29 @@
-<div class="flex-vertical flex-full-height">
-    <app-header></app-header>
-    <div class="scrollable flex-vertical flex-full-height">
-        <div id="main-content">
-            <div class="div-center-content" id="top-splash">
-                <div class="main-tile">
-                    <div><img id="logo" alt="personal logo" [src]="logo"/></div>
-                    <h1>{{name}}</h1>
-                    <h2>{{gamertag}}</h2>
-                    <h3>{{phone}}</h3>
-                </div>
+<div class="padding-top">
+    <div class="header" #header>
+        <div class="div-center-content" id="top-splash">
+            <div class="main-tile">
+                <div><img id="logo" alt="personal logo" [src]="logo"/></div>
+                <h1>{{name}}</h1>
+                <h2>{{gamertag}}</h2>
+                <h3>{{phone}}</h3>
             </div>
-            <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
-            </app-panel-row>
-            <app-panel-row [title]="homepage.jobs.title" [contentTiles]="jobs" [sortByDate]="true" class="page-panel">
-            </app-panel-row>
-            <app-panel-row [title]="homepage.links.title" [contentTiles]="homepage.links.urls" class="page-panel">
-            </app-panel-row>
         </div>
-        <app-footer></app-footer>
+        <div class="home-nav-bar">
+            <div id="company-name" [@nameVisible]="nameVisible">
+                <a [routerLink]="['/']" class="text-link nav-button">George W. Colgrove IV</a>
+            </div>
+            <div class="nav-bar">
+                <app-navigation-bar></app-navigation-bar>
+            </div>
+        </div>
     </div>
+    <div id="main-content">
+        <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
+        </app-panel-row>
+        <app-panel-row [title]="homepage.jobs.title" [contentTiles]="jobs" [sortByDate]="true" class="page-panel">
+        </app-panel-row>
+        <app-panel-row [title]="homepage.links.title" [contentTiles]="homepage.links.urls" class="page-panel">
+        </app-panel-row>
+    </div>
+    <app-footer></app-footer>
 </div>
