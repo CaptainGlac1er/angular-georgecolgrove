@@ -1,12 +1,7 @@
-<div id="navElements">
-    <i id="btnNavHamburger" class="nav-button material-icons" (click)="mobileInterface.toggleHamburgerMenu()">menu</i>
-    <div id="contentLockout" [ngClass]="{lockoutShow: mobileInterface.hamburgerShown}"
-         (click)="mobileInterface.closeHamburgerMenu()">
-        <div class="nav-bar" id="navigationContent" [ngClass]="{hamburgerShow: mobileInterface.hamburgerShown}">
-            <a *ngFor="let link of links" [routerLink]=[link.link] class="nav-link"
-               (click)="mobileInterface.closeHamburgerMenu()">
-                {{link.title}}
-            </a>
-        </div>
-    </div>
-</div>
+<ul class="nav-bar" id="navigationContent">
+    <li *ngFor="let link of links" class="nav-button">
+        <a [routerLink]="link.link" class="nav-link">
+            {{link.title}}
+        </a>
+    </li>
+</ul>

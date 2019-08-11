@@ -1,0 +1,35 @@
+<div class="padding-top page">
+    <div class="upper">
+    <div class="header" #header>
+        <div class="div-center-content" id="top-splash">
+            <div class="main-tile">
+                <div><img id="logo" alt="personal logo" [src]="logo"/></div>
+                <h1>{{name}}</h1>
+                <h2>{{gamertag}}</h2>
+                <h3>{{phone}}</h3>
+            </div>
+        </div>
+        <div class="home-nav-bar">
+            <div class="home-nav-bar-inner">
+                <div id="company-name" [@nameVisible]="nameVisible">
+                    <a [routerLink]="['/']" class="text-link nav-button">George W. Colgrove IV</a>
+                </div>
+                <div class="nav-bar">
+                    <app-navigation-bar></app-navigation-bar>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-content">
+        <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
+        </app-panel-row>
+        <app-panel-row [title]="homepage.jobs.title" [contentTiles]="jobs" [sortByDate]="true" class="page-panel">
+        </app-panel-row>
+        <app-panel-row [title]="homepage.links.title" [contentTiles]="homepage.links.urls" class="page-panel">
+        </app-panel-row>
+    </div>
+    </div>
+    <div class="bottom">
+        <app-footer></app-footer>
+    </div>
+</div>

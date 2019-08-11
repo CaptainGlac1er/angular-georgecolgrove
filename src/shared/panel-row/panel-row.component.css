@@ -12,6 +12,13 @@
     display: flex;
 }
 
+a:link {
+    color: #eaeaea;
+}
+a:visited {
+    color: #eaeaea;
+}
+
 .page-panel-title {
     flex: 1 1 300px;
     padding-bottom: 10px;
@@ -44,6 +51,7 @@
 
 .page-panel-tile:hover {
     transform: scale(1.02);
+    z-index: 1;
 }
 
 @media screen and (max-width: 1000px) {

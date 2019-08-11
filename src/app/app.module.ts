@@ -4,21 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { routing } from './app.routing';
 import { CommonModule } from '@angular/common';
-import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.component';
-import { NavigationBarComponent } from '@shared/navigation-bar/navigation-bar.component';
-import { HeaderComponent } from '@shared/header/header.component';
-import { FooterComponent } from '@shared/footer/footer.component';
+import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {SharedModule} from '@shared/shared/shared.module';
+import {NormalHeaderRouteComponent} from '../components/normal-header-route/normal-header-route.component';
+import {NoHeaderRouteComponent} from '../components/no-header-route/no-header-route.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    NavigationBarComponent,
-    HeaderComponent,
-    FooterComponent,
+    NormalHeaderRouteComponent,
+    NoHeaderRouteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angular-georgecolgrove'}),
@@ -26,9 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     routing,
     MatIconModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
-  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

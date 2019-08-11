@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { PanelRowComponent } from '../panel-row/panel-row.component';
 import { OrderDatePipe } from '../pipes/order-date.pipe';
 import { RouterModule } from '@angular/router';
+import {NavigationBarComponent} from '@shared/navigation-bar/navigation-bar.component';
+import {HeaderComponent} from '@shared/header/header.component';
+import {FooterComponent} from '@shared/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -11,11 +14,17 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     PanelRowComponent,
-    OrderDatePipe
+    OrderDatePipe,
+    NavigationBarComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   exports: [
     PanelRowComponent,
-    OrderDatePipe
+    OrderDatePipe,
+    NavigationBarComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class SharedModule {
