@@ -1,11 +1,15 @@
-<div>
-  <app-header id="header"></app-header>
-  <div class="flex-vertical">
-    <div class="scrollable flex-vertical">
-      <div id="main-content">
-        <router-outlet></router-outlet>
+<div class="page">
+  <div class="upper">
+    <app-header id="header"></app-header>
+    <div class="flex-vertical">
+      <div class="scrollable flex-vertical">
+        <div id="main-content">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
+  <div class="bottom">
+    <app-footer></app-footer>
+  </div>
 </div>

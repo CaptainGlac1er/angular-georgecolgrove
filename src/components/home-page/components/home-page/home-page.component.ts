@@ -1,11 +1,11 @@
-import {Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Job } from '../../../../classes/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
-import {DOCUMENT, isPlatformBrowser} from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-home-page',
@@ -15,11 +15,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('nameVisible', [
       state('visible', style({
-        flex: '1 0 200px',
+        flex: '1 1 200px',
+        minWidth: '130px'
       })),
       state('hidden', style({
         flex: '0',
-        width: '0'
+        width: '0',
       })),
       transition('visible => hidden', [
         animate('.2s')
@@ -36,7 +37,7 @@ export class HomePageComponent implements OnInit {
   name = 'George Walter Colgrove IV';
   gamertag = 'CaptainGlac1er';
   phone = '+1 802 595-1798';
-  isMinimized: boolean = false;
+  isMinimized = false;
   about = {
     title: 'About:',
     text: 'Constructing well built secure software is what I strive for. <br />'
@@ -92,7 +93,6 @@ export class HomePageComponent implements OnInit {
     this.isMinimized = document.documentElement.scrollTop > 0;
     const height = Math.max(0, 300 - window.scrollY);
     this.titleElem.nativeElement.style.height  = height + 'px';
-    console.log(height);
     this.nameVisible = height === 0 ? 'visible' : 'hidden';
   }
 }

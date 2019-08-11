@@ -1,4 +1,5 @@
-<div class="padding-top">
+<div class="padding-top page">
+    <div class="upper">
     <div class="header" #header>
         <div class="div-center-content" id="top-splash">
             <div class="main-tile">
@@ -9,11 +10,13 @@
             </div>
         </div>
         <div class="home-nav-bar">
-            <div id="company-name" [@nameVisible]="nameVisible">
-                <a [routerLink]="['/']" class="text-link nav-button">George W. Colgrove IV</a>
-            </div>
-            <div class="nav-bar">
-                <app-navigation-bar></app-navigation-bar>
+            <div class="home-nav-bar-inner">
+                <div id="company-name" [@nameVisible]="nameVisible">
+                    <a [routerLink]="['/']" class="text-link nav-button">George W. Colgrove IV</a>
+                </div>
+                <div class="nav-bar">
+                    <app-navigation-bar></app-navigation-bar>
+                </div>
             </div>
         </div>
     </div>
@@ -25,5 +28,8 @@
         <app-panel-row [title]="homepage.links.title" [contentTiles]="homepage.links.urls" class="page-panel">
         </app-panel-row>
     </div>
-    <app-footer></app-footer>
+    </div>
+    <div class="bottom">
+        <app-footer></app-footer>
+    </div>
 </div>
