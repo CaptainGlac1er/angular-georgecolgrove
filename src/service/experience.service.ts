@@ -3,7 +3,7 @@ import { Job } from '../classes/job';
 import { ProjectsService } from './projects.service';
 import { Project } from '../classes/project';
 import { environment } from '../environments/environment';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { map } from 'rxjs/operators';
 
