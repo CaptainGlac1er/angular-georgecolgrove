@@ -14,12 +14,6 @@ html {
     height: 100%;
 }
 
-a:link {
-    color: #5b66c8;
-}
-a:visited {
-    color: #a26dc8;
-}
 
 .scrollable {
     overflow-y: auto;
@@ -60,14 +54,21 @@ p {
     color: inherit;
     cursor: pointer;
 }
-a.text-link:link, a.text-link:visited {
-    color: #eaeaea;
+a {
+    &:link {
+        color: #5b66c8;
+    }
+    &:visited {
+        color: #a26dc8;
+    }
+    &.text-link:link, &.text-link:visited {
+        color: #eaeaea;
+    }
 }
 
 #top-splash {
     background: black;
     background-size: cover;
-    height: 100%;
     align-content: center;
     justify-content: center;
 }

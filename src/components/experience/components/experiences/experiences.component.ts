@@ -23,9 +23,8 @@ export class ExperiencesComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  async ngOnInit(): Promise<void> {
-    this.jobs = await this.experienceService.fetchProjects();
-    console.log(this.jobs);
+  ngOnInit(): void {
+    this.experienceService.fetchProjects().then(jobs => this.jobs = jobs);
     this.titleService.setTitle(`George Walter Colgrove IV - Jobs`);
   }
 

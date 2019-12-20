@@ -1,4 +1,12 @@
-import { Component, ElementRef, HostListener, Inject, InjectionToken, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild
+} from '@angular/core';
 import { Job } from '../../../../classes/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -10,7 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css'],
+  styleUrls: ['./home-page.component.scss'],
   providers: [ExperienceService],
   animations: [
     trigger('nameVisible', [
@@ -82,10 +90,8 @@ export class HomePageComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  async ngOnInit(): Promise<void> {
-    if (this.isBrowser) {
-      this.jobs = await this.experienceService.getExperiencesData();
-    }
+  ngOnInit(): void {
+    this.experienceService.getExperiencesData().then(jobs => this.jobs = jobs);
     this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
   }
 
