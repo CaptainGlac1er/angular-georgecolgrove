@@ -1,6 +1,9 @@
 name: Docker Image CI
 
-on: [push]
+on: 
+  push:
+    branches: 
+      - 'beta'
 
 jobs:
 
@@ -12,6 +15,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build Beta Site
       run: |
-        docker login --username captainglacier
+        docker login --username captainglacier --password ${{ secrets.DockerHubToken }}
         docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:beta
         docker push captainglacier/angular-georgecolgrove:beta
