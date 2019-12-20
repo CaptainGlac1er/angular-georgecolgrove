@@ -1,4 +1,4 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Project } from '../classes/project';
 import { Job } from '../classes/job';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +15,7 @@ export class ProjectsService {
 
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Record<string, any>
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.projects = [];
@@ -37,7 +37,7 @@ export class ProjectsService {
     return this.projects;
   }
 
-  async getProject(tag: string): Promise<Project|undefined> {
+  async getProject(tag: string): Promise<Project> {
     const data = await this.getProjectsData();
     for (const item of data) {
       if (item.tag === tag) {

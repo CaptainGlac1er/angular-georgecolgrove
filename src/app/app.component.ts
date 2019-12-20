@@ -1,8 +1,7 @@
+import { isPlatformBrowser } from '@angular/common'
+import { NavigationEnd, Router } from '@angular/router';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
-import * as WebFont from 'webfontloader';
 
 declare let ga: Function;
 
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Record<string, any>
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }

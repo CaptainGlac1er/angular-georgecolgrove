@@ -18,7 +18,7 @@ describe('ProjectsComponent', () => {
       ],
       providers: [
         ProjectsService,
-        {provide: PLATFORM_ID, useValue: 'browser'},
+        { provide: PLATFORM_ID, useValue: 'browser' },
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

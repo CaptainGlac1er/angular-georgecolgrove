@@ -18,13 +18,14 @@ export class ExperiencesComponent implements OnInit {
     private route: ActivatedRoute,
     private experienceService: ExperienceService,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(PLATFORM_ID) platformId: Record<string, any>,
     private titleService: Title) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
-    this.experienceService.fetchProjects().then(data => this.jobs = data);
+  async ngOnInit(): Promise<void> {
+    this.jobs = await this.experienceService.fetchProjects();
+    console.log(this.jobs);
     this.titleService.setTitle(`George Walter Colgrove IV - Jobs`);
   }
 

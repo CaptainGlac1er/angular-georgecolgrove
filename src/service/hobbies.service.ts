@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {DataRow} from '../classes/data-row';
+import { Injectable } from '@angular/core';
+import { DataRow } from '../classes/data-row';
 
 @Injectable({
   providedIn: 'root'

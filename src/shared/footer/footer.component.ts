@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -6,13 +6,7 @@ import { environment } from '../../environments/environment';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   companyName = 'GlacierByte™';
   resumeLink = `${environment.cdn}/doc/GeorgeColgroveResume.pdf`;
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
 }

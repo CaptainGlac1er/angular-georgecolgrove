@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, InjectionToken, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Job } from '../../../../classes/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -70,7 +70,7 @@ export class HomePageComponent implements OnInit {
     }
   };
 
-  @ViewChild('header', {static: false}) titleElem: ElementRef;
+  @ViewChild('header', { static: false }) titleElem: ElementRef;
   nameVisible: string;
   constructor(
     private experienceService: ExperienceService,
@@ -78,21 +78,19 @@ export class HomePageComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) platformId: Object) {
+    @Inject(PLATFORM_ID) platformId: Record<string, any>) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
     if (this.isBrowser) {
-      this.experienceService.getExperiencesData().then(item => this.jobs = item);
+      this.jobs = await this.experienceService.getExperiencesData();
     }
     this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
   }
+
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isMinimized = document.documentElement.scrollTop > 0;
-    const height = Math.max(0, 300 - window.scrollY);
-    this.titleElem.nativeElement.style.height  = height + 'px';
-    this.nameVisible = height === 0 ? 'visible' : 'hidden';
+  onWindowScroll(): void {
+    this.isMinimized = document.documentElement.scrollTop > 250;
   }
 }
