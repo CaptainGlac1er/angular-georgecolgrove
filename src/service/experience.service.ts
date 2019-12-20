@@ -1,10 +1,11 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Job } from '../classes/job';
 import { ProjectsService } from './projects.service';
 import { Project } from '../classes/project';
 import { environment } from '../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,16 @@ export class ExperienceService {
   constructor(
     private projectService: ProjectsService,
     private http: HttpClient,
-    @Inject(PLATFORM_ID) platformId: Object) {
+    @Inject(PLATFORM_ID) platformId: Record<string, any>) {
     this.jobs = [];
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   async fetchProjects(): Promise<Job[]> {
     if (this.isBrowser) {
-      return this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).toPromise<Job[]>();
+      return await this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).pipe(map((response: Job[]) => {
+        return response.map(value => Job.getTile(value))
+      })).toPromise();
     }
     return [];
   }

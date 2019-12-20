@@ -18,7 +18,7 @@ describe('ExperiencesComponent', () => {
       ],
       providers: [
         ExperienceService,
-        {provide: PLATFORM_ID, useValue: 'browser'},
+        { provide: PLATFORM_ID, useValue: 'browser' },
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

@@ -24,7 +24,7 @@ export class ExperienceComponent implements OnInit {
     private route: ActivatedRoute,
     private experienceService: ExperienceService,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(PLATFORM_ID) platformId: Record<string, any>,
     private titleService: Title) {
     this.isBrowser = isPlatformBrowser(platformId);
   }

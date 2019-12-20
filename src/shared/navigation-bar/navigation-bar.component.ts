@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { MobileService } from '../../service/mobile.service';
+import { Component } from '@angular/core';
+import { MobileService } from '@service/mobile.service';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css']
 })
-export class NavigationBarComponent implements OnInit {
+export class NavigationBarComponent {
   links = [
     {
       title: 'Experience',
@@ -26,8 +26,4 @@ export class NavigationBarComponent implements OnInit {
     public mobileInterface: MobileService
   ) {
   }
-
-  ngOnInit() {
-  }
-
 }

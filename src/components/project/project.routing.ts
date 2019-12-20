@@ -4,8 +4,8 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 export const appRoutes: Routes = [
-  {path: '', component: ProjectsComponent},
-  {path: ':project', component: ProjectComponent}
+  { path: '', component: ProjectsComponent },
+  { path: ':project', component: ProjectComponent }
 ];
 
 export const projectRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);

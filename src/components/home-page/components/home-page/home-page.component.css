@@ -28,21 +28,15 @@
 }
 .home-nav-bar {
     display: flex;
+    height: 50px;
     flex-direction: column;
     flex: 0 0 50px;
     z-index: +1;
     max-width: 1800px;
     width: 100%;
     margin: 0 auto;
-}
-.header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    height: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
 }
 .home-nav-bar-inner {
     display: flex;
@@ -55,7 +49,6 @@
     flex: 0 1 500px;
 }
 .padding-top {
-    padding-top: 300px;
     box-sizing: border-box;
 }
 

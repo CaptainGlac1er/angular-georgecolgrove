@@ -11,7 +11,7 @@ import { Response } from 'express';
 export class PageNotFoundComponent implements OnInit {
   isBrowser: boolean;
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: Record<string, any>,
     @Inject(RESPONSE) @Optional() private response: Response) {
     this.isBrowser = isPlatformBrowser(platformId);
   }

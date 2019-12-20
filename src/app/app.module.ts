@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {SharedModule} from '@shared/shared/shared.module';
-import {NormalHeaderRouteComponent} from '../components/normal-header-route/normal-header-route.component';
-import {NoHeaderRouteComponent} from '../components/no-header-route/no-header-route.component';
+import { SharedModule } from '@shared/shared/shared.module';
+import { NormalHeaderRouteComponent } from '../components/normal-header-route/normal-header-route.component';
+import { NoHeaderRouteComponent } from '../components/no-header-route/no-header-route.component';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import {NoHeaderRouteComponent} from '../components/no-header-route/no-header-ro
     NoHeaderRouteComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'angular-georgecolgrove'}),
+    BrowserModule.withServerTransition({ appId: 'angular-georgecolgrove' }),
     CommonModule,
     routing,
     MatIconModule,

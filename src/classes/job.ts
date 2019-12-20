@@ -10,10 +10,11 @@ export class Job extends DataRow {
   frameworksUsed?: ILink[];
 
   static getTile(job: Job): Job {
-    return Object.assign({}, job, {
-              title: job.company,
-              subTitle: job.position,
-      }) as Job;
+    return {
+      ...job,
+      title: job.company,
+      subTitle: job.position,
+    };
   }
 
   /*static decode(json): Job {
