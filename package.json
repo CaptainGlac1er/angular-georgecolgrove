@@ -30,7 +30,7 @@
     "start:ssr": "npm run build:ssr && npm run serve:ssr",
     "generate-bundle-report": "ng build --stats-json",
     "generate-bundle-report-prod": "ng build --prod --stats-json",
-    "bundle-report": "webpack-bundle-analyzer dist/browser/stats.json"
+    "bundle-report": "webpack-bundle-analyzer dist/browser/stats-es2018.json"
   },
   "pre-commit": [],
   "private": true,
@@ -85,6 +85,7 @@
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "node-sass": "^4.13.0",
     "pre-commit": "^1.2.2",
     "ts-loader": "^6.0.4",
     "typescript": "~3.4.5",

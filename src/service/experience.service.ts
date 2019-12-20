@@ -31,9 +31,11 @@ export class ExperienceService {
     return [];
   }
   async getExperiencesData(): Promise<Job[]> {
-    if (this.jobs.length === 0) {
-      for (const item of await this.fetchProjects()) {
-        this.jobs.push(Job.getTile(item));
+    if (this.isBrowser) {
+      if (this.jobs.length === 0) {
+        for (const item of await this.fetchProjects()) {
+          this.jobs.push(Job.getTile(item));
+        }
       }
     }
     return this.jobs;
