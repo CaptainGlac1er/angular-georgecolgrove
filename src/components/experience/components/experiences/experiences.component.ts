@@ -3,15 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { ExperienceService } from '@service/experience.service';
-import { Job } from '../../../../classes/job';
+import { Job } from '../../../../interfaces/job';
+import { Tile } from '../../../../interfaces/tile';
+import {DataRow} from '../../../../interfaces/data-row';
 
 @Component({
   selector: 'app-experiences',
   templateUrl: './experiences.component.html',
-  styleUrls: ['./experiences.component.css', '../../../../shared/css/page-listing.css']
+  styleUrls: ['./experiences.component.scss', '../../../../shared/css/page-listing.scss']
 })
 export class ExperiencesComponent implements OnInit {
-  jobs: Job[];
+  jobs: DataRow[];
   isBrowser: boolean;
 
   constructor(
@@ -24,7 +26,9 @@ export class ExperiencesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.experienceService.fetchProjects().then(jobs => this.jobs = jobs);
+    this.experienceService.fetchProjects()
+      .then(jobs => this.experienceService.convertJobArrayToTileDataArray(jobs))
+      .then(jobTiles => this.jobs = jobTiles);
     this.titleService.setTitle(`George Walter Colgrove IV - Jobs`);
   }
 

@@ -7,13 +7,15 @@ import {
   PLATFORM_ID,
   ViewChild
 } from '@angular/core';
-import { Job } from '../../../../classes/job';
+import { Job } from '../../../../interfaces/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import {DataRow} from '../../../../interfaces/data-row';
+import {Tile} from '../../../../interfaces/tile';
 
 @Component({
   selector: 'app-home-page',

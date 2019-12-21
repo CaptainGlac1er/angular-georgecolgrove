@@ -6,9 +6,6 @@ import { Injectable } from '@angular/core';
 export class MobileService {
   public hamburgerShown: boolean;
 
-  constructor() {
-  }
-
   closeHamburgerMenu() {
     this.hamburgerShown = false;
   }
