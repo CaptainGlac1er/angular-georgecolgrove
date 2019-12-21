@@ -1,11 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import {TestComponentContext} from '../interfaces/TestComponentContext';
+import {ExperiencesComponent} from '../components/experience/components/experiences/experiences.component';
 
 describe('AppComponent', () => {
-  beforeEach(async (done) => {
+  interface AppComponentTest {
+    titleService: Title;
+    metaService: Meta;
+  }
+  beforeEach(async function (this: TestComponentContext<AppComponent, AppComponentTest>) {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -23,15 +29,12 @@ describe('AppComponent', () => {
     }).compileComponents();
     this.fixture = TestBed.createComponent(AppComponent);
     this.component = this.fixture.componentInstance;
-    done();
   });
-  it('should create the app', async (done) => {
+  it('should create the app', async function (this: TestComponentContext<AppComponent, AppComponentTest>) {
     await expect(this.component).toBeTruthy();
-    done();
   });
-  it(`should have as title`, async (done) => {
+  it(`should have as title`, async function (this: TestComponentContext<AppComponent, AppComponentTest>) {
     this.component.ngOnInit();
-    await expect(this.component.title).toEqual('George Walter Colgrove IV - Personal Website');
-    done();
+    expect(this.component.title).toEqual('George Walter Colgrove IV - Personal Website');
   });
 });

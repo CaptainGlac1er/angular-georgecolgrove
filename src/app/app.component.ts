@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.meta.addTags([
       {
         name: 'author',

@@ -29,7 +29,7 @@ export class ExperienceComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if (params.has('company')) {
         this.experienceService.getJob(params.get('company')).then(item => {
