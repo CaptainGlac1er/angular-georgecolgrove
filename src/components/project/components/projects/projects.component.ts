@@ -24,7 +24,7 @@ export class ProjectsComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.projectService.getProjectsData().then(value => this.projects = value);
     this.titleService.setTitle('George Walter Colgrove IV - Projects');
   }
