@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { map } from 'rxjs/operators';
+import { Tile } from '../classes/tile';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +25,19 @@ export class ExperienceService {
 
   async fetchProjects(): Promise<Job[]> {
     if (this.isBrowser) {
-      return await this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).pipe(map((response: Job[]) => {
-        return response.map(value => Job.getTile(value))
-      })).toPromise();
+      return await this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).toPromise();
     }
     return [];
   }
+
+  async convertJobArrayToTileDataArray(jobs: Job[]): Promise<Tile[]> {
+    return jobs.map(job => ({
+      ...job,
+          title: job.company,
+          subTitle: job.position,
+    } as Tile));
+  }
+
   async getExperiencesData(): Promise<Job[]> {
     if (this.jobs.length === 0) {
       for (const item of await this.fetchProjects()) {

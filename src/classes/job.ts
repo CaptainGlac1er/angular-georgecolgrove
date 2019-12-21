@@ -11,9 +11,6 @@ export class Job extends DataRow {
 
   static getTile(job: Job): Job {
     return {
-      ...job,
-      title: job.company,
-      subTitle: job.position,
     };
   }
 
