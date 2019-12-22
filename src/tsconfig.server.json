@@ -5,10 +5,8 @@
     "baseUrl": "./",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2018",
     "types": [
       "node"
     ]

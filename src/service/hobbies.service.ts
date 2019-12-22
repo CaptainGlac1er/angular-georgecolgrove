@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataRow } from '../classes/data-row';
+import { DataRow } from '../interfaces/data-row';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,6 @@ export class HobbiesService {
       ]
     },
   ];
-
-  constructor() {
-  }
 
   getHobbiesData(): DataRow[] {
     return this.hobbyArray as DataRow[];

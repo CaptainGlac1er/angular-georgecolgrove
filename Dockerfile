@@ -1,6 +1,6 @@
 ### STAGE 1: Build ###
 
-FROM node:11-alpine as builder
+FROM node:12-alpine as builder
 
 WORKDIR /project
 
@@ -13,7 +13,7 @@ RUN npm run build:ssr
 
 ### STAGE 2: Create Image ###
 
-FROM node:11-alpine
+FROM node:12-alpine
 
 COPY --from=builder /project/dist /project/dist
 COPY ./package*.json /project/

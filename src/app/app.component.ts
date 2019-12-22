@@ -8,7 +8,7 @@ declare let ga: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'George Walter Colgrove IV - Personal Website';
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.meta.addTags([
       {
         name: 'author',

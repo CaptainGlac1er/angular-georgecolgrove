@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ExperienceService } from '@service/experience.service';
-import { Job } from '../../../../classes/job';
+import { Job } from '../../../../interfaces/job';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../../../../classes/project';
+import { Project } from '../../../../interfaces/project';
 import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css', '../../../../shared/css/page-listing.css']
+  styleUrls: ['./experience.component.scss', '../../../../shared/css/page-listing.scss']
 })
 export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';
@@ -29,7 +29,7 @@ export class ExperienceComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if (params.has('company')) {
         this.experienceService.getJob(params.get('company')).then(item => {

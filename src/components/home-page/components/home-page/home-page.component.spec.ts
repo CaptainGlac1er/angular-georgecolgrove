@@ -5,12 +5,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, PLATFORM_ID } from '@angular/core';
 import { ExperienceService } from '@service/experience.service';
 import { Title } from '@angular/platform-browser';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 
 describe('HomePageComponent', () => {
-
-  beforeEach(async (done) => {
+  type HomePageComponentTest = TestComponentContext<HomePageComponent>;
+  beforeEach(async function (this: HomePageComponentTest) {
     await TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         RouterTestingModule
       ],
       declarations: [
@@ -28,11 +31,9 @@ describe('HomePageComponent', () => {
       .compileComponents();
     this.fixture = TestBed.createComponent(HomePageComponent);
     this.component = this.fixture.componentInstance;
-    done();
   });
 
-  it('should create', async (done) => {
-    await expect(this.component).toBeTruthy();
-    done();
+  it('should create', async function (this: HomePageComponentTest) {
+    expect(this.component).toBeTruthy();
   });
 });

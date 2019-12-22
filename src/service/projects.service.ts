@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { Project } from '../classes/project';
-import { Job } from '../classes/job';
+import { Project } from '../interfaces/project';
+import { Job } from '../interfaces/job';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
@@ -10,7 +10,6 @@ import { isPlatformBrowser } from '@angular/common';
 })
 
 export class ProjectsService {
-  private readonly projects: Project[];
   private readonly isBrowser: boolean;
 
   constructor(
@@ -18,7 +17,6 @@ export class ProjectsService {
     @Inject(PLATFORM_ID) platformId: Record<string, any>
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
-    this.projects = [];
   }
 
   async fetchProjects(): Promise<Project[]> {
@@ -29,12 +27,10 @@ export class ProjectsService {
   }
 
   async getProjectsData(): Promise<Project[]> {
-    if (this.projects.length === 0) {
-      for (const item of await this.fetchProjects()) {
-        this.projects.push(Project.getTile(item));
-      }
+    if(this.isBrowser) {
+      return await this.fetchProjects();
     }
-    return this.projects;
+    return [];
   }
 
   async getProject(tag: string): Promise<Project> {

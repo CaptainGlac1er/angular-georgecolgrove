@@ -6,14 +6,11 @@ import { Injectable } from '@angular/core';
 export class MobileService {
   public hamburgerShown: boolean;
 
-  constructor() {
-  }
-
-  closeHamburgerMenu() {
+  closeHamburgerMenu(): void {
     this.hamburgerShown = false;
   }
 
-  toggleHamburgerMenu() {
+  toggleHamburgerMenu(): void {
     this.hamburgerShown = !this.hamburgerShown;
   }
 }

@@ -3,7 +3,6 @@
 
 module.exports = (config) => {
     config.set({
-        concurrency: 1,
         basePath: '',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [

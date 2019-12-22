@@ -3,16 +3,17 @@ import { TestBed } from '@angular/core/testing';
 import { HobbiesService } from './hobbies.service';
 
 describe('HobbiesService', () => {
-  beforeEach(async (done) => {
+  interface HobbiesServiceTests {
+    hobbiesService: HobbiesService;
+  }
+  beforeEach(async function (this: HobbiesServiceTests) {
     await TestBed.configureTestingModule({
       providers: [HobbiesService]
     }).compileComponents();
-    this.service = TestBed.get(HobbiesService);
-    done();
+    this.hobbiesService = TestBed.get(HobbiesService);
   });
 
-  it('should be created', async (done) => {
-    await expect(this.service).toBeTruthy();
-    done();
+  it('should be created', async function (this: HobbiesServiceTests) {
+    expect(this.hobbiesService).toBeTruthy();
   });
 });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../../../../classes/project';
+import { Project } from '../../../../interfaces/project';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '@service/projects.service';
 import { Title } from '@angular/platform-browser';
@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css', '../../../../shared/css/page-listing.css'],
+  styleUrls: ['./project.component.scss', '../../../../shared/css/page-listing.scss'],
   providers: [ProjectsService]
 })
 export class ProjectComponent implements OnInit {
