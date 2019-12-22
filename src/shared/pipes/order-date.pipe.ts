@@ -5,10 +5,10 @@ import { StartEndObject } from '../../interfaces/start-end-object';
   name: 'orderDate'
 })
 export class OrderDatePipe implements PipeTransform {
-  transform<T extends StartEndObject>(list: T[], orderType?: string): T[] {
-    switch (orderType) {
-      case 'newestFirst':
-        if (list) {
+  transform<T extends StartEndObject>(list: T[], orderType?: 'newestFirst' | 'oldestFirst'): T[] {
+    if (list) {
+      switch (orderType) {
+        case 'newestFirst':
           list.sort((a, b) => {
             if (a.startDate > b.startDate) {
               return -1;
@@ -18,8 +18,18 @@ export class OrderDatePipe implements PipeTransform {
               return 1;
             }
           });
-        }
-        break;
+          break;
+        case 'oldestFirst':
+          list.sort((a, b) => {
+            if (a.startDate > b.startDate) {
+              return 1;
+            } else if (a.startDate === b.startDate) {
+              return 0;
+            } else if (a.startDate < b.startDate) {
+              return -1;
+            }
+          });
+      }
     }
     return list;
   }
