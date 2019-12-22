@@ -14,8 +14,6 @@ import { ExperienceService } from '@service/experience.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { DataRow } from '../../../../interfaces/data-row';
-import { Tile } from '../../../../interfaces/tile';
 
 @Component({
   selector: 'app-home-page',

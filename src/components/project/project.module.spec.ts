@@ -3,7 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ProjectModule', () => {
-  beforeEach(async (done) => {
+  interface ProjectModuleTest {
+    projectModule: ProjectModule;
+  }
+  beforeEach(async function (this: ProjectModuleTest) {
     await TestBed.configureTestingModule({
       imports: [
         ProjectModule
@@ -13,11 +16,9 @@ describe('ProjectModule', () => {
       ]
     }).compileComponents();
     this.projectModule = TestBed.get(ProjectModule);
-    done();
   });
 
-  it('should create an instance', async (done) => {
-    await expect(this.projectModule).toBeTruthy();
-    done();
+  it('should create an instance', async function (this: ProjectModuleTest) {
+    expect(this.projectModule).toBeTruthy();
   });
 });

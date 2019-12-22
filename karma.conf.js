@@ -6,13 +6,11 @@ module.exports = (config) => {
         basePath: '',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
-            /* eslint-disable */
             require('karma-jasmine'),
             require('karma-chrome-launcher'),
             require('karma-jasmine-html-reporter'),
             require('karma-coverage-istanbul-reporter'),
             require('@angular-devkit/build-angular/plugins/karma')
-            /* eslint-enable */
         ],
         client: {
             clearContext: false,

@@ -19,6 +19,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 
 app.engine('html', ngExpressEngine({

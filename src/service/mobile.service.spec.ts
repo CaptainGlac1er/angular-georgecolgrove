@@ -3,16 +3,17 @@ import { TestBed } from '@angular/core/testing';
 import { MobileService } from './mobile.service';
 
 describe('MobileService', () => {
-  beforeEach(async (done) => {
+  interface MobileServiceTest {
+    mobileService: MobileService;
+  }
+  beforeEach(async function (this: MobileServiceTest) {
     await TestBed.configureTestingModule({
       providers: [MobileService]
     }).compileComponents();
-    this.service = TestBed.get(MobileService);
-    done();
+    this.mobileService = TestBed.get(MobileService);
   });
 
-  it('should be created', async (done) => {
-    await expect(this.service).toBeTruthy();
-    done();
+  it('should be created', async function (this: MobileServiceTest) {
+    await expect(this.mobileService).toBeTruthy();
   });
 });

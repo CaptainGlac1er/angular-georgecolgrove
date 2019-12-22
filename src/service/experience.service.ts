@@ -5,7 +5,6 @@ import { Project } from '../interfaces/project';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
-import { Tile } from '../interfaces/tile';
 import { DataRow } from '../interfaces/data-row';
 
 @Injectable({

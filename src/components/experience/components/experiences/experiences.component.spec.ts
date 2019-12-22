@@ -9,10 +9,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 
 describe('ExperiencesComponent', () => {
-  interface ExperiencesComponentTest {
+  interface ExperiencesComponentTest extends TestComponentContext<ExperiencesComponent> {
     experienceService: ExperienceService;
   }
-  beforeEach(async function (this: TestComponentContext<ExperiencesComponent, ExperiencesComponentTest>) {
+  beforeEach(async function (this: ExperiencesComponentTest) {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -32,10 +32,10 @@ describe('ExperiencesComponent', () => {
     }).compileComponents();
     this.fixture = TestBed.createComponent(ExperiencesComponent);
     this.component = this.fixture.componentInstance;
-    this.sharedVariables.experienceService = TestBed.get(ExperienceService);
+    this.experienceService = TestBed.get(ExperienceService);
   });
 
-  it('should create', async function (this: TestComponentContext<ExperiencesComponent, ExperiencesComponentTest>) {
+  it('should create', async function (this: ExperiencesComponentTest) {
     expect(this.component).toBeTruthy();
   });
 });
