@@ -1,7 +1,7 @@
 <div *ngIf="job" id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job?.logoUrl + ')'}">
     <div class="main-tile">
-        <h1>{{job?.title}}</h1>
-        <h2>{{job?.subTitle}}</h2>
+        <h1>{{job?.company}}</h1>
+        <h2>{{job?.position}}</h2>
         <h3>{{job?.startDate | date:'shortDate'}} - {{(job?.endDate | date:'shortDate') || 'Current'}}</h3>
         <h3>{{job?.location}}</h3>
     </div>

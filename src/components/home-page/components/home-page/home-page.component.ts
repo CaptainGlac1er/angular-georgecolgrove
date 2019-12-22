@@ -14,6 +14,7 @@ import { ExperienceService } from '@service/experience.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import {DataRow} from '../../../../interfaces/data-row';
 
 @Component({
   selector: 'app-home-page',
@@ -54,7 +55,7 @@ export class HomePageComponent implements OnInit {
       + 'secure and modular for reusability and future development.',
     headerImage: 'https://cdn.georgecolgrove.com/img/profile.jpg'
   };
-  jobs: Job[] = [];
+  jobs: DataRow[];
   homepage = {
     jobs: {
       title: 'Experience:'
@@ -88,10 +89,13 @@ export class HomePageComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) platformId: Record<string, any>) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.jobs = [];
   }
 
   ngOnInit(): void {
-    this.experienceService.getExperiencesData().then(jobs => this.jobs = jobs);
+    this.experienceService.getExperiencesData()
+      .then(jobs => this.experienceService.convertJobArrayToTileDataArray(jobs))
+      .then(jobs => this.jobs = jobs);
     this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
   }
 
