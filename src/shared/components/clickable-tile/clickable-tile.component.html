@@ -1,0 +1,15 @@
+ <ng-container
+            *ngIf="objectToDisplay?.relUrl && (this.useExtUrlFirst || !objectToDisplay?.extUrl); then relLink; else extLink"></ng-container>
+<ng-template #relLink>
+    <a [routerLink]="objectToDisplay?.relUrl" class="text-link text-center">
+        <ng-container *ngTemplateOutlet="tile"></ng-container>
+    </a>
+</ng-template>
+<ng-template #extLink>
+    <a [href]="objectToDisplay?.extUrl" class="text-link text-center" target="_blank">
+        <ng-container *ngTemplateOutlet="tile"></ng-container>
+    </a>
+</ng-template>
+<ng-template #tile>
+    <ng-content></ng-content>
+</ng-template>

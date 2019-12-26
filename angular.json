@@ -6,6 +6,7 @@
     "angular-georgecolgrove": {
       "root": "",
       "projectType": "application",
+      "sourceRoot": "src",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -204,7 +205,7 @@
       }
     },
     "angular-georgecolgrove-e2e": {
-      "root": "",
+      "root": "e2e",
       "projectType": "application",
       "cli": {},
       "schematics": {},

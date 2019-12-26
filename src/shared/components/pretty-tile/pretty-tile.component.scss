@@ -1,0 +1,52 @@
+.pretty-tile {
+  background-color: rgba(255, 255, 255, .1);
+  min-height: 150px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  transition: 100ms linear;
+  height: 100%;
+  flex-direction: column;
+
+  > .fill {
+    flex: 1 1;
+  }
+
+  .sub-title {
+    font-size: 18px;
+  }
+
+  .content {
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: left;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    z-index: 1;
+  }
+}
+
+.background {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  > .overlay {
+    height: 100%;
+    background: rgba(17, 17, 17, 0.8);
+  }
+}
+.footer-title {
+  height: 30px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+a:link {
+  color: #eaeaea;
+}
+a:visited {
+  color: #eaeaea;
+}

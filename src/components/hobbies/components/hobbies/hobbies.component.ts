@@ -17,7 +17,7 @@ export class HobbiesComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.hobbies = this.hobbyService.getHobbiesData();
     this.titleService.setTitle(`George Walter Colgrove IV - Hobbies`);
   }

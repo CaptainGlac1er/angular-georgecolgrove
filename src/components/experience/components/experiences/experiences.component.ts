@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { ExperienceService } from '@service/experience.service';
-import { Job } from '../../../../interfaces/job';
-import { Tile } from '../../../../interfaces/tile';
 import { DataRow } from '../../../../interfaces/data-row';
 
 @Component({

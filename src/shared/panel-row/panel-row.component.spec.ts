@@ -9,9 +9,6 @@ describe('PanelRowComponent', () => {
 
   beforeEach(async (done) => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         PanelRowComponent,
         OrderDatePipe

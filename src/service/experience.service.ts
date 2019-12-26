@@ -32,6 +32,7 @@ export class ExperienceService {
       ...job,
       title: job.company,
       subTitle: job.position,
+      icon: job.logoUrl,
     }));
   }
 

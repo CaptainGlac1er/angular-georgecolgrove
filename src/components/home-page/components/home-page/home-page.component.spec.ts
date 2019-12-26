@@ -7,6 +7,7 @@ import { ExperienceService } from '@service/experience.service';
 import { Title } from '@angular/platform-browser';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
+import {OrderDatePipe} from '@shared/pipes/order-date.pipe';
 
 describe('HomePageComponent', () => {
   type HomePageComponentTest = TestComponentContext<HomePageComponent>;
@@ -17,7 +18,8 @@ describe('HomePageComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        HomePageComponent
+        HomePageComponent,
+        OrderDatePipe,
       ],
       providers: [
         ExperienceService,
