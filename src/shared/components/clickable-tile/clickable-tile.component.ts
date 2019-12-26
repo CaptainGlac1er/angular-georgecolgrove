@@ -7,6 +7,6 @@ import { DataRow } from '../../../interfaces/data-row';
   styleUrls: ['./clickable-tile.component.scss']
 })
 export class ClickableTileComponent {
-  @Input('object') private objectToDisplay: DataRow;
-  @Input() private useExtUrlFirst = false;
+  @Input('object') public objectToDisplay: DataRow;
+  @Input() public useExtUrlFirst = false;
 }
