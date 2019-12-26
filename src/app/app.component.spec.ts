@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { TestComponentContext } from '../interfaces/TestComponentContext';
 import { RouterTestingModule } from '@angular/router/testing';
