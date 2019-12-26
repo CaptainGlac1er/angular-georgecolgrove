@@ -1,0 +1,13 @@
+.plain-tile {
+  background-color: rgba(255, 255, 255, .1);
+  padding: 10px;
+  border-radius: 5px;
+  border-right: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  transition: 100ms linear;
+
+  &:hover {
+    transform: scale(1.02);
+    z-index: 1;
+  }
+}

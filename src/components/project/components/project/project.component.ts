@@ -22,7 +22,7 @@ export class ProjectComponent implements OnInit {
     private titleService: Title) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if (params.has('project')) {
         this.projectService.getProject(params.get('project')).then(value => {

@@ -9,7 +9,15 @@
 <app-panel-row [title]="experienceTitle"
                [contentText]="job?.description || job?.shortDescription"
                class="page-panel"></app-panel-row>
-<app-panel-row [title]="projectTitle" [contentTiles]="projectsForJob" class="page-panel"
-               *ngIf="projectsForJob?.length > 0"></app-panel-row>
-<app-panel-row [title]="frameworkTitle" [contentTiles]="job?.frameworksUsed" class="page-panel"
-               *ngIf="job?.frameworksUsed.length > 0"></app-panel-row>
+<app-panel-row [title]="projectTitle" class="page-panel"
+               *ngIf="projectsForJob?.length > 0">
+    <app-clickable-tile [object]="item" *ngFor="let item of projectsForJob" class="page-tile">
+        <app-plain-tile [object]="item"></app-plain-tile>
+    </app-clickable-tile>
+</app-panel-row>
+<app-panel-row [title]="frameworkTitle" class="page-panel"
+               *ngIf="job?.frameworksUsed.length > 0">
+    <app-clickable-tile [object]="item" *ngFor="let item of job?.frameworksUsed" class="page-tile">
+        <app-plain-tile [object]="item"></app-plain-tile>
+    </app-clickable-tile>
+</app-panel-row>

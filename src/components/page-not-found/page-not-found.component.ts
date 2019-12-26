@@ -16,7 +16,7 @@ export class PageNotFoundComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (!this.isBrowser) {
       this.response.status(404);
     }

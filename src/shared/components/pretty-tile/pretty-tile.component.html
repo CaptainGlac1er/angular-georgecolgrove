@@ -1,0 +1,17 @@
+<div class="pretty-tile">
+    <div class="background fill" [ngStyle]="{
+        'background-image': 'url(' + objectToDisplay?.icon + ')'
+    }">
+        <div class="overlay content">
+            <div class="sub-title">
+                {{objectToDisplay?.subTitle}}
+            </div>
+            <div class="more">
+                {{objectToDisplay?.shortDescription}}
+            </div>
+        </div>
+    </div>
+    <div class="footer-title">
+        {{objectToDisplay?.title}}
+    </div>
+</div>

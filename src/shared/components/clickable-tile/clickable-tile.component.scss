@@ -1,0 +1,10 @@
+.clickable-tile {
+  display: flex;
+
+  > a {
+    flex: 1 1 100%;
+  }
+}
+a {
+  box-sizing: border-box;
+}
