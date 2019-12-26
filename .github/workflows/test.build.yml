@@ -1,4 +1,4 @@
-name: Test Build
+name: Unit Tests
 
 on: [push]
 
@@ -7,19 +7,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Runs Tests within Docker Instance
       run: |
-        npm ci
-        npm run build
+        docker build -f test.Dockerfile -t angular-georgecolgrove-testbed .
+        docker run angular-georgecolgrove-testbed
       env:
         CI: true

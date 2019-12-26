@@ -7,5 +7,5 @@ import { DataRow } from '../../../interfaces/data-row';
   styleUrls: ['./pretty-tile.component.scss']
 })
 export class PrettyTileComponent {
-  @Input('object') private objectToDisplay: DataRow;
+  @Input('object') public objectToDisplay: DataRow;
 }

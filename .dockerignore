@@ -2,5 +2,5 @@ dist
 node_modules
 .idea
 .vscode
-Dockerfile
+*Dockerfile
 README.md

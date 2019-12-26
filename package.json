@@ -18,6 +18,7 @@
     "lint": "eslint --fix-dry-run . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "eslint --fix . --ext .ts",
     "test": "ng test",
+    "test:once": "ng test --watch=false",
     "build:client-and-server-bundles": "ng build --prod && ng run angular-georgecolgrove:server:production",
     "build:staging:client-and-server-bundles": "ng run angular-georgecolgrove:build:staging && ng run angular-georgecolgrove:server:staging",
     "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
