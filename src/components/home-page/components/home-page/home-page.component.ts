@@ -1,44 +1,22 @@
 import {
   Component,
-  ElementRef,
   HostListener,
   Inject,
   OnInit,
   PLATFORM_ID,
-  ViewChild
 } from '@angular/core';
-import { Job } from '../../../../interfaces/job';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { DataRow } from '../../../../interfaces/data-row';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  providers: [ExperienceService],
-  animations: [
-    trigger('nameVisible', [
-      state('visible', style({
-        flex: '1 1 200px',
-        minWidth: '130px'
-      })),
-      state('hidden', style({
-        flex: '0',
-        width: '0',
-      })),
-      transition('visible => hidden', [
-        animate('.2s')
-      ]),
-      transition('hidden => visible', [
-        animate('0.2s')
-      ]),
-    ])
-  ]
+  providers: [ExperienceService]
 })
 export class HomePageComponent implements OnInit {
   isBrowser: boolean;
@@ -46,7 +24,7 @@ export class HomePageComponent implements OnInit {
   name = 'George Walter Colgrove IV';
   gamertag = 'CaptainGlac1er';
   phone = '+1 802 595-1798';
-  isMinimized = false;
+  isMinimized: boolean;
   about = {
     title: 'About:',
     text: 'Constructing well built secure software is what I strive for. <br />'
@@ -79,8 +57,6 @@ export class HomePageComponent implements OnInit {
     }
   };
 
-  @ViewChild('header', { static: false }) titleElem: ElementRef;
-  nameVisible: string;
   constructor(
     private experienceService: ExperienceService,
     private router: Router,
@@ -90,6 +66,7 @@ export class HomePageComponent implements OnInit {
     @Inject(PLATFORM_ID) platformId: Record<string, any>) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.jobs = [];
+    this.isMinimized = true;
   }
 
   ngOnInit(): void {
@@ -101,6 +78,6 @@ export class HomePageComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    this.isMinimized = document.documentElement.scrollTop > 250;
+    this.isMinimized = document.documentElement.scrollTop <= 250;
   }
 }

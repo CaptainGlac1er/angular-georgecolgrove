@@ -1,7 +1,7 @@
-<ul class="nav-bar" id="navigationContent">
-    <li *ngFor="let link of links" class="nav-button">
+<div class="nav-bar" id="navigationContent">
+    <div *ngFor="let link of links" class="nav-button">
         <a [routerLink]="link.link" class="nav-link">
             {{link.title}}
         </a>
-    </li>
-</ul>
+    </div>
+</div>

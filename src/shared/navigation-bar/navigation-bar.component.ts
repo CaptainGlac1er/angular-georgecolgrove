@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MobileService } from '@service/mobile.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -21,9 +20,4 @@ export class NavigationBarComponent {
       link: ['/', 'hobbies']
     }
   ];
-
-  constructor(
-    public mobileInterface: MobileService
-  ) {
-  }
 }

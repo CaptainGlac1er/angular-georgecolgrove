@@ -10,6 +10,7 @@
 
 .nav-button {
     flex: 0 1 250px;
+    min-width: 50px;
     height: 100%;
 }
 
@@ -20,6 +21,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nav-link {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .nav-button:hover {

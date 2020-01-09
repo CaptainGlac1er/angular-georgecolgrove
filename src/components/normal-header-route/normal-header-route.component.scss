@@ -6,9 +6,9 @@
     max-width: 1700px;
     background-color: #111111;
 }
+
 #header {
-    position: sticky;
-    top: 0;
+    z-index: +1;
 }
 
 .page {
@@ -16,6 +16,10 @@
     min-height: 100%;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.gap {
+    flex: 1 1 auto;
 }
 
 .page .upper {

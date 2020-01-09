@@ -6,6 +6,10 @@
     padding: 10px;
 }
 
+#header {
+    z-index: +1;
+}
+
 #main-content {
     flex: 0 1 auto;
     margin-left: auto;
@@ -14,6 +18,7 @@
     max-width: 1700px;
     background-color: #111111;
 }
+
 #company-name {
     width: 0;
     overflow: hidden;
@@ -21,10 +26,12 @@
     align-items: center;
     display: flex;
 }
+
 #company-name > a {
     width: auto;
     flex: 0 0 auto;
 }
+
 .home-nav-bar {
     display: flex;
     height: 50px;
@@ -75,7 +82,10 @@
     display: flex;
     min-height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+}
+
+.gap {
+    flex: 1 1 auto;
 }
 
 .page .upper {

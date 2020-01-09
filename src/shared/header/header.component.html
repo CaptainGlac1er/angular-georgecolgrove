@@ -1,7 +1,14 @@
 <div id="top-bar">
-    <div id="top-bar-inner">
-        <a id="company-name" [routerLink]="['/']" (click)="closeHamburger()" class="text-link nav-button">George W.
-            Colgrove IV</a>
-        <app-navigation-bar id="navbar"></app-navigation-bar>
+    <div id="top-bar-inner"  class="nav-bar-inner">
+        <div id="company-name" [ngClass]="{
+            showCompany: !isMinimized
+        }">
+            <div class="nav-home">
+                <a [routerLink]="['/']" class="text-link nav-button">George W. Colgrove IV</a>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <app-navigation-bar id="navbar"></app-navigation-bar>
+        </div>
     </div>
 </div>
