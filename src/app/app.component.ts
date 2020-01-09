@@ -2,6 +2,8 @@ import { isPlatformBrowser } from '@angular/common'
 import { NavigationEnd, Router } from '@angular/router';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
+
 
 declare let ga: Function;
 
@@ -43,7 +45,7 @@ export class AppComponent implements OnInit {
     if (this.isBrowser) {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
-          ga('create', 'UA-124636170-1', 'auto');
+          ga('create', environment.googleAnalyticsTag, 'auto');
           ga('set', 'page', event.urlAfterRedirects);
           ga('send', 'pageview');
         }

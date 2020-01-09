@@ -3,7 +3,7 @@ name: Build Beta Site
 on: 
   push:
     branches: 
-      - 'beta'
+      - 'master'
 
 jobs:
   build:
@@ -13,5 +13,5 @@ jobs:
     - name: Build Beta Site
       run: |
         docker login --username captainglacier --password ${{ secrets.DockerHubToken }}
-        docker build . --file beta.Dockerfile --tag captainglacier/angular-georgecolgrove:beta
-        docker push captainglacier/angular-georgecolgrove:beta
+        docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:master
+        docker push captainglacier/angular-georgecolgrove:master
