@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
 import { DOCUMENT } from '@angular/common';
 import { environment } from '../../../../environments/environment';
@@ -59,7 +59,6 @@ export class HomePageComponent implements OnInit {
   constructor(
     private experienceService: ExperienceService,
     private router: Router,
-    private meta: Meta,
     private titleService: Title,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
@@ -77,6 +76,6 @@ export class HomePageComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    this.isMinimized = window.scrollY <= 250;
+    this.isMinimized = this.window.scrollY <= 250;
   }
 }

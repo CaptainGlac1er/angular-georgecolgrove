@@ -2,6 +2,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
+import { IS_BROWSER } from '@shared/providers';
 
 
 declare let ga: Function;
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     private router: Router,
-    @Inject('IS_BROWSER') private isBrowser: boolean
+    @Inject(IS_BROWSER) private isBrowser: boolean
   ) {}
 
   ngOnInit(): void {
