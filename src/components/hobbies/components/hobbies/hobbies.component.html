@@ -1,0 +1,5 @@
+<app-panel-row *ngFor="let hobby of hobbies" [title]="hobby.title"
+               [contentText]="hobby.description || hobby.shortDescription"
+               class="page-panel">
+    <app-clickable-tile [object]="item" *ngFor="let item of hobby?.links" class="page-tile"><app-plain-tile [object]="item"></app-plain-tile> </app-clickable-tile>
+</app-panel-row>

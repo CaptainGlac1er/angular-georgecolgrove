@@ -1,0 +1,45 @@
+#wrapper {
+    display: flex;
+    flex: 3 3 100%;
+    flex-direction: row;
+    padding: 20px 1vw;
+}
+
+.flex-row {
+    flex: 1 1 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.page-panel-title {
+    flex: 1 1 300px;
+    padding-bottom: 10px;
+}
+
+.page-panel-content {
+    flex: 1 1 100%;
+    flex-direction: column;
+    line-height: 30px;
+    padding: 5px;
+}
+
+.page-panel-content > div {
+    padding-bottom: 5px;
+}
+
+.page-panel-tile:hover {
+    transform: scale(1.02);
+}
+
+@media screen and (max-width: 1000px) {
+
+    #wrapper {
+        flex-direction: column;
+    }
+
+    .page-panel-title {
+        margin: 5px 1vh;
+        flex: 1 1 100%;
+    }
+}

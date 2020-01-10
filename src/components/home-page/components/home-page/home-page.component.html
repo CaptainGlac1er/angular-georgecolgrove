@@ -1,0 +1,31 @@
+<div class="padding-top page">
+    <div class="div-center-content" id="top-splash">
+        <div class="main-tile">
+            <div><img id="logo" alt="personal logo" [src]="logo"/></div>
+            <h1>{{name}}</h1>
+            <h2>{{gamertag}}</h2>
+            <h3>{{phone}}</h3>
+        </div>
+    </div>
+    <app-header id="header" [isMinimized]="isMinimized" class="stick-to-top"></app-header>
+    <div class="upper">
+        <div id="main-content">
+            <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
+            </app-panel-row>
+            <app-panel-row [title]="homepage.jobs.title" class="page-panel">
+                <app-clickable-tile [object]="item" *ngFor="let item of jobs | orderDate:'newestFirst'" class="page-tile">
+                    <app-pretty-tile [object]="item"></app-pretty-tile>
+                </app-clickable-tile>
+            </app-panel-row>
+            <app-panel-row [title]="homepage.links.title" class="page-panel">
+                <app-clickable-tile [object]="item" *ngFor="let item of homepage?.links.urls" class="page-tile">
+                    <app-plain-tile [object]="item"></app-plain-tile>
+                </app-clickable-tile>
+            </app-panel-row>
+        </div>
+    </div>
+    <div class="gap"></div>
+    <div class="bottom">
+        <app-footer></app-footer>
+    </div>
+</div>

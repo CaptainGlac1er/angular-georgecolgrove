@@ -1,0 +1,95 @@
+#top-bar {
+    display: flex;
+    justify-content: center;
+}
+
+#top-bar-inner {
+    background-color: black;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    height: inherit;
+    width: 100%;
+    max-width: 1800px;
+}
+
+#company-name {
+    flex: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    transition: height 200ms linear;
+
+    &.showCompany {
+        transition: flex .2s linear;
+        height: 50px;
+        flex: 1 1 200px;
+        min-width: 130px;
+    }
+}
+
+#navbar {
+    flex: 0 1 500px;
+    height: 100%;
+}
+
+.nav-bar {
+    display: flex;
+    height: 50px;
+    flex: 0 0 50px;
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nav-bar-inner {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    flex: 0 0 100%;
+
+    > .nav-bar {
+        align-items: center;
+        flex: 0 1 500px;
+    }
+}
+
+.nav-home {
+    flex: 0 1 250px;
+    min-width: 50px;
+    height: 100%;
+}
+
+.nav-home > a {
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    display: flex;
+    padding-left: 10px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 400px) {
+    #top-bar-inner {
+        flex-wrap: wrap;
+    }
+
+    #company-name {
+        &.showCompany {
+            flex: 1 0 100%;
+            min-width: 130px;
+            .nav-home {
+                flex: 1 0 100%;
+                a {
+                    font-size: 20px;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

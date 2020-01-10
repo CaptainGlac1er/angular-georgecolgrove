@@ -6,6 +6,7 @@
     "angular-georgecolgrove": {
       "root": "",
       "projectType": "application",
+      "sourceRoot": "src",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,7 +29,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -49,6 +50,59 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "staging": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.beta.ts"
+                }
+              ]
+            }
+          }
+        },
+        "build-dev": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/browser",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -60,6 +114,17 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-georgecolgrove:build:production"
+            }
+          }
+        },
+        "serve-dev": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-georgecolgrove:build-dev:dev"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-georgecolgrove:build-dev"
             }
           }
         },
@@ -78,7 +143,7 @@
             "tsConfig": "./src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "assets": [
               {
@@ -123,13 +188,24 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "staging": {
+              "optimization": true,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.beta.ts"
+                }
+              ]
             }
           }
         }
       }
     },
     "angular-georgecolgrove-e2e": {
-      "root": "",
+      "root": "e2e",
       "projectType": "application",
       "cli": {},
       "schematics": {},

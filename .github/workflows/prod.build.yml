@@ -1,0 +1,17 @@
+name: Build Prod Site
+
+on: 
+  push:
+    branches: 
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build Prod Site
+      run: |
+        docker login --username captainglacier --password ${{ secrets.DockerHubToken }}
+        docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:master
+        docker push captainglacier/angular-georgecolgrove:master

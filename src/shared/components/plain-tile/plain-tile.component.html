@@ -1,0 +1,9 @@
+<div class="plain-tile">
+    <h4>
+        {{objectToDisplay?.title}}
+    </h4>
+    <h3 *ngIf="objectToDisplay?.subTitle">
+        {{objectToDisplay?.subTitle}}
+    </h3>
+    <p *ngIf="objectToDisplay?.shortDescription" [innerHTML]="objectToDisplay?.shortDescription"></p>
+</div>

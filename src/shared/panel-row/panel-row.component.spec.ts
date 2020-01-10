@@ -1,7 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { PanelRowComponent } from './panel-row.component';
-import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { OrderDatePipe } from '../pipes/order-date.pipe';
 
@@ -9,9 +8,6 @@ describe('PanelRowComponent', () => {
 
   beforeEach(async (done) => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         PanelRowComponent,
         OrderDatePipe

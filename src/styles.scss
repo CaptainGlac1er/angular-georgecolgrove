@@ -1,0 +1,176 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    /*background: linear-gradient(to right bottom, rgb(16, 0, 0) 0%, rgb(48, 0, 0) 10%, rgb(16, 0, 0) 25%, rgb(48, 0, 0) 40%, rgb(16, 0, 0) 60%, rgb(48, 0, 0) 85%, rgb(16, 0, 0) 100%) fixed;*/
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    color: #d3d3d3;
+}
+
+html {
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-size: 18px;
+    height: 100%;
+}
+
+
+.scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.div-center-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin: 0 auto;
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+p {
+    margin: 0;
+}
+
+.page-title {
+    justify-content: center;
+    display: flex;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+a {
+    &:link {
+        color: #5b66c8;
+    }
+    &:visited {
+        color: #a26dc8;
+    }
+    &.text-link:link, &.text-link:visited {
+        color: #eaeaea;
+    }
+}
+
+#top-splash {
+    background: black;
+    background-size: cover;
+    align-content: center;
+    justify-content: center;
+}
+
+.main-tile {
+    box-sizing: border-box;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(20, 20, 20, 0.7) center center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.main-tile > div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.nav-button {
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #333333;
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+h2 {
+    margin: 3px 0;
+}
+
+h3 {
+    margin: 2px 0;
+}
+
+h4 {
+    margin: 1px 0;
+}
+
+div {
+    font-size: 16px;
+}
+
+.page-panel {
+    display: block;
+
+    .page-tile {
+        margin: 5px;
+        flex: 1 1 350px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.stick-to-top {
+    position: sticky;
+    top: 0;
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin: 3px 0;
+    }
+
+    h3 {
+        font-size: 13px;
+        margin: 2px 0;
+    }
+
+    h4 {
+        font-size: 12px;
+        margin: 1px 0;
+    }
+
+    div {
+        font-size: 12px;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.full-height {
+    min-height: 100%;
+}

@@ -21,12 +21,23 @@ module.exports = (config) => {
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true
         },
+        browserConsoleLogOptions: {
+            level: 'debug',
+            format: "%b %T: %m",
+            terminal: true
+        },
         reporters: ['progress', 'kjhtml'],
         port: 9876,
         colors: true,
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['Chrome'],
+        browsers: ['CustomChromeHeadless'],
+        customLaunchers: {
+            CustomChromeHeadless: {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']
+            }
+        },
         singleRun: false,
     });
 };

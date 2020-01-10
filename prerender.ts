@@ -14,7 +14,8 @@ import { renderModuleFactory } from '@angular/platform-server';
 import { ROUTES } from './static.paths';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./server/main');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 
 const BROWSER_FOLDER = join(process.cwd(), 'browser');
 

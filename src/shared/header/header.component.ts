@@ -1,21 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MobileService } from '../../service/mobile.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-
-  constructor(
-    private mobile: MobileService) {
-  }
-
-  ngOnInit() {
-  }
-
-  closeHamburger() {
-    this.mobile.closeHamburgerMenu();
-  }
+export class HeaderComponent {
+  @Input('isMinimized') isMinimized = false;
 }

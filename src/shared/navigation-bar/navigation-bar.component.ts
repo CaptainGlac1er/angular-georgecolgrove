@@ -1,33 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { MobileService } from '../../service/mobile.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  styleUrls: ['./navigation-bar.component.scss']
 })
-export class NavigationBarComponent implements OnInit {
+export class NavigationBarComponent {
   links = [
     {
       title: 'Experience',
-      link: 'experiences'
+      link: ['/', 'experiences']
     },
     {
       title: 'Projects',
-      link: 'projects'
+      link: ['/', 'projects']
     },
     {
       title: 'Hobbies',
-      link: 'hobbies'
+      link: ['/', 'hobbies']
     }
   ];
-
-  constructor(
-    public mobileInterface: MobileService
-  ) {
-  }
-
-  ngOnInit() {
-  }
-
 }

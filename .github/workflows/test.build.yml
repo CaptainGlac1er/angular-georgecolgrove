@@ -1,0 +1,17 @@
+name: Unit Tests
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Runs Tests within Docker Instance
+      run: |
+        docker build -f test.Dockerfile -t angular-georgecolgrove-testbed .
+        docker run angular-georgecolgrove-testbed
+      env:
+        CI: true

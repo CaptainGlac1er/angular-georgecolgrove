@@ -1,0 +1,93 @@
+#logo {
+    width: 100px;
+    align-self: center;
+    background-color: rgba(50, 50, 50, .8);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#header {
+    z-index: +1;
+}
+
+#main-content {
+    flex: 0 1 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1700px;
+    background-color: #111111;
+}
+
+#company-name {
+    width: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    align-items: center;
+    display: flex;
+}
+
+#company-name > a {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.home-nav-bar {
+    display: flex;
+    height: 50px;
+    flex-direction: column;
+    flex: 0 0 50px;
+    z-index: +1;
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+}
+.home-nav-bar-inner {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    flex: 0 0 100%;
+
+    > .nav-bar {
+        align-items: center;
+        flex: 0 1 500px;
+    }
+}
+.padding-top {
+    box-sizing: border-box;
+}
+
+#top-splash {
+    background-size: cover;
+    background: url("https://cdn.georgecolgrove.com/img/splash.jpg") center center;
+    background-size: cover;
+    overflow: hidden;
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-panel-tile {
+    flex: 1 1 350px;
+}
+
+.links {
+    text-align: center;
+    text-decoration: none;
+}
+
+.page {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+.gap {
+    flex: 1 1 auto;
+}
+
+.page .upper {
+    justify-content: normal;
+}

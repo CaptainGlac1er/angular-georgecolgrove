@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataRow } from '../classes/data-row';
+import { DataRow } from '../interfaces/data-row';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +10,26 @@ export class HobbiesService {
     {
       tag: 'photography',
       title: 'Photography',
-      shortDescription: 'I like taking my camera to events especially fireworks',
+      shortDescription: 'I enjoy nature photography while experimenting with other genres',
       links: [
         {
           title: 'Facebook Page',
-          extUrl: 'https://www.facebook.com/gwcphotography/'
+          extUrl: 'https://www.facebook.com/gwcphotography/',
         },
+        {
+          title: 'GuruShots',
+          extUrl: 'https://gurushots.com/georgecolgrove/photos',
+        },
+        {
+          title: 'ShutterStock',
+          extUrl: 'https://www.shutterstock.com/g/George+Walter+Colgrove+IV',
+        }
       ]
     },
     {
       tag: 'gaming',
       title: 'Gaming',
-      shortDescription: 'Love to game in my free time and sometimes stream',
+      shortDescription: 'In my free time I like to play some games and occasionally stream',
       links: [
         {
           title: 'Steam',
@@ -35,14 +43,7 @@ export class HobbiesService {
     },
   ];
 
-  constructor() {
-  }
-
   getHobbiesData(): DataRow[] {
-    const hobbies: DataRow[] = [];
-    this.hobbyArray.forEach(function (item) {
-      hobbies.push(DataRow.decode(item));
-    });
-    return hobbies;
+    return this.hobbyArray as DataRow[];
   }
 }

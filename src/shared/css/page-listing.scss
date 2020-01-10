@@ -1,0 +1,38 @@
+.listing-body {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a.listing-row {
+    text-decoration: none;
+    color: inherit;
+}
+
+.listing-row {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid lightgrey;
+}
+
+.listing-row > .listing-title {
+
+}
+
+.listing-row > .listing-subtitle {
+
+}
+
+.listing-row > .listing-body {
+
+}
+
+.listing-single-column {
+    flex: 0 0 100%;
+}
+
+.listing-double-column {
+    flex: 0 0 50%;
+}

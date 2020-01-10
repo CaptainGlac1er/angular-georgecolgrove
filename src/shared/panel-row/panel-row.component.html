@@ -8,67 +8,7 @@
             </div>
         </div>
         <div class="flex-row">
-            <ng-container *ngIf="sortByDate; then dateSorting; else noDateSorting"></ng-container>
-            <ng-template #dateSorting>
-                <div *ngFor="let item of contentTiles | orderDate:'newestFirst'" class="page-panel-tile">
-                    <ng-container
-                            *ngIf="item.relUrl && (this.useExtUrlFirst || !item.extUrl); then relLink; else extLink"></ng-container>
-                    <ng-template #relLink>
-                        <a class="text-link text-center"
-                           [routerLink]="item.relUrl">
-                            <h4>
-                                {{item.title}}
-                            </h4>
-                            <h3 *ngIf="item.subTitle">
-                                {{item.subTitle}}
-                            </h3>
-                            <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-                        </a>
-                    </ng-template>
-                    <ng-template #extLink>
-                        <a class="text-link text-center"
-                           [href]="item.extUrl" target="_blank">
-                            <h4>
-                                {{item.title}}
-                            </h4>
-                            <h3 *ngIf="item.subTitle">
-                                {{item.subTitle}}
-                            </h3>
-                            <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-                        </a>
-                    </ng-template>
-                </div>
-            </ng-template>
-            <ng-template #noDateSorting>
-                <div *ngFor="let item of contentTiles" class="page-panel-tile">
-                    <ng-container
-                            *ngIf="item.relUrl && (this.useExtUrlFirst || !item.extUrl); then relLink; else extLink"></ng-container>
-                    <ng-template #relLink>
-                        <a class="text-link text-center"
-                           [routerLink]="item.relUrl">
-                            <h4>
-                                {{item.title}}
-                            </h4>
-                            <h3 *ngIf="item.subTitle">
-                                {{item.subTitle}}
-                            </h3>
-                            <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-                        </a>
-                    </ng-template>
-                    <ng-template #extLink>
-                        <a class="text-link text-center"
-                           [href]="item.extUrl" target="_blank">
-                            <h4>
-                                {{item.title}}
-                            </h4>
-                            <h3 *ngIf="item.subTitle">
-                                {{item.subTitle}}
-                            </h3>
-                            <p *ngIf="item.shortDescription" [innerHTML]="item.shortDescription"></p>
-                        </a>
-                    </ng-template>
-                </div>
-            </ng-template>
+            <ng-content></ng-content>
         </div>
     </div>
 </div>
