@@ -1,4 +1,4 @@
-name: Build Beta Site
+name: Build Prod Site
 
 on: 
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Build Beta Site
+    - name: Build Prod Site
       run: |
         docker login --username captainglacier --password ${{ secrets.DockerHubToken }}
         docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:master

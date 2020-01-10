@@ -3,14 +3,14 @@ import {
   HostListener,
   Inject,
   OnInit,
-  PLATFORM_ID,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ExperienceService } from '@service/experience.service';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { DataRow } from '../../../../interfaces/data-row';
+import { IS_BROWSER, WINDOW } from '@shared/providers';
 
 @Component({
   selector: 'app-home-page',
@@ -19,7 +19,6 @@ import { DataRow } from '../../../../interfaces/data-row';
   providers: [ExperienceService]
 })
 export class HomePageComponent implements OnInit {
-  isBrowser: boolean;
   logo = `${environment.cdn}/img/personalLogo2.png`;
   name = 'George Walter Colgrove IV';
   gamertag = 'CaptainGlac1er';
@@ -63,8 +62,8 @@ export class HomePageComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) platformId: Record<string, any>) {
-    this.isBrowser = isPlatformBrowser(platformId);
+    @Inject(WINDOW) private window: Window,
+    @Inject(IS_BROWSER) private isBrowser: boolean) {
     this.jobs = [];
     this.isMinimized = true;
   }
@@ -78,6 +77,6 @@ export class HomePageComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    this.isMinimized = document.documentElement.scrollTop <= 250;
+    this.isMinimized = window.scrollY <= 250;
   }
 }
