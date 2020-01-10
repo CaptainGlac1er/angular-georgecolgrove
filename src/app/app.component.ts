@@ -1,8 +1,8 @@
-import { isPlatformBrowser } from '@angular/common'
 import { NavigationEnd, Router } from '@angular/router';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
+import { IS_BROWSER } from '@shared/providers';
 
 
 declare let ga: Function;
@@ -14,16 +14,13 @@ declare let ga: Function;
 })
 export class AppComponent implements OnInit {
   title = 'George Walter Colgrove IV - Personal Website';
-  isBrowser: boolean;
 
   constructor(
     private meta: Meta,
     private titleService: Title,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Record<string, any>
-  ) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @Inject(IS_BROWSER) private isBrowser: boolean
+  ) {}
 
   ngOnInit(): void {
     this.meta.addTags([
