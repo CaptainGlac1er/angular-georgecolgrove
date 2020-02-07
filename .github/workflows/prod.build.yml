@@ -13,5 +13,5 @@ jobs:
     - name: Build Prod Site
       run: |
         docker login --username captainglacier --password ${{ secrets.DockerHubToken }}
-        docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:master
-        docker push captainglacier/angular-georgecolgrove:master
+        docker build . --file Dockerfile --tag captainglacier/angular-georgecolgrove:latest
+        docker push captainglacier/angular-georgecolgrove:latest

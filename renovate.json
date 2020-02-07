@@ -2,6 +2,6 @@
   "extends": [
     "config:base"
   ],
-  "rangeStrategy": "auto",
+  "rangeStrategy": "replace",
   "separatePatchReleases": false
 }
