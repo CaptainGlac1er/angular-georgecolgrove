@@ -48,7 +48,7 @@
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/platform-server": "^8.2.14",
     "@angular/router": "^8.2.14",
-    "@nguniversal/common": "~8.2.6",
+    "@nguniversal/common": "~9.1.0",
     "@nguniversal/express-engine": "~8.2.6",
     "@nguniversal/module-map-ngfactory-loader": "~8.2.6",
     "classlist.js": "^1.1.20150312",
