@@ -122,8 +122,9 @@ div {
     display: block;
 
     .page-tile {
-        margin: 5px;
-        flex: 1 1 350px;
+        padding: 5px;
+        box-sizing: border-box;
+        flex: 0 0 calc(100% / 3);
     }
 }
 
@@ -159,6 +160,12 @@ div {
 
     div {
         font-size: 12px;
+    }
+
+    .page-panel {
+        .page-tile {
+            flex: 1;
+        }
     }
 }
 
