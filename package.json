@@ -86,7 +86,7 @@
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.5.1",
     "ng-mocks": "^8.1.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^4.14.0",
     "pre-commit": "^1.2.2",
     "ts-loader": "^6.2.1",
     "typescript": "~3.4.5",
