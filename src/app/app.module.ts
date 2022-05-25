@@ -1,7 +1,7 @@
 import { NgModule, PLATFORM_ID } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { routing } from './app.routing';
 import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
