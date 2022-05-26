@@ -43,7 +43,7 @@ describe('HomePageComponent', () => {
         .compileComponents();
       this.fixture = TestBed.createComponent(HomePageComponent);
       this.component = this.fixture.componentInstance;
-      this.window = TestBed.get(WINDOW);
+      this.window = TestBed.inject(WINDOW);
     });
 
     it('should create', async function (this: HomePageComponentTest) {
