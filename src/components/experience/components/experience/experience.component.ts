@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { ExperienceService } from '@service/experience.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ExperienceService } from '../../../../service/experience.service';
 import { Job } from '../../../../interfaces/job';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../../../../interfaces/project';
-import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { IS_BROWSER } from '../../../../shared/providers';
 
 @Component({
   selector: 'app-experience',
@@ -17,17 +17,14 @@ export class ExperienceComponent implements OnInit {
   frameworkTitle = 'Frameworks:';
   projectsForJob: Project[];
   job: Job;
-  isBrowser: boolean;
 
 
   constructor(
     private route: ActivatedRoute,
     private experienceService: ExperienceService,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Record<string, any>,
-    private titleService: Title) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @Inject(IS_BROWSER) private isBrowser: boolean,
+    private titleService: Title) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

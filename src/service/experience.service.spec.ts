@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ExperienceService } from './experience.service';
 import Spy = jasmine.Spy;
-import { ProjectsService } from '@service/projects.service';
+import { ProjectsService } from 'service/projects.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ExperienceService', () => {

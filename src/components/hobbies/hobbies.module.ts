@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@shared/shared/shared.module';
+import { SharedModule } from '../../shared/shared/shared.module';
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { hobbiesRouting } from './hobbies.routing';
 

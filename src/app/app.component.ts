@@ -2,7 +2,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
-import { IS_BROWSER } from '@shared/providers';
+import { IS_BROWSER } from '../shared/providers';
 
 
 declare let ga: Function;

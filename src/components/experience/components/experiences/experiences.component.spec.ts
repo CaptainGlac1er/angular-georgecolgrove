@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ExperiencesComponent } from './experiences.component';
-import { OrderDatePipe } from '@shared/pipes/order-date.pipe';
+import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
 import { CUSTOM_ELEMENTS_SCHEMA, PLATFORM_ID } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ExperienceService } from '@service/experience.service';
+import { ExperienceService } from '../../../../service/experience.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 

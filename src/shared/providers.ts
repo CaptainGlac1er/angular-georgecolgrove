@@ -1,16 +1,17 @@
 import { isPlatformBrowser } from '@angular/common';
+import { InjectionToken } from '@angular/core';
 
 export const
-  WINDOW = 'WINDOW',
-  LOCAL_STORAGE = 'LOCAL_STORAGE',
-  IS_BROWSER = 'IS_BROWSER';
+  WINDOW = new InjectionToken<string>('WINDOW'),
+  LOCAL_STORAGE = new InjectionToken<string>('LOCAL_STORAGE'),
+  IS_BROWSER = new InjectionToken<string>('IS_BROWSER');
 
-export function getWindow(): Window {
-  return window;
+export function getWindow(ifRunningInBrowser: boolean): Window {
+  return ifRunningInBrowser ? window : undefined;
 }
 
-export function getLocalStorage(window: Window): Storage {
-  return window ? window.localStorage : null;
+export function getLocalStorage(ifRunningInBrowser: boolean, window: Window): Storage {
+  return ifRunningInBrowser ? window.localStorage : null;
 }
 
 export function isBrowser(platformId: Record<string, any>): boolean {

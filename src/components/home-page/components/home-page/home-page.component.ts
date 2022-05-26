@@ -6,11 +6,11 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { ExperienceService } from '@service/experience.service';
+import { ExperienceService } from '../../../../service/experience.service';
 import { DOCUMENT } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { DataRow } from '../../../../interfaces/data-row';
-import { IS_BROWSER, WINDOW } from '@shared/providers';
+import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
 
 @Component({
   selector: 'app-home-page',
@@ -76,6 +76,6 @@ export class HomePageComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    this.isMinimized = this.window.scrollY <= 250;
+    this.isMinimized = this.isBrowser && this.window.scrollY <= 250;
   }
 }

@@ -3,9 +3,9 @@ import { TestBed } from '@angular/core/testing';
 import { NormalHeaderRouteComponent } from './normal-header-route.component';
 import { TestComponentContext } from '../../interfaces/TestComponentContext';
 import { MockComponent } from 'ng-mocks';
-import { HeaderComponent } from '@shared/header/header.component';
+import { HeaderComponent } from '../../shared/header/header.component';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from '@shared/footer/footer.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 describe('NormalHeaderRouteComponent', () => {
   type NormalHeaderRouteComponentTest = TestComponentContext<NormalHeaderRouteComponent>

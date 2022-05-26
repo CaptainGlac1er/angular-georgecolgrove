@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../../../interfaces/project';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectsService } from '@service/projects.service';
+import { ProjectsService } from '../../../../service/projects.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
