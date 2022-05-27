@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NoHeaderRouteComponent } from './no-header-route.component';
-import {MockComponent, MockDirective} from 'ng-mocks';
+import { MockDirective } from 'ng-mocks';
 import { RouterOutlet } from '@angular/router';
 import { TestComponentContext } from '../../interfaces/TestComponentContext';
 

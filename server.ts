@@ -52,9 +52,7 @@ function run() {
 // Webpack will replace 'require' with '__webpack_require__'
 // '__non_webpack_require__' is a proxy to Node 'require'
 // The below code is to ensure that the server is run only when not requiring the bundle.
-// eslint-disable-next-line @typescript-eslint/camelcase
 declare const __non_webpack_require__: NodeRequire;
-// eslint-disable-next-line @typescript-eslint/camelcase
 const mainModule = __non_webpack_require__.main;
 const moduleFilename = mainModule && mainModule.filename || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {

@@ -14,6 +14,6 @@ export function getLocalStorage(ifRunningInBrowser: boolean, window: Window): St
   return ifRunningInBrowser ? window.localStorage : null;
 }
 
-export function isBrowser(platformId: Record<string, any>): boolean {
+export function isBrowser(platformId: Record<string, unknown>): boolean {
   return isPlatformBrowser(platformId);
 }
