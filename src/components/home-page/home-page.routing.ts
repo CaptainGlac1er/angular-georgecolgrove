@@ -6,4 +6,4 @@ export const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
 ];
 
-export const homeRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
+export const homeRouting: ModuleWithProviders<RouterModule> = RouterModule.forChild(appRoutes);

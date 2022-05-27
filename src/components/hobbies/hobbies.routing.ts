@@ -6,4 +6,4 @@ export const appRoutes: Routes = [
   { path: '', component: HobbiesComponent }
 ];
 
-export const hobbiesRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
+export const hobbiesRouting: ModuleWithProviders<RouterModule> = RouterModule.forChild(appRoutes);
