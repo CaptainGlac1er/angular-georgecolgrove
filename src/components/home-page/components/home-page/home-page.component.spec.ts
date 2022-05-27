@@ -3,12 +3,12 @@ import { TestBed } from '@angular/core/testing';
 import { HomePageComponent } from './home-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ExperienceService } from '@service/experience.service';
+import { ExperienceService } from '../../../../service/experience.service';
 import { Title } from '@angular/platform-browser';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
-import { OrderDatePipe } from '@shared/pipes/order-date.pipe';
-import { IS_BROWSER, WINDOW } from '@shared/providers';
+import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
+import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
 
 describe('HomePageComponent', () => {
   interface HomePageComponentTest extends TestComponentContext<HomePageComponent> {
@@ -43,7 +43,7 @@ describe('HomePageComponent', () => {
         .compileComponents();
       this.fixture = TestBed.createComponent(HomePageComponent);
       this.component = this.fixture.componentInstance;
-      this.window = TestBed.get(WINDOW);
+      this.window = TestBed.inject(WINDOW);
     });
 
     it('should create', async function (this: HomePageComponentTest) {

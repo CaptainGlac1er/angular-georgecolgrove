@@ -15,7 +15,7 @@ describe('ProjectModule', () => {
         CUSTOM_ELEMENTS_SCHEMA
       ]
     }).compileComponents();
-    this.projectModule = TestBed.get(ProjectModule);
+    this.projectModule = TestBed.inject(ProjectModule);
   });
 
   it('should create an instance', async function (this: ProjectModuleTest) {

@@ -1,28 +1,24 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Job } from '../interfaces/job';
 import { ProjectsService } from './projects.service';
 import { Project } from '../interfaces/project';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { isPlatformBrowser } from '@angular/common';
 import { DataRow } from '../interfaces/data-row';
+import { IS_BROWSER } from '../shared/providers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
-  private readonly isBrowser: boolean;
-
   constructor(
     private projectService: ProjectsService,
     private http: HttpClient,
-    @Inject(PLATFORM_ID) platformId: Record<string, any>) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @Inject(IS_BROWSER) private isBrowser: boolean) {}
 
   async fetchProjects(): Promise<Job[]> {
     if (this.isBrowser) {
-      return await this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).toPromise();
+      return this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).toPromise();
     }
     return [];
   }
@@ -38,7 +34,7 @@ export class ExperienceService {
 
   async getExperiencesData(): Promise<Job[]> {
     if (this.isBrowser) {
-      return await this.fetchProjects();
+      return this.fetchProjects();
     }
     return [];
   }

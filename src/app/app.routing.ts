@@ -9,16 +9,16 @@ export const appRoutes: Routes = [
     path: '',
     component: NoHeaderRouteComponent,
     children: [
-      { path: '', loadChildren: '../components/home-page/home-page.module#HomePageModule', pathMatch: 'full' },
+      { path: '', loadChildren: () => import('../components/home-page/home-page.module').then(m => m.HomePageModule), pathMatch: 'full' },
     ]
   },
   {
     path: '',
     component: NormalHeaderRouteComponent,
     children: [
-      { path: 'experiences', loadChildren: '../components/experience/experience.module#ExperienceModule' },
-      { path: 'projects', loadChildren: '../components/project/project.module#ProjectModule' },
-      { path: 'hobbies', loadChildren: '../components/hobbies/hobbies.module#HobbiesModule' },
+      { path: 'experiences', loadChildren: () => import('../components/experience/experience.module').then(m => m.ExperienceModule) },
+      { path: 'projects', loadChildren: () => import('../components/project/project.module').then(m => m.ProjectModule) },
+      { path: 'hobbies', loadChildren: () => import('../components/hobbies/hobbies.module').then(m => m.HobbiesModule) },
     ]
   },
   {

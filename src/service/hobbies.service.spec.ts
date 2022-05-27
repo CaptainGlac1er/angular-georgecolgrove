@@ -10,7 +10,7 @@ describe('HobbiesService', () => {
     await TestBed.configureTestingModule({
       providers: [HobbiesService]
     }).compileComponents();
-    this.hobbiesService = TestBed.get(HobbiesService);
+    this.hobbiesService = TestBed.inject(HobbiesService);
   });
 
   it('should be created', async function (this: HobbiesServiceTests) {

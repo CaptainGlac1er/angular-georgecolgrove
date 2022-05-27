@@ -2,22 +2,24 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProjectsService } from './projects.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {IS_BROWSER} from '../shared/providers';
 
 describe('ProjectsService', () => {
-  interface ProjectsServiceTest {
-    projectService: ProjectsService;
-  }
-  beforeEach(async function (this: ProjectsServiceTest) {
+  let service: ProjectsService;
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule
       ],
-      providers: [ProjectsService]
+      providers: [
+        ProjectsService,
+        { provide: IS_BROWSER, useValue: true }
+      ]
     }).compileComponents();
-    this.projectService = TestBed.get(ProjectsService);
+    service = TestBed.inject(ProjectsService);
   });
 
-  it('should be created', async function (this: ProjectsServiceTest) {
-    await expect(this.projectService).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });

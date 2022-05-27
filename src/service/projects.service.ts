@@ -1,23 +1,19 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Project } from '../interfaces/project';
 import { Job } from '../interfaces/job';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { isPlatformBrowser } from '@angular/common';
+import { IS_BROWSER } from '../shared/providers';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProjectsService {
-  private readonly isBrowser: boolean;
-
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) platformId: Record<string, any>
-  ) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @Inject(IS_BROWSER) private isBrowser: boolean
+  ) {}
 
   async fetchProjects(): Promise<Project[]> {
     if (this.isBrowser) {
@@ -28,7 +24,7 @@ export class ProjectsService {
 
   async getProjectsData(): Promise<Project[]> {
     if(this.isBrowser) {
-      return await this.fetchProjects();
+      return this.fetchProjects();
     }
     return [];
   }

@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
-import { isPlatformBrowser } from '@angular/common';
 import { Response } from 'express';
+import { IS_BROWSER } from '../../shared/providers';
 
 @Component({
   selector: 'app-page-not-found',
@@ -9,12 +9,9 @@ import { Response } from 'express';
   styleUrls: ['./page-not-found.component.scss']
 })
 export class PageNotFoundComponent implements OnInit {
-  isBrowser: boolean;
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Record<string, any>,
-    @Inject(RESPONSE) @Optional() private response: Response) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @Inject(IS_BROWSER) private isBrowser: boolean,
+    @Inject(RESPONSE) @Optional() private response: Response) {}
 
   ngOnInit(): void {
     if (!this.isBrowser) {

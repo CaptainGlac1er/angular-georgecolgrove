@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { Meta, Title } from '@angular/platform-browser';
 import { TestComponentContext } from '../interfaces/TestComponentContext';
 import { RouterTestingModule } from '@angular/router/testing';
-import { IS_BROWSER } from '@shared/providers';
+import { IS_BROWSER } from '../shared/providers';
 
 describe('AppComponent', () => {
   interface AppComponentTest extends TestComponentContext<AppComponent> {

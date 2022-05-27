@@ -10,7 +10,7 @@ describe('MobileService', () => {
     await TestBed.configureTestingModule({
       providers: [MobileService]
     }).compileComponents();
-    this.mobileService = TestBed.get(MobileService);
+    this.mobileService = TestBed.inject(MobileService);
   });
 
   it('should be created', async function (this: MobileServiceTest) {

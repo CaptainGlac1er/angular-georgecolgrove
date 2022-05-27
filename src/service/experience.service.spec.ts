@@ -2,45 +2,40 @@ import { TestBed } from '@angular/core/testing';
 
 import { ExperienceService } from './experience.service';
 import Spy = jasmine.Spy;
-import { ProjectsService } from '@service/projects.service';
+import { ProjectsService } from './projects.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { IS_BROWSER } from '../shared/providers';
 
 describe('ExperienceService', () => {
-  interface ExperienceServiceTests {
-    projectService: ProjectsService;
-    experienceService: ExperienceService;
-  }
-
-  beforeEach(async function (this: ExperienceServiceTests)  {
+  let projectService: ProjectsService;
+  let service: ExperienceService;
+  beforeEach(async () =>  {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
         ],
       providers: [
-        ExperienceService
+        ExperienceService,
+        { provide: IS_BROWSER, useValue: true }        
       ]
     }).compileComponents();
-    this.experienceService = TestBed.get(ExperienceService);
-    this.projectService = TestBed.get(ProjectsService);
+    service = TestBed.inject(ExperienceService);
+    projectService = TestBed.inject(ProjectsService);
   });
 
-  it('should be created', async function (this: ExperienceServiceTests) {
-    await expect(this.experienceService).toBeTruthy();
+  it('should be created', () =>  {
+    expect(service).toBeTruthy();
   });
 
   describe('getProjectsForJob', () => {
-    interface GetProjectsForJobTests extends ExperienceServiceTests {
-      spy: Spy;
-    }
-
-    beforeEach(async function (this: GetProjectsForJobTests) {
-      this.spy = spyOn(this.projectService, 'getProjectsForJob');
+    let spy: Spy;
+    beforeEach(() => {
+      spy = spyOn(projectService, 'getProjectsForJob');
     });
 
-    it('should return empty array with an undefined job',
-      async function (this: GetProjectsForJobTests) {
-      this.spy.withArgs(undefined).and.returnValue(Promise.resolve([]));
-      expect(await this.experienceService.getProjectsForJob(undefined)).toEqual([]);
+    it('should return empty array with an undefined job', async () => {
+      spy.withArgs(undefined).and.returnValue(Promise.resolve([]));
+      expect(await service.getProjectsForJob(undefined)).toEqual([]);
     })
 
   })
