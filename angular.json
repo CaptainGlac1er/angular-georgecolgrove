@@ -79,9 +79,10 @@
                   "with": "src/environments/environment.beta.ts"
                 }
               ]
-            }
+            },
+            "development": {}
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "build-dev": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -130,24 +131,30 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-georgecolgrove:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-georgecolgrove:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "serve-dev": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-georgecolgrove:build-dev:dev"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-georgecolgrove:build-dev"
+              "browserTarget": "angular-georgecolgrove:build-dev:development"
+            },
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build-dev:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -220,9 +227,10 @@
                   "with": "src/environments/environment.beta.ts"
                 }
               ]
-            }
+            },
+            "development": {}
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         }
       }
     },
@@ -237,7 +245,8 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "angular-georgecolgrove:serve"
-          }
+          },
+          "configurations": {}
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
