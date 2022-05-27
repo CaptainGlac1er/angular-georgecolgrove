@@ -3,14 +3,13 @@ import { TestBed } from '@angular/core/testing';
 
 describe('ExperienceModule', () => {
   let module: ExperienceModule;
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         ExperienceModule
       ]
     }).compileComponents();
     module = TestBed.inject(ExperienceModule);
-    done();
   });
 
   it('should create an instance',  () => {

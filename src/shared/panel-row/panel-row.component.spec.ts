@@ -8,7 +8,7 @@ describe('PanelRowComponent', () => {
   let component: PanelRowComponent;
   let fixture: ComponentFixture<PanelRowComponent>;
 
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
         PanelRowComponent,
@@ -22,7 +22,6 @@ describe('PanelRowComponent', () => {
 
     fixture = TestBed.createComponent(PanelRowComponent);
     component = fixture.componentInstance;
-    done();
   });
 
   it('should create', () => {

@@ -7,7 +7,7 @@ describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
   let fixture: ComponentFixture<PageNotFoundComponent>;
 
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PageNotFoundComponent],
       providers: [
@@ -18,7 +18,6 @@ describe('PageNotFoundComponent', () => {
 
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
-    done();
   });
 
   it('should create',  () => {

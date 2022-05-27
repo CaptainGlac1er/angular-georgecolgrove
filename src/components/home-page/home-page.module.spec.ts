@@ -3,14 +3,13 @@ import { TestBed } from '@angular/core/testing';
 
 describe('HomePageModule', () => {
   let module: HomePageModule;
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         HomePageModule
       ]
     }).compileComponents();
     module = TestBed.inject(HomePageModule);
-    done();
   });
 
   it('should create an instance',  () => {

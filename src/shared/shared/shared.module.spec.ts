@@ -4,7 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SharedModule', () => {
   let module: SharedModule;
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         SharedModule
@@ -14,7 +14,6 @@ describe('SharedModule', () => {
       ]
     }).compileComponents();
     module = TestBed.inject(SharedModule);
-    done();
   });
 
   it('should create an instance',  () => {
