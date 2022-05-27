@@ -1,6 +1,6 @@
-FROM node:12.14-alpine3.11
+FROM node:14-alpine
 
-RUN apk add --no-cache  chromium --repository=https://pkgs.alpinelinux.org/package/v3.11/community/x86_64/chromium
+RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV CHROME_PATH=/usr/lib/chromium/
 
