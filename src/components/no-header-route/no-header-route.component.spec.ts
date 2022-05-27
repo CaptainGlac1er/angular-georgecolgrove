@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NoHeaderRouteComponent } from './no-header-route.component';
-import { MockComponent } from 'ng-mocks';
+import {MockComponent, MockDirective} from 'ng-mocks';
 import { RouterOutlet } from '@angular/router';
 import { TestComponentContext } from '../../interfaces/TestComponentContext';
 
@@ -11,7 +11,7 @@ describe('NoHeaderRouteComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         NoHeaderRouteComponent,
-        MockComponent(RouterOutlet)
+        MockDirective(RouterOutlet)
       ]
     })
     .compileComponents();

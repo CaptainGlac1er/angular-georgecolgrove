@@ -187,17 +187,6 @@
             ]
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {            
-            "tsConfig": [
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
@@ -247,15 +236,6 @@
             "devServerTarget": "angular-georgecolgrove:serve"
           },
           "configurations": {}
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
