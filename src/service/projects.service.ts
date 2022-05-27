@@ -17,7 +17,7 @@ export class ProjectsService {
 
   async fetchProjects(): Promise<Project[]> {
     if (this.isBrowser) {
-      return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`).toPromise<Project[]>();
+      return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`).toPromise();
     }
     return [];
   }

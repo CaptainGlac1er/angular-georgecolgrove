@@ -8,7 +8,7 @@ COPY ./package*.json /project/
 
 RUN npm ci --quiet --no-progress
 COPY . .
-RUN npm run build:staging:client-and-server-bundles
+RUN npm run build:client-and-server-bundles
 
 
 ### STAGE 2: Create Image ###

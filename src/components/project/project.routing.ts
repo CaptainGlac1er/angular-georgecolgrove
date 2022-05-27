@@ -8,4 +8,4 @@ export const appRoutes: Routes = [
   { path: ':project', component: ProjectComponent }
 ];
 
-export const projectRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
+export const projectRouting: ModuleWithProviders<RouterModule> = RouterModule.forChild(appRoutes);

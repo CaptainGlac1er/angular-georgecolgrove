@@ -5,7 +5,7 @@ import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
 
 
-declare let ga: Function;
+declare let ga: (...any) => unknown;
 
 @Component({
   selector: 'app-root',

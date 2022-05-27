@@ -8,7 +8,7 @@ import { MobileService } from '../../service/mobile.service';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -27,7 +27,6 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    done();
   });
 
   it('should create', () => {

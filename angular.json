@@ -11,7 +11,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,7 +31,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -45,11 +50,8 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
-              "vendorChunk": true,
               "buildOptimizer": true,
               "fileReplacements": [
                 {
@@ -68,11 +70,8 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
-              "vendorChunk": true,
               "buildOptimizer": true,
               "fileReplacements": [
                 {
@@ -80,8 +79,10 @@
                   "with": "src/environments/environment.beta.ts"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "build-dev": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -106,7 +107,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "dev": {
@@ -117,29 +125,36 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-georgecolgrove:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-georgecolgrove:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "serve-dev": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-georgecolgrove:build-dev:dev"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-georgecolgrove:build-dev"
+              "browserTarget": "angular-georgecolgrove:build-dev:development"
+            },
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build-dev:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -172,23 +187,14 @@
             ]
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {            
-            "tsConfig": [
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "sourceMap": true,
+            "optimization": false
           },
           "configurations": {
             "production": {
@@ -203,8 +209,6 @@
               ]
             },
             "staging": {
-              "optimization": false,
-              "sourceMap": true,
               "namedChunks": true,
               "fileReplacements": [
                 {
@@ -212,8 +216,10 @@
                   "with": "src/environments/environment.beta.ts"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         }
       }
     },
@@ -228,16 +234,8 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "angular-georgecolgrove:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+          },
+          "configurations": {}
         }
       }
     }
@@ -262,7 +260,6 @@
       "skipTests": true
     },
     "@schematics/angular:module": {
-      "skipTests": false
     },
     "@schematics/angular:pipe": {
       "skipTests": false

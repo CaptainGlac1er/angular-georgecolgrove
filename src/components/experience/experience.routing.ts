@@ -8,4 +8,4 @@ export const appRoutes: Routes = [
   { path: '', component: ExperiencesComponent },
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(appRoutes);
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forChild(appRoutes);
