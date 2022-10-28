@@ -1,6 +1,6 @@
 ### STAGE 1: Build ###
 
-FROM node:14-alpine as builder
+FROM node:18-alpine3.14 as builder
 
 WORKDIR /project
 
@@ -13,7 +13,7 @@ RUN npm run build:client-and-server-bundles
 
 ### STAGE 2: Create Image ###
 
-FROM node:14-alpine
+FROM node:18-alpine3.14
 
 COPY --from=builder /project/dist /project/dist
 COPY ./package*.json /project/
