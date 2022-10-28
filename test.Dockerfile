@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:18-alpine3.14
 
 RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium-browser
