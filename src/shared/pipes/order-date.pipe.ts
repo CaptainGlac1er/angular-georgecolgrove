@@ -9,25 +9,23 @@ export class OrderDatePipe implements PipeTransform {
     if (list) {
       switch (orderType) {
         case 'newestFirst':
-          list.sort((a, b) => {
+          list.sort((a: T, b: T): number => {
             if (a.startDate > b.startDate) {
               return -1;
             } else if (a.startDate === b.startDate) {
               return 0;
-            } else if (a.startDate < b.startDate) {
-              return 1;
             }
+            return 1;
           });
           break;
         case 'oldestFirst':
-          list.sort((a, b) => {
+          list.sort((a: T, b: T): number => {
             if (a.startDate > b.startDate) {
               return 1;
             } else if (a.startDate === b.startDate) {
               return 0;
-            } else if (a.startDate < b.startDate) {
-              return -1;
             }
+            return -1;
           });
       }
     }

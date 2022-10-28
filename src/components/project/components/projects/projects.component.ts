@@ -11,7 +11,7 @@ import { IS_BROWSER } from '../../../../shared/providers';
   styleUrls: ['./projects.component.scss', '../../../../shared/css/page-listing.scss']
 })
 export class ProjectsComponent implements OnInit {
-  projects: Project[];
+  projects: Project[] | undefined;
 
   constructor(
     private route: ActivatedRoute,

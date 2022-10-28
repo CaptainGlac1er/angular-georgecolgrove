@@ -15,22 +15,25 @@ export class ProjectsService {
     @Inject(IS_BROWSER) private isBrowser: boolean
   ) {}
 
-  async fetchProjects(): Promise<Project[]> {
+  async fetchProjects(): Promise<Project[] | undefined> {
     if (this.isBrowser) {
       return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`).toPromise();
     }
     return [];
   }
 
-  async getProjectsData(): Promise<Project[]> {
+  async getProjectsData(): Promise<Project[] | undefined> {
     if(this.isBrowser) {
       return this.fetchProjects();
     }
-    return [];
+    return undefined;
   }
 
-  async getProject(tag: string): Promise<Project> {
+  async getProject(tag: string): Promise<Project | undefined> {
     const data = await this.getProjectsData();
+    if(!data) {
+      return undefined;
+    }
     for (const item of data) {
       if (item.tag === tag) {
         return item;
@@ -42,6 +45,9 @@ export class ProjectsService {
   async getProjectsForJob(job: Job): Promise<Project[]> {
     const projects: Project[] = [];
     const data = await this.getProjectsData();
+    if (!data) {
+      return [];
+    }
     for (const item of data) {
       if (item.job === job.tag) {
         projects.push(item);

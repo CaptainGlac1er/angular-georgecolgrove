@@ -15,8 +15,8 @@ export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';
   projectTitle = 'Projects:';
   frameworkTitle = 'Frameworks:';
-  projectsForJob: Project[];
-  job: Job;
+  projectsForJob: Project[] = [];
+  job: Job | undefined;
 
 
   constructor(
@@ -28,8 +28,9 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      if (params.has('company')) {
-        this.experienceService.getJob(params.get('company')).then(item => {
+      const company = params.get('company');
+      if (company) {
+        this.experienceService.getJob(company).subscribe(item => {
           this.job = item;
           if (this.job === undefined) {
             return this.router.navigate(['/experiences']);

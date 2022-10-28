@@ -13,7 +13,7 @@
             <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
             </app-panel-row>
             <app-panel-row [title]="homepage.jobs.title" class="page-panel">
-                <app-clickable-tile [object]="item" *ngFor="let item of jobs | orderDate:'newestFirst'" class="page-tile">
+                <app-clickable-tile [object]="item" *ngFor="let item of jobs$ | async | orderDate:'newestFirst'" class="page-tile">
                     <app-pretty-tile [object]="item"></app-pretty-tile>
                 </app-clickable-tile>
             </app-panel-row>

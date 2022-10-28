@@ -1,17 +1,30 @@
 <div class="listing-body">
-    <a *ngFor="let aJob of jobs | orderDate:'newestFirst'" [routerLink]="['/experiences', aJob.tag]"
-       class="listing-row listing-single-column">
-        <h3 class="listing-title">
-            {{aJob.title}}
-        </h3>
-        <h4 class="listing-subtitle">
-            {{aJob.subTitle}}
-        </h4>
-        <h4 class="listing-subtitle">
-            {{aJob.startDate | date:'shortDate'}} - {{(aJob.endDate | date:'shortDate') || 'Current'}}
-        </h4>
-        <div>
-            {{aJob.shortDescription}}
+    <ng-container *ngIf="jobs$ | async as jobs; else loading">
+        <a *ngFor="let aJob of jobs | orderDate:'newestFirst'" [routerLink]="['/experiences', aJob.tag]"
+           class="listing-row listing-single-column">
+            <h3 class="listing-title">
+                {{aJob.title}}
+            </h3>
+            <h4 class="listing-subtitle">
+                {{aJob.subTitle}}
+            </h4>
+            <h4 class="listing-subtitle">
+                {{aJob.startDate | date:'shortDate'}} - {{(aJob.endDate | date:'shortDate') || 'Current'}}
+            </h4>
+            <div>
+                {{aJob.shortDescription}}
+            </div>
+        </a>
+    </ng-container>
+    <ng-template #loading>
+        <div class="listing-row listing-single-column">
+            <div class="loading"></div>
         </div>
-    </a>
+        <div class="listing-row listing-single-column">
+            <div class="loading"></div>
+        </div>
+        <div class="listing-row listing-single-column">
+            <div class="loading"></div>
+        </div>
+    </ng-template>
 </div>

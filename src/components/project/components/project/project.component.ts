@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
   providers: [ProjectsService]
 })
 export class ProjectComponent implements OnInit {
-  project: Project;
+  project: Project | undefined;
   myAbout = 'About:';
   myLinks = 'Links:';
 
@@ -24,12 +24,13 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      if (params.has('project')) {
-        this.projectService.getProject(params.get('project')).then(value => {
-          this.project = value;
-          if (this.project === undefined) {
+      const project = params.get('project');
+      if (project) {
+        this.projectService.getProject(project).then(value => {
+          if (value === undefined) {
             return this.router.navigate(['/projects']);
           }
+          this.project = value;
         });
       }
     });

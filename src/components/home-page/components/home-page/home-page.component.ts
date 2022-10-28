@@ -11,6 +11,8 @@ import { DOCUMENT } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { DataRow } from '../../../../interfaces/data-row';
 import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
+import { filter, map, Observable, shareReplay } from 'rxjs';
+import { Job } from '../../../../interfaces/job';
 
 @Component({
   selector: 'app-home-page',
@@ -32,7 +34,6 @@ export class HomePageComponent implements OnInit {
       + 'secure and modular for reusability and future development.',
     headerImage: 'https://cdn.georgecolgrove.com/img/profile.jpg'
   };
-  jobs: DataRow[];
   homepage = {
     jobs: {
       title: 'Experience:'
@@ -56,6 +57,12 @@ export class HomePageComponent implements OnInit {
     }
   };
 
+  jobs$: Observable<DataRow[] | undefined> = this.experienceService.fetchProjects().pipe(
+    filter((jobs): jobs is Job[] => !!jobs),
+    map(jobs => this.experienceService.convertJobArrayToTileDataArray(jobs)),
+    shareReplay(1)
+  );
+
   constructor(
     private experienceService: ExperienceService,
     private router: Router,
@@ -63,14 +70,10 @@ export class HomePageComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     @Inject(IS_BROWSER) private isBrowser: boolean) {
-    this.jobs = [];
     this.isMinimized = true;
   }
 
   ngOnInit(): void {
-    this.experienceService.getExperiencesData()
-      .then(jobs => this.experienceService.convertJobArrayToTileDataArray(jobs))
-      .then(jobs => this.jobs = jobs);
     this.titleService.setTitle('George Walter Colgrove IV - Personal Website');
   }
 
