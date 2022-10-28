@@ -23,6 +23,7 @@ export class ProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle(`George Walter Colgrove IV - project`);
     this.route.paramMap.subscribe(params => {
       const project = params.get('project');
       if (project) {
@@ -31,9 +32,9 @@ export class ProjectComponent implements OnInit {
             return this.router.navigate(['/projects']);
           }
           this.project = value;
+          this.titleService.setTitle(`George Walter Colgrove IV - ${this.project.title}`);
         });
       }
     });
-    this.titleService.setTitle(`George Walter Colgrove IV - ${this.project ? this.project.title : 'project'}`);
   }
 }
