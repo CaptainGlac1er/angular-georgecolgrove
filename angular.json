@@ -267,6 +267,5 @@
     "@schematics/angular:service": {
       "skipTests": false
     }
-  },
-  "defaultProject": "angular-georgecolgrove"
+  }
 }
