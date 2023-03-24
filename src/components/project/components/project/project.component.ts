@@ -3,6 +3,7 @@ import { Project } from '../../../../interfaces/project';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../../../../service/projects.service';
 import { Title } from '@angular/platform-browser';
+import { filter, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-project',
@@ -24,17 +25,20 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(`George Walter Colgrove IV - project`);
-    this.route.paramMap.subscribe(params => {
-      const project = params.get('project');
-      if (project) {
-        this.projectService.getProject(project).then(value => {
-          if (value === undefined) {
-            return this.router.navigate(['/projects']);
-          }
-          this.project = value;
-          this.titleService.setTitle(`George Walter Colgrove IV - ${this.project.title}`);
-        });
-      }
+    this.route.paramMap.pipe(
+      map(params => params.get('project')),
+      filter(project => !!project),
+      switchMap(project => this.projectService.getProject(project))
+    ).subscribe(value => {
+      this.project = value;
+      this.titleService.setTitle(`George Walter Colgrove IV - ${this.project.title}`);
     });
+
+    this.route.paramMap.pipe(
+      map(params => params.get('project')),
+      filter(project => !project),
+    ).subscribe(() => {
+      return this.router.navigate(['/projects']);
+    })
   }
 }

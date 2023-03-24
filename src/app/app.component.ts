@@ -5,7 +5,7 @@ import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
 
 
-declare let gtag: (...any: any[]) => unknown;
+declare let gtag: (...any: unknown[]) => unknown;
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       gTagManagerScript.src = `https://www.googletagmanager.com/gtag/js?id=${environment.googleAnalyticsTag}`;
       document.head.appendChild(gTagManagerScript);
 
-      // register google analytics
+      // register Google Analytics
       const gaScript = document.createElement('script');
       gaScript.innerHTML = `
       window.dataLayer = window.dataLayer || [];

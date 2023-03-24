@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../../../../interfaces/project';
 import { Title } from '@angular/platform-browser';
 import { IS_BROWSER } from '../../../../shared/providers';
+import { filter, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-experience',
@@ -27,21 +28,23 @@ export class ExperienceComponent implements OnInit {
     private titleService: Title) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const company = params.get('company');
-      if (company) {
-        this.experienceService.getJob(company).subscribe(item => {
-          this.job = item;
-          if (this.job === undefined) {
-            return this.router.navigate(['/experiences']);
-          } else {
-            this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
-            this.experienceService.getProjectsForJob(this.job).then((value => {
-              this.projectsForJob = value;
-            }));
-          }
-        });
-      }
+    this.route.paramMap.pipe(
+      map(params => params.get('company')),
+      filter(company => !!company),
+      switchMap(company => this.experienceService.getJob(company)),
+      switchMap(job => this.experienceService.getProjectsForJob(job).pipe(map(projects => ({ projects, job }))))
+    ).subscribe(({ projects, job }) => {
+      this.projectsForJob = projects;
+      this.job = job;
+      this.titleService.setTitle(`George Walter Colgrove IV - ${this.job.title}`);
     });
+
+    this.route.paramMap.pipe(
+      map(params => params.get('company')),
+      filter(company => !company),
+    ).subscribe(() => {
+      return this.router.navigate(['/experiences']);
+    })
+    
   }
 }
