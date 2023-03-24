@@ -3,6 +3,7 @@ import { Project } from '../../../../interfaces/project';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../../../../service/projects.service';
 import { Title } from '@angular/platform-browser';
+import { filter, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-project',
@@ -11,7 +12,7 @@ import { Title } from '@angular/platform-browser';
   providers: [ProjectsService]
 })
 export class ProjectComponent implements OnInit {
-  project: Project;
+  project: Project | undefined;
   myAbout = 'About:';
   myLinks = 'Links:';
 
@@ -23,16 +24,21 @@ export class ProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      if (params.has('project')) {
-        this.projectService.getProject(params.get('project')).then(value => {
-          this.project = value;
-          if (this.project === undefined) {
-            return this.router.navigate(['/projects']);
-          }
-        });
-      }
+    this.titleService.setTitle(`George Walter Colgrove IV - project`);
+    this.route.paramMap.pipe(
+      map(params => params.get('project')),
+      filter(project => !!project),
+      switchMap(project => this.projectService.getProject(project))
+    ).subscribe(value => {
+      this.project = value;
+      this.titleService.setTitle(`George Walter Colgrove IV - ${this.project.title}`);
     });
-    this.titleService.setTitle(`George Walter Colgrove IV - ${this.project ? this.project.title : 'project'}`);
+
+    this.route.paramMap.pipe(
+      map(params => params.get('project')),
+      filter(project => !project),
+    ).subscribe(() => {
+      return this.router.navigate(['/projects']);
+    })
   }
 }

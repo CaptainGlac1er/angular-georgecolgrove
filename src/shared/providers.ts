@@ -6,12 +6,12 @@ export const
   LOCAL_STORAGE = new InjectionToken<Storage>('LOCAL_STORAGE'),
   IS_BROWSER = new InjectionToken<boolean>('IS_BROWSER');
 
-export function getWindow(ifRunningInBrowser: boolean): Window {
+export function getWindow(ifRunningInBrowser: boolean): Window | undefined {
   return ifRunningInBrowser ? window : undefined;
 }
 
-export function getLocalStorage(ifRunningInBrowser: boolean, window: Window): Storage {
-  return ifRunningInBrowser ? window.localStorage : null;
+export function getLocalStorage(ifRunningInBrowser: boolean, window: Window): Storage | undefined {
+  return ifRunningInBrowser ? window.localStorage : undefined;
 }
 
 export function isBrowser(platformId: Record<string, unknown>): boolean {

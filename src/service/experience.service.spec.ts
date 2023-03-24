@@ -5,6 +5,7 @@ import Spy = jasmine.Spy;
 import { ProjectsService } from './projects.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { IS_BROWSER } from '../shared/providers';
+import { of } from 'rxjs';
 
 describe('ExperienceService', () => {
   let projectService: ProjectsService;
@@ -33,9 +34,12 @@ describe('ExperienceService', () => {
       spy = spyOn(projectService, 'getProjectsForJob');
     });
 
-    it('should return empty array with an undefined job', async () => {
-      spy.withArgs(undefined).and.returnValue(Promise.resolve([]));
-      expect(await service.getProjectsForJob(undefined)).toEqual([]);
+    it('should return empty array with an undefined job', (done) => {
+      spy.withArgs(undefined).and.returnValue(of([]));
+      service.getProjectsForJob(undefined).subscribe(projects => {
+        expect(projects).toEqual([]);
+        done();
+      });
     })
 
   })

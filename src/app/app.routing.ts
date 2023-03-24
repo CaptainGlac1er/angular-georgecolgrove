@@ -27,4 +27,4 @@ export const appRoutes: Routes = [
   }
 ];
 
-export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' });
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' });

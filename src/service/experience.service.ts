@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { DataRow } from '../interfaces/data-row';
 import { IS_BROWSER } from '../shared/providers';
+import { map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,14 @@ export class ExperienceService {
     private http: HttpClient,
     @Inject(IS_BROWSER) private isBrowser: boolean) {}
 
-  async fetchProjects(): Promise<Job[]> {
+  fetchProjects(): Observable<Job[] | null> {
     if (this.isBrowser) {
-      return this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`).toPromise();
+      return this.http.get<Job[]>(`${environment.cdn}/data/experiences.json`);
     }
-    return [];
+    return of(null);
   }
 
-  async convertJobArrayToTileDataArray(jobs: Job[]): Promise<DataRow[]> {
+  convertJobArrayToTileDataArray(jobs: Job[]): DataRow[] {
     return jobs.map(job => ({
       ...job,
       title: job.company,
@@ -32,24 +33,20 @@ export class ExperienceService {
     }));
   }
 
-  async getExperiencesData(): Promise<Job[]> {
+  getExperiencesData(): Observable<Job[] | null> {
     if (this.isBrowser) {
       return this.fetchProjects();
     }
-    return [];
+    return of(null);
   }
 
-  async getJob(tag: string): Promise<Job> {
-    const data = await this.getExperiencesData();
-    for (const item of data) {
-      if (item.tag === tag) {
-        return item;
-      }
-    }
-    return undefined;
+  getJob(tag: string): Observable<Job | undefined> {
+    return this.getExperiencesData().pipe(
+      map(data => data?.find(experience => experience.tag === tag) || undefined)
+    );
   }
 
-  async getProjectsForJob(job: Job): Promise<Project[]> {
+  getProjectsForJob(job: Job): Observable<Project[]> {
     return this.projectService.getProjectsForJob(job);
   }
 }

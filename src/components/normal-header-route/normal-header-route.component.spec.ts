@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NormalHeaderRouteComponent } from './normal-header-route.component';
-import { MockComponent, MockDirective } from 'ng-mocks';
+import { MockComponent } from 'ng-mocks';
 import { HeaderComponent } from '../../shared/header/header.component';
-import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NormalHeaderRouteComponent', () => {
   let component: NormalHeaderRouteComponent;
@@ -12,11 +12,13 @@ describe('NormalHeaderRouteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([])
+      ],
       declarations: [ 
         NormalHeaderRouteComponent,
         MockComponent(HeaderComponent),
-        MockComponent(FooterComponent),
-        MockDirective(RouterOutlet),
+        MockComponent(FooterComponent)
       ]
     })
     .compileComponents();
