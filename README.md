@@ -5,9 +5,9 @@ Replacement for my initial PHP version.
 
 
 ## Status Board
-|Dependencies|devDependencies|Licences|
-|:----------:|:-------------:|:------:|
-| [![dependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove) |[![devDependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/dev-status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove?type=dev) | [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainGlac1er%2Fangular-georgecolgrove.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainGlac1er%2Fangular-georgecolgrove?ref=badge_shield) |
+|                                                                        Dependencies                                                                         |                                                                               devDependencies                                                                               |                                                                                                                  Licences                                                                                                                  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![dependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove) | [![devDependencies Status](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove/dev-status.svg)](https://david-dm.org/CaptainGlac1er/angular-georgecolgrove?type=dev) | [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainGlac1er%2Fangular-georgecolgrove.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainGlac1er%2Fangular-georgecolgrove?ref=badge_shield) |
 
 ## Progress:
 [Trello Board](https://trello.com/b/T13W1xU9)
