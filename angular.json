@@ -217,7 +217,9 @@
                 }
               ]
             },
-            "development": {}
+            "development": {
+              "vendorChunk": true
+            }
           },
           "defaultConfiguration": "production"
         }
