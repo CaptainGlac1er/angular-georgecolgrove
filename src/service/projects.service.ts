@@ -4,6 +4,7 @@ import { Job } from '../interfaces/job';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
+import { map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,44 +16,35 @@ export class ProjectsService {
     @Inject(IS_BROWSER) private isBrowser: boolean
   ) {}
 
-  async fetchProjects(): Promise<Project[] | undefined> {
+  fetchProjects(): Observable<Project[]> {
     if (this.isBrowser) {
-      return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`).toPromise();
+      return this.http.get<Project[]>(`${environment.cdn}/data/projects.json`);
     }
-    return [];
+    return of([]);
   }
 
-  async getProjectsData(): Promise<Project[] | undefined> {
+  getProjectsData(): Observable<Project[]> {
     if(this.isBrowser) {
       return this.fetchProjects();
     }
-    return undefined;
+    return of([]);
   }
 
-  async getProject(tag: string): Promise<Project | undefined> {
-    const data = await this.getProjectsData();
-    if(!data) {
-      return undefined;
-    }
-    for (const item of data) {
-      if (item.tag === tag) {
-        return item;
-      }
-    }
-    return undefined;
+  getProject(tag: string): Observable<Project | undefined> {
+    return this.getProjectsData().pipe(
+      map(projects => projects.find(project => project.tag === tag))
+    )
   }
 
-  async getProjectsForJob(job: Job): Promise<Project[]> {
-    const projects: Project[] = [];
-    const data = await this.getProjectsData();
-    if (!data) {
-      return [];
-    }
-    for (const item of data) {
-      if (item.job === job.tag) {
-        projects.push(item);
-      }
-    }
-    return projects;
+  getProjectsForJob(job: Job): Observable<Project[]> {
+    return this.getProjectsData().pipe(
+      map(projects => projects.reduce<Project[]>((previousValue, currentValue) => {
+        console.log(currentValue, job)
+        if(currentValue.job === job.tag) {
+          previousValue.push(currentValue)
+        }
+        return previousValue;
+      }, []))
+    )
   }
 }

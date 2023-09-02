@@ -46,7 +46,7 @@ export class ExperienceService {
     );
   }
 
-  async getProjectsForJob(job: Job): Promise<Project[]> {
+  getProjectsForJob(job: Job): Observable<Project[]> {
     return this.projectService.getProjectsForJob(job);
   }
 }
