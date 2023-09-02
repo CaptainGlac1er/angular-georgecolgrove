@@ -13,7 +13,7 @@ RUN npm run build:client-and-server-bundles
 
 ### STAGE 2: Create Image ###
 
-FROM node:18-alpine3.14
+FROM node:18-alpine3.18
 
 COPY --from=builder /project/dist /project/dist
 COPY ./package*.json /project/
