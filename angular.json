@@ -194,7 +194,8 @@
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "sourceMap": true,
-            "optimization": false
+            "optimization": false,
+            "buildOptimizer": false
           },
           "configurations": {
             "production": {
@@ -206,7 +207,8 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "buildOptimizer": true
             },
             "staging": {
               "namedChunks": true,
@@ -217,25 +219,11 @@
                 }
               ]
             },
-            "development": {}
+            "development": {
+              "vendorChunk": true
+            }
           },
           "defaultConfiguration": "production"
-        }
-      }
-    },
-    "angular-georgecolgrove-e2e": {
-      "root": "e2e",
-      "projectType": "application",
-      "cli": {},
-      "schematics": {},
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-georgecolgrove:serve"
-          },
-          "configurations": {}
         }
       }
     }
