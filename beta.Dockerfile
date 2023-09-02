@@ -1,6 +1,6 @@
 ### STAGE 1: Build ###
 
-FROM node:18-alpine3.14 as builder
+FROM node:18-alpine3.18 AS builder
 
 WORKDIR /project
 
