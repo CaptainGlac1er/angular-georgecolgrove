@@ -194,7 +194,8 @@
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "sourceMap": true,
-            "optimization": false
+            "optimization": false,
+            "buildOptimizer": false
           },
           "configurations": {
             "production": {
@@ -206,7 +207,8 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "buildOptimizer": true
             },
             "staging": {
               "namedChunks": true,
