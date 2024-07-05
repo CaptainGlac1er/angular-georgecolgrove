@@ -4,7 +4,7 @@ import { Job } from '../interfaces/job';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
-import { map, Observable, of } from 'rxjs';
+import { EMPTY, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class ProjectsService {
     if(this.isBrowser) {
       return this.fetchProjects();
     }
-    return of([]);
+    return EMPTY;
   }
 
   getProject(tag: string): Observable<Project | undefined> {
@@ -39,7 +39,6 @@ export class ProjectsService {
   getProjectsForJob(job: Job): Observable<Project[]> {
     return this.getProjectsData().pipe(
       map(projects => projects.reduce<Project[]>((previousValue, currentValue) => {
-        console.log(currentValue, job)
         if(currentValue.job === job.tag) {
           previousValue.push(currentValue)
         }

@@ -5,9 +5,10 @@ import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ExperienceService } from '../../../../service/experience.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 import { IS_BROWSER } from '../../../../shared/providers';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ExperiencesComponent', () => {
   interface ExperiencesComponentTest extends TestComponentContext<ExperiencesComponent> {
@@ -15,22 +16,21 @@ describe('ExperiencesComponent', () => {
   }
   beforeEach(async function (this: ExperiencesComponentTest) {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule
-      ],
-      declarations: [
+    declarations: [
         ExperiencesComponent,
         OrderDatePipe,
-      ],
-      providers: [
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
+    imports: [RouterTestingModule],
+    providers: [
         ExperienceService,
         { provide: IS_BROWSER, useValue: true },
-      ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ]
-    }).compileComponents();
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+    ]
+}).compileComponents();
     this.fixture = TestBed.createComponent(ExperiencesComponent);
     this.component = this.fixture.componentInstance;
     this.experienceService = TestBed.inject(ExperienceService);
