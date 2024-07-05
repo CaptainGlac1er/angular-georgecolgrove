@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { DataRow } from '../interfaces/data-row';
 import { IS_BROWSER } from '../shared/providers';
-import { map, Observable, of } from 'rxjs';
+import { EMPTY, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +33,11 @@ export class ExperienceService {
     }));
   }
 
-  getExperiencesData(): Observable<Job[] | null> {
+  getExperiencesData(): Observable<Job[]> {
     if (this.isBrowser) {
       return this.fetchProjects();
     }
-    return of(null);
+    return EMPTY;
   }
 
   getJob(tag: string): Observable<Job | undefined> {
