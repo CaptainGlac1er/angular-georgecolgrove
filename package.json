@@ -67,7 +67,7 @@
     "browser-sync": "^3.0.0",
     "eslint": "^8.26.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^14.0.0",
     "eslint-plugin-promise": "^6.1.1",
     "jasmine": "^4.4.0",
     "karma": "~6.4.1",
