@@ -19,4 +19,5 @@ COPY --from=builder /project/dist /project/dist
 COPY ./package*.json /project/
 WORKDIR /project
 RUN npm ci --only=prod --quiet --no-progress
-CMD ["node", "dist/server/server.mjs"]
+WORKDIR /project/dist
+CMD ["node", "server/server.mjs"]
