@@ -9,9 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
     - name: Runs Tests within Docker Instance
       run: |
-        docker build -f test.Dockerfile -t angular-georgecolgrove-testbed .
-        docker run angular-georgecolgrove-testbed
-      env:
-        CI: true
+        npm ci --quiet --no-progress
+        npm run test:once
