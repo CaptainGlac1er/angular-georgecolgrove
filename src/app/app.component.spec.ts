@@ -14,9 +14,6 @@ describe('AppComponent', () => {
     beforeEach(async function (this: AppComponentTest) {
       await TestBed.configureTestingModule({
         imports: [
-          RouterTestingModule
-        ],
-        declarations: [
           AppComponent,
         ],
         providers: [
