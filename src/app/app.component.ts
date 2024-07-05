@@ -1,14 +1,24 @@
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../shared/shared/shared.module';
 
 
 declare let gtag: (...any: unknown[]) => unknown;
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    MatIconModule,
+    SharedModule
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
