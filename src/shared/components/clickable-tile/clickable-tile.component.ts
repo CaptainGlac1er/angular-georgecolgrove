@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DataRow } from '../../../interfaces/data-row';
+import { Tile } from '../../../interfaces/tile';
 
 @Component({
   selector: 'app-clickable-tile',
@@ -7,6 +7,6 @@ import { DataRow } from '../../../interfaces/data-row';
   styleUrls: ['./clickable-tile.component.scss']
 })
 export class ClickableTileComponent {
-  @Input('object') public objectToDisplay!: DataRow;
+  @Input('object') public objectToDisplay!: Tile;
   @Input() public useExtUrlFirst = false;
 }

@@ -3,23 +3,24 @@ import { TestBed } from '@angular/core/testing';
 import { ExperienceService } from './experience.service';
 import Spy = jasmine.Spy;
 import { ProjectsService } from './projects.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { IS_BROWSER } from '../shared/providers';
 import { of } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ExperienceService', () => {
   let projectService: ProjectsService;
   let service: ExperienceService;
   beforeEach(async () =>  {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        ],
-      providers: [
+    imports: [],
+    providers: [
         ExperienceService,
-        { provide: IS_BROWSER, useValue: true }        
-      ]
-    }).compileComponents();
+        { provide: IS_BROWSER, useValue: true },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
     service = TestBed.inject(ExperienceService);
     projectService = TestBed.inject(ProjectsService);
   });

@@ -9,13 +9,16 @@
       "sourceRoot": "src",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/browser",
+            "outputPath": {
+              "base": "dist"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "assets": [
               {
                 "glob": "**/*",
@@ -32,12 +35,16 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -52,7 +59,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -72,7 +78,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -186,77 +191,6 @@
               }
             ]
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "sourceMap": true,
-            "optimization": false,
-            "buildOptimizer": false
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "sourceMap": false,
-              "namedChunks": false,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "buildOptimizer": true
-            },
-            "staging": {
-              "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.beta.ts"
-                }
-              ]
-            },
-            "development": {
-              "vendorChunk": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@angular-devkit/build-angular:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "angular-georgecolgrove:build:development",
-              "serverTarget": "angular-georgecolgrove:server:development"
-            },
-            "production": {
-              "browserTarget": "angular-georgecolgrove:build:production",
-              "serverTarget": "angular-georgecolgrove:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "angular-georgecolgrove:build:production",
-              "serverTarget": "angular-georgecolgrove:server:production"
-            },
-            "development": {
-              "browserTarget": "angular-georgecolgrove:build:development",
-              "serverTarget": "angular-georgecolgrove:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }

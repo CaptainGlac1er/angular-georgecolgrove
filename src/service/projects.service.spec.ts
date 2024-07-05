@@ -1,21 +1,22 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProjectsService } from './projects.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import {IS_BROWSER} from '../shared/providers';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProjectsService', () => {
   let service: ProjectsService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         ProjectsService,
-        { provide: IS_BROWSER, useValue: true }
-      ]
-    }).compileComponents();
+        { provide: IS_BROWSER, useValue: true },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
     service = TestBed.inject(ProjectsService);
   });
 

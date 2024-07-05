@@ -28,7 +28,7 @@ export class ProjectComponent implements OnInit {
     this.route.paramMap.pipe(
       map(params => params.get('project')),
       filter(project => !!project),
-      switchMap(project => this.projectService.getProject(project))
+      switchMap(project => this.projectService.getProject(project)),
     ).subscribe(value => {
       this.project = value;
       this.titleService.setTitle(`George Walter Colgrove IV - ${this.project.title}`);

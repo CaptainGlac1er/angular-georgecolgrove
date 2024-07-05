@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DataRow } from '../../../interfaces/data-row';
+import { Tile } from '../../../interfaces/tile';
 
 @Component({
   selector: 'app-plain-tile',
@@ -7,6 +7,6 @@ import { DataRow } from '../../../interfaces/data-row';
   styleUrls: ['./plain-tile.component.scss']
 })
 export class PlainTileComponent {
-  @Input('object') public objectToDisplay!: DataRow;
+  @Input('object') public objectToDisplay!: Tile;
 
 }
