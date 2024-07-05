@@ -134,10 +134,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-georgecolgrove:build:production"
+              "buildTarget": "angular-georgecolgrove:build:production"
             },
             "development": {
-              "browserTarget": "angular-georgecolgrove:build:development"
+              "buildTarget": "angular-georgecolgrove:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -148,10 +148,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-georgecolgrove:build-dev:development"
+              "buildTarget": "angular-georgecolgrove:build-dev:development"
             },
             "development": {
-              "browserTarget": "angular-georgecolgrove:build-dev:development"
+              "buildTarget": "angular-georgecolgrove:build-dev:development"
             }
           },
           "defaultConfiguration": "development"
@@ -159,7 +159,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-georgecolgrove:build"
+            "buildTarget": "angular-georgecolgrove:build"
           }
         },
         "test": {
@@ -221,6 +221,39 @@
             },
             "development": {
               "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build:development",
+              "serverTarget": "angular-georgecolgrove:server:development"
+            },
+            "production": {
+              "browserTarget": "angular-georgecolgrove:build:production",
+              "serverTarget": "angular-georgecolgrove:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-georgecolgrove:build:production",
+              "serverTarget": "angular-georgecolgrove:server:production"
+            },
+            "development": {
+              "browserTarget": "angular-georgecolgrove:build:development",
+              "serverTarget": "angular-georgecolgrove:server:development"
             }
           },
           "defaultConfiguration": "production"
