@@ -9,9 +9,6 @@ describe('NoHeaderRouteComponent', () => {
   beforeEach(async function(this: NoHeaderRouteComponentTest) {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule.withRoutes([])
-      ],
-      declarations: [
         NoHeaderRouteComponent
       ]
     })
