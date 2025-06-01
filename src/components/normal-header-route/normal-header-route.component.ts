@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from '../../shared/shared/shared.module';
+import { FooterComponent } from "../../shared/footer/footer.component";
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-normal-header-route',
@@ -8,7 +10,9 @@ import { SharedModule } from '../../shared/shared/shared.module';
     styleUrls: ['./normal-header-route.component.scss'],
     imports: [
         RouterOutlet,
-        SharedModule
+        SharedModule,
+        FooterComponent,
+        HeaderComponent
     ]
 })
 export class NormalHeaderRouteComponent {

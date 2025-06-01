@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { PlainTileComponent } from './plain-tile.component';
 
@@ -9,10 +8,6 @@ describe('PlainTileComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlainTileComponent ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ]
     })
     .compileComponents();
   }));

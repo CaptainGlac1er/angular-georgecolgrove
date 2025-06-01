@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ClickableTileComponent } from './clickable-tile.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from "@angular/router";
 
 describe('ClickableTileComponent', () => {
   let component: ClickableTileComponent;
@@ -10,12 +9,8 @@ describe('ClickableTileComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [ ClickableTileComponent ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
+        providers: [
+        provideRouter([])
       ]
     })
     .compileComponents();

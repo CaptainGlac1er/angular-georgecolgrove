@@ -3,7 +3,7 @@ import { StartEndObject } from '../../interfaces/start-end-object';
 
 @Pipe({
     name: 'orderDate',
-    standalone: false
+    
 })
 export class OrderDatePipe implements PipeTransform {
   transform<T extends StartEndObject>(list: T[], orderType?: 'newestFirst' | 'oldestFirst'): T[] {

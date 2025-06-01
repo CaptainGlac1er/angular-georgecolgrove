@@ -1,4 +1,4 @@
-<div *ngIf="job" id="top-splash" class="div-center-content" [ngStyle]="{'background-image': 'url(' + job?.logoUrl + ')'}">
+<div *ngIf="job" id="top-splash" class="div-center-content" [style.background-image]="'url(' + job?.logoUrl + ')'">
     <div class="main-tile">
         <h1>{{job?.company}}</h1>
         <h2>{{job?.position}}</h2>
@@ -11,13 +11,13 @@
                class="page-panel"></app-panel-row>
 <app-panel-row [title]="projectTitle" class="page-panel"
                *ngIf="projectsForJob?.length > 0">
-    <app-clickable-tile [object]="item" *ngFor="let item of projectsForJob" class="page-tile">
-        <app-plain-tile [object]="item"></app-plain-tile>
+    <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of projectsForJob" class="page-tile">
+        <app-plain-tile [objectToDisplay]="item"></app-plain-tile>
     </app-clickable-tile>
 </app-panel-row>
 <app-panel-row [title]="frameworkTitle" class="page-panel"
                *ngIf="job?.frameworksUsed.length > 0">
-    <app-clickable-tile [object]="item" *ngFor="let item of job?.frameworksUsed" class="page-tile">
-        <app-plain-tile [object]="item"></app-plain-tile>
+    <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of job?.frameworksUsed" class="page-tile">
+        <app-plain-tile [objectToDisplay]="item"></app-plain-tile>
     </app-clickable-tile>
 </app-panel-row>

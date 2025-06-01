@@ -1,15 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ExperienceService } from '../../../../service/experience.service';
 import { Title } from '@angular/platform-browser';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
-import { OrderDatePipe } from '../../../../shared/pipes/order-date.pipe';
 import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideRouter } from "@angular/router";
 
 describe('HomePageComponent', () => {
   interface HomePageComponentTest extends TestComponentContext<HomePageComponent> {
@@ -20,14 +18,6 @@ describe('HomePageComponent', () => {
   describe('Browser', () => {
     beforeEach(async function (this: HomePageComponentTest) {
       await TestBed.configureTestingModule({
-    declarations: [
-        HomePageComponent,
-        OrderDatePipe,
-    ],
-    schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-    ],
-    imports: [RouterTestingModule],
     providers: [
         ExperienceService,
         Title,
@@ -37,7 +27,8 @@ describe('HomePageComponent', () => {
             }
         },
         provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting()
+        provideHttpClientTesting(),
+        provideRouter([])
     ]
 })
         .compileComponents();

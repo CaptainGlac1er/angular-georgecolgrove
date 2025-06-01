@@ -135,8 +135,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "production": {
               "buildTarget": "angular-georgecolgrove:build:production"
@@ -149,8 +148,7 @@
         },
         "serve-dev": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "production": {
               "buildTarget": "angular-georgecolgrove:build-dev:development"
@@ -191,11 +189,25 @@
               }
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "cli": {},
+  "cli": {
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  },
   "schematics": {
     "@schematics/angular:class": {
       "skipTests": false
@@ -214,8 +226,7 @@
     "@schematics/angular:guard": {
       "skipTests": true
     },
-    "@schematics/angular:module": {
-    },
+    "@schematics/angular:module": {},
     "@schematics/angular:pipe": {
       "skipTests": false
     },

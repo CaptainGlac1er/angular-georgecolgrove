@@ -1,16 +1,26 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProjectsService } from '../../../../service/projects.service';
 import { Project } from '../../../../interfaces/project';
 import { Title } from '@angular/platform-browser';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { EMPTY, Observable, shareReplay } from 'rxjs';
+import { AsyncPipe, DatePipe, NgForOf, NgIf } from "@angular/common";
+import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
 
 @Component({
     selector: 'app-projects',
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss', '../../../../shared/css/page-listing.scss'],
-    standalone: false
+
+    imports: [
+        DatePipe,
+        RouterLink,
+        NgIf,
+        NgForOf,
+        OrderDatePipe,
+        AsyncPipe
+    ]
 })
 export class ProjectsComponent implements OnInit {
   projects$: Observable<Project[]>;

@@ -7,19 +7,37 @@ import {
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ExperienceService } from '../../../../service/experience.service';
-import { DOCUMENT } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgForOf } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { DataRow } from '../../../../interfaces/data-row';
 import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
 import { filter, map, Observable, shareReplay } from 'rxjs';
 import { Job } from '../../../../interfaces/job';
+import { FooterComponent } from "../../../../shared/footer/footer.component";
+import { PlainTileComponent } from "../../../../shared/components/plain-tile/plain-tile.component";
+import { ClickableTileComponent } from "../../../../shared/components/clickable-tile/clickable-tile.component";
+import { PanelRowComponent } from "../../../../shared/panel-row/panel-row.component";
+import { PrettyTileComponent } from "../../../../shared/components/pretty-tile/pretty-tile.component";
+import { HeaderComponent } from "../../../../shared/header/header.component";
+import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
 
 @Component({
-    selector: 'app-home-page',
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss'],
-    providers: [ExperienceService],
-    standalone: false
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss'],
+  providers: [ExperienceService],
+
+  imports: [
+    FooterComponent,
+    PlainTileComponent,
+    ClickableTileComponent,
+    PanelRowComponent,
+    PrettyTileComponent,
+    HeaderComponent,
+    NgForOf,
+    AsyncPipe,
+    OrderDatePipe
+  ]
 })
 export class HomePageComponent implements OnInit {
   logo = `${environment.cdn}/img/personalLogo2.png`;

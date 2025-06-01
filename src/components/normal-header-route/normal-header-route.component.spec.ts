@@ -1,11 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NormalHeaderRouteComponent } from './normal-header-route.component';
-import { MockComponent, MockModule } from 'ng-mocks';
-import { HeaderComponent } from '../../shared/header/header.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { MockModule } from 'ng-mocks';
 import { SharedModule } from '../../shared/shared/shared.module';
+import { provideRouter } from "@angular/router";
 
 describe('NormalHeaderRouteComponent', () => {
   let component: NormalHeaderRouteComponent;
@@ -16,6 +14,9 @@ describe('NormalHeaderRouteComponent', () => {
       imports: [
         NormalHeaderRouteComponent,
         MockModule(SharedModule)
+      ],
+      providers: [
+          provideRouter([])
       ]
     })
     .compileComponents();

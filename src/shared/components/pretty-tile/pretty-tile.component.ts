@@ -5,8 +5,8 @@ import { DataRow } from '../../../interfaces/data-row';
     selector: 'app-pretty-tile',
     templateUrl: './pretty-tile.component.html',
     styleUrls: ['./pretty-tile.component.scss'],
-    standalone: false
+    
 })
 export class PrettyTileComponent {
-  @Input('object') public objectToDisplay!: DataRow;
+  @Input() public objectToDisplay!: DataRow;
 }

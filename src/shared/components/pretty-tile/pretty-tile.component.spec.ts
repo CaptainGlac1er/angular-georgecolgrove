@@ -1,19 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PrettyTileComponent } from './pretty-tile.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PrettyTileComponent', () => {
   let component: PrettyTileComponent;
   let fixture: ComponentFixture<PrettyTileComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PrettyTileComponent ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 
