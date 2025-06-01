@@ -1,22 +1,18 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
-import { RESPONSE } from '../../express.tokens';
-import { Response } from 'express';
+import { Component, inject } from '@angular/core';
 import { IS_BROWSER } from '../../shared/providers';
+import { RESPONSE } from "../../express.tokens";
 
 @Component({
-  selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
-  styleUrls: ['./page-not-found.component.scss']
+    selector: 'app-page-not-found',
+    templateUrl: './page-not-found.component.html',
+    styleUrls: ['./page-not-found.component.scss']
 })
-export class PageNotFoundComponent implements OnInit {
-  constructor(
-    @Inject(IS_BROWSER) private isBrowser: boolean,
-    @Inject(RESPONSE) @Optional() private response: Response) {}
-
-  ngOnInit(): void {
-    if (!this.isBrowser) {
-      this.response.status(404);
-    }
-  }
-
+export class PageNotFoundComponent {
+    private readonly response = inject(RESPONSE, { optional: true });
+    private readonly isBrowser = inject(IS_BROWSER, { optional: true });
+      constructor() {
+          if(!this.isBrowser && this.response) {
+              this.response.status(404);
+          }
+      }
 }

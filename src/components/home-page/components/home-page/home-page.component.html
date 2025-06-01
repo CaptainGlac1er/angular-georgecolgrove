@@ -13,13 +13,13 @@
             <app-panel-row [title]="about.title" [contentText]="about.text" class="page-panel">
             </app-panel-row>
             <app-panel-row [title]="homepage.jobs.title" class="page-panel">
-                <app-clickable-tile [object]="item" *ngFor="let item of jobs$ | async | orderDate:'newestFirst'" class="page-tile">
-                    <app-pretty-tile [object]="item"></app-pretty-tile>
+                <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of jobs$ | async | orderDate:'newestFirst'" class="page-tile">
+                    <app-pretty-tile  [objectToDisplay]="item"></app-pretty-tile>
                 </app-clickable-tile>
             </app-panel-row>
             <app-panel-row [title]="homepage.links.title" class="page-panel">
-                <app-clickable-tile [object]="item" *ngFor="let item of homepage?.links.urls" class="page-tile">
-                    <app-plain-tile [object]="item"></app-plain-tile>
+                <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of homepage?.links.urls" class="page-tile">
+                    <app-plain-tile [objectToDisplay]="item"></app-plain-tile>
                 </app-clickable-tile>
             </app-panel-row>
         </div>

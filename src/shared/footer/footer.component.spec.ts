@@ -7,7 +7,6 @@ describe('FooterComponent', () => {
   type FooterComponentTest = TestComponentContext<FooterComponent>;
   beforeEach(async function (this: FooterComponentTest) {
     await TestBed.configureTestingModule({
-      declarations: [FooterComponent]
     })
       .compileComponents();
     this.fixture = TestBed.createComponent(FooterComponent);

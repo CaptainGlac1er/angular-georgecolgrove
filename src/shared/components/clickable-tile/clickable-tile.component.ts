@@ -1,12 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 import { Tile } from '../../../interfaces/tile';
+import { RouterLink } from "@angular/router";
+import { NgIf, NgTemplateOutlet } from "@angular/common";
 
 @Component({
-  selector: 'app-clickable-tile',
-  templateUrl: './clickable-tile.component.html',
-  styleUrls: ['./clickable-tile.component.scss']
+    selector: 'app-clickable-tile',
+    templateUrl: './clickable-tile.component.html',
+    styleUrls: ['./clickable-tile.component.scss'],
+
+    imports: [
+        RouterLink,
+        NgTemplateOutlet,
+        NgIf
+    ]
 })
 export class ClickableTileComponent {
-  @Input('object') public objectToDisplay!: Tile;
-  @Input() public useExtUrlFirst = false;
+    objectToDisplay = input<Tile>();
+    useExtUrlFirst = input(false, { transform: booleanAttribute });
 }

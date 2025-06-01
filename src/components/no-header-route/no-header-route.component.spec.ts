@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { NoHeaderRouteComponent } from './no-header-route.component';
 import { TestComponentContext } from '../../interfaces/TestComponentContext';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NoHeaderRouteComponent', () => {
   type NoHeaderRouteComponentTest = TestComponentContext<NoHeaderRouteComponent>

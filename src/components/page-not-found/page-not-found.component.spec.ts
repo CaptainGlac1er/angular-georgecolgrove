@@ -9,7 +9,6 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageNotFoundComponent],
       providers: [
         { provide: IS_BROWSER, useValue: true }
       ]

@@ -11,16 +11,15 @@ import { SharedModule } from '../shared/shared/shared.module';
 declare let gtag: (...any: unknown[]) => unknown;
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    MatIconModule,
-    SharedModule
-  ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        MatIconModule,
+        SharedModule
+    ],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'George Walter Colgrove IV - Personal Website';

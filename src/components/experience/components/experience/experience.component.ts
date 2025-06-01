@@ -6,11 +6,23 @@ import { Project } from '../../../../interfaces/project';
 import { Title } from '@angular/platform-browser';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { filter, map, switchMap } from 'rxjs';
+import { PanelRowComponent } from "../../../../shared/panel-row/panel-row.component";
+import { ClickableTileComponent } from "../../../../shared/components/clickable-tile/clickable-tile.component";
+import { PlainTileComponent } from "../../../../shared/components/plain-tile/plain-tile.component";
+import { DatePipe, NgForOf } from "@angular/common";
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss', '../../../../shared/css/page-listing.scss']
+  styleUrls: ['./experience.component.scss', '../../../../shared/css/page-listing.scss'],
+
+  imports: [
+    PanelRowComponent,
+    ClickableTileComponent,
+    PlainTileComponent,
+    DatePipe,
+    NgForOf
+  ]
 })
 export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';
