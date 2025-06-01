@@ -8,9 +8,10 @@ import { IS_BROWSER } from '../../../../shared/providers';
 import { filter, map, switchMap } from 'rxjs';
 
 @Component({
-  selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss', '../../../../shared/css/page-listing.scss']
+    selector: 'app-experience',
+    templateUrl: './experience.component.html',
+    styleUrls: ['./experience.component.scss', '../../../../shared/css/page-listing.scss'],
+    standalone: false
 })
 export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';

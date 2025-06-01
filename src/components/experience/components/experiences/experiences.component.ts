@@ -8,9 +8,10 @@ import { EMPTY, filter, map, Observable, shareReplay } from 'rxjs';
 import { Job } from '../../../../interfaces/job';
 
 @Component({
-  selector: 'app-experiences',
-  templateUrl: './experiences.component.html',
-  styleUrls: ['./experiences.component.scss', '../../../../shared/css/page-listing.scss']
+    selector: 'app-experiences',
+    templateUrl: './experiences.component.html',
+    styleUrls: ['./experiences.component.scss', '../../../../shared/css/page-listing.scss'],
+    standalone: false
 })
 export class ExperiencesComponent implements OnInit {
   jobs$: Observable<DataRow[]>;

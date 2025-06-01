@@ -7,9 +7,10 @@ import { IS_BROWSER } from '../../../../shared/providers';
 import { EMPTY, Observable, shareReplay } from 'rxjs';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss', '../../../../shared/css/page-listing.scss']
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.scss', '../../../../shared/css/page-listing.scss'],
+    standalone: false
 })
 export class ProjectsComponent implements OnInit {
   projects$: Observable<Project[]>;

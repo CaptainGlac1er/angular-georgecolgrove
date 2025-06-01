@@ -4,9 +4,10 @@ import { HobbiesService } from '../../../../service/hobbies.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-hobbies',
-  templateUrl: './hobbies.component.html',
-  styleUrls: ['./hobbies.component.scss']
+    selector: 'app-hobbies',
+    templateUrl: './hobbies.component.html',
+    styleUrls: ['./hobbies.component.scss'],
+    standalone: false
 })
 export class HobbiesComponent implements OnInit {
   public hobbies: DataRow[];

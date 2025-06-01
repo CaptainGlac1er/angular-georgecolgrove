@@ -6,10 +6,11 @@ import { Title } from '@angular/platform-browser';
 import { filter, map, switchMap } from 'rxjs';
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.scss', '../../../../shared/css/page-listing.scss'],
-  providers: [ProjectsService]
+    selector: 'app-project',
+    templateUrl: './project.component.html',
+    styleUrls: ['./project.component.scss', '../../../../shared/css/page-listing.scss'],
+    providers: [ProjectsService],
+    standalone: false
 })
 export class ProjectComponent implements OnInit {
   project: Project | undefined;

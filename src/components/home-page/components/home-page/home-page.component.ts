@@ -15,10 +15,11 @@ import { filter, map, Observable, shareReplay } from 'rxjs';
 import { Job } from '../../../../interfaces/job';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
-  providers: [ExperienceService]
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.scss'],
+    providers: [ExperienceService],
+    standalone: false
 })
 export class HomePageComponent implements OnInit {
   logo = `${environment.cdn}/img/personalLogo2.png`;
