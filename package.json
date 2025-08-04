@@ -78,7 +78,7 @@
     "karma-jasmine-html-reporter": "^2.0.0",
     "ng-mocks": "^14.11.0",
     "ts-loader": "^9.4.1",
-    "typescript": "~5.8.3",
+    "typescript": "~5.9.0",
     "webpack-bundle-analyzer": "^4.7.0"
   }
 }
