@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ProjectsService } from '../../../../service/projects.service';
 import { Project } from '../../../../interfaces/project';
 import { Title } from '@angular/platform-browser';
@@ -24,8 +24,6 @@ export class ProjectsComponent implements OnInit {
   projects$: Observable<Project[]>;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private projectService: ProjectsService,
     private titleService: Title,
     @Inject(IS_BROWSER) private isBrowser: boolean

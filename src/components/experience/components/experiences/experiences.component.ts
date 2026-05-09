@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ExperienceService } from '../../../../service/experience.service';
 import { DataRow } from '../../../../interfaces/data-row';
@@ -25,9 +25,7 @@ export class ExperiencesComponent implements OnInit {
   jobs$: Observable<DataRow[]>;
 
   constructor(
-    private route: ActivatedRoute,
     private experienceService: ExperienceService,
-    private router: Router,
     @Inject(IS_BROWSER) private isBrowser: boolean,
     private titleService: Title) {
     if(isBrowser) {
