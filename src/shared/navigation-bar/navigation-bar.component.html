@@ -1,7 +1,9 @@
 <div class="nav-bar" id="navigationContent">
-    <div *ngFor="let link of links" class="nav-button">
-        <a [routerLink]="link.link" class="nav-link">
-            {{link.title}}
-        </a>
+  @for (link of links; track link) {
+    <div class="nav-button">
+      <a [routerLink]="link.link" class="nav-link">
+        {{link.title}}
+      </a>
     </div>
+  }
 </div>

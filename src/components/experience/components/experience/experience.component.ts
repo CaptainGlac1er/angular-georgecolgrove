@@ -9,7 +9,7 @@ import { filter, map, switchMap } from 'rxjs';
 import { PanelRowComponent } from "../../../../shared/panel-row/panel-row.component";
 import { ClickableTileComponent } from "../../../../shared/components/clickable-tile/clickable-tile.component";
 import { PlainTileComponent } from "../../../../shared/components/plain-tile/plain-tile.component";
-import { DatePipe, NgForOf } from "@angular/common";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-experience',
@@ -20,9 +20,8 @@ import { DatePipe, NgForOf } from "@angular/common";
     PanelRowComponent,
     ClickableTileComponent,
     PlainTileComponent,
-    DatePipe,
-    NgForOf
-  ]
+    DatePipe
+]
 })
 export class ExperienceComponent implements OnInit {
   experienceTitle = 'Experience:';

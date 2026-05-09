@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { NgForOf } from "@angular/common";
+
 
 @Component({
     selector: 'app-navigation-bar',
@@ -8,9 +8,8 @@ import { NgForOf } from "@angular/common";
     styleUrls: ['./navigation-bar.component.scss'],
 
     imports: [
-        RouterLink,
-        NgForOf
-    ]
+    RouterLink
+]
 })
 export class NavigationBarComponent {
   links = [

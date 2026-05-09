@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NormalHeaderRouteComponent } from './normal-header-route.component';
-import { MockModule } from 'ng-mocks';
-import { SharedModule } from '../../shared/shared/shared.module';
 import { provideRouter } from "@angular/router";
 
 describe('NormalHeaderRouteComponent', () => {
@@ -12,8 +10,7 @@ describe('NormalHeaderRouteComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        NormalHeaderRouteComponent,
-        MockModule(SharedModule)
+        NormalHeaderRouteComponent
       ],
       providers: [
           provideRouter([])

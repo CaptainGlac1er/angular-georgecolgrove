@@ -7,7 +7,7 @@ import { filter, map, switchMap } from 'rxjs';
 import { ClickableTileComponent } from "../../../../shared/components/clickable-tile/clickable-tile.component";
 import { PanelRowComponent } from "../../../../shared/panel-row/panel-row.component";
 import { PlainTileComponent } from "../../../../shared/components/plain-tile/plain-tile.component";
-import { DatePipe, NgForOf, NgIf } from "@angular/common";
+import { DatePipe } from "@angular/common";
 import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
 
 @Component({
@@ -17,14 +17,12 @@ import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
     providers: [ProjectsService],
 
     imports: [
-        ClickableTileComponent,
-        PanelRowComponent,
-        PlainTileComponent,
-        DatePipe,
-        NgIf,
-        NgForOf,
-        OrderDatePipe
-    ]
+    ClickableTileComponent,
+    PanelRowComponent,
+    PlainTileComponent,
+    DatePipe,
+    OrderDatePipe
+]
 })
 export class ProjectComponent implements OnInit {
   project: Project | undefined;

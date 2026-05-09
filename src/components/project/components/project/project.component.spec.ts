@@ -1,30 +1,40 @@
 import { TestBed } from '@angular/core/testing';
 import { ProjectComponent } from './project.component';
 import { ProjectsService } from '../../../../service/projects.service';
-import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideRouter } from "@angular/router";
+import {RouterTestingHarness} from "@angular/router/testing";
+import {MockProvider} from "ng-mocks";
+import {EMPTY} from "rxjs";
+import {Title} from "@angular/platform-browser";
 
 describe('ProjectComponent', () => {
-  type ProjectComponentTest = TestComponentContext<ProjectComponent>;
-  beforeEach(async function (this: ProjectComponentTest) {
-    await TestBed.configureTestingModule({
-    providers: [
-        ProjectsService,
-        { provide: IS_BROWSER, useValue: true },
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting(),
-        provideRouter([])
-    ]
-}).compileComponents();
+    let harness: RouterTestingHarness;
+    let component: ProjectComponent;
 
-    this.fixture = TestBed.createComponent(ProjectComponent);
-    this.component = this.fixture.componentInstance;
-  });
+    beforeEach(async () => {
+        TestBed.configureTestingModule({
+            imports: [ProjectComponent],
+            providers: [
+                { provide: IS_BROWSER, useValue: true },
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+                MockProvider(ProjectsService, { getProject: () => EMPTY }),
+                MockProvider(Title),
+                provideRouter([
+                    { path: 'projects/:project', component: ProjectComponent },
+                    { path: '**', redirectTo: '' },
+                ]),
+            ],
+        });
 
-  it('should create', async function (this: ProjectComponentTest) {
-    expect(this.component).toBeTruthy();
-  });
+        harness = await RouterTestingHarness.create();
+        component = await harness.navigateByUrl('/projects/test', ProjectComponent);
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

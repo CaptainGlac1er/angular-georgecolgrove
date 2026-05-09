@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ExperienceService } from '../../../../service/experience.service';
 import { DataRow } from '../../../../interfaces/data-row';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { EMPTY, filter, map, Observable, shareReplay } from 'rxjs';
 import { Job } from '../../../../interfaces/job';
-import { AsyncPipe, DatePipe, NgForOf, NgIf } from "@angular/common";
+import { AsyncPipe, DatePipe } from "@angular/common";
 import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
 
 @Component({
@@ -15,21 +15,17 @@ import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
     styleUrls: ['./experiences.component.scss', '../../../../shared/css/page-listing.scss'],
 
     imports: [
-        DatePipe,
-        RouterLink,
-        NgForOf,
-        NgIf,
-        AsyncPipe,
-        OrderDatePipe
-    ]
+    DatePipe,
+    RouterLink,
+    AsyncPipe,
+    OrderDatePipe
+]
 })
 export class ExperiencesComponent implements OnInit {
   jobs$: Observable<DataRow[]>;
 
   constructor(
-    private route: ActivatedRoute,
     private experienceService: ExperienceService,
-    private router: Router,
     @Inject(IS_BROWSER) private isBrowser: boolean,
     private titleService: Title) {
     if(isBrowser) {

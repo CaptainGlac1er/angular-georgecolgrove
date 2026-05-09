@@ -1,13 +1,17 @@
 <div id="top-splash" class="div-center-content">
-        <div class="main-tile">
-            <h1>{{project?.title}}</h1>
-            <h3>{{project?.startDate | date:'shortDate'}} - {{(project?.endDate | date:'shortDate') || 'Current'}}</h3>
-        </div>
+  <div class="main-tile">
+    <h1>{{project?.title}}</h1>
+    <h3>{{project?.startDate | date:'shortDate'}} - {{(project?.endDate | date:'shortDate') || 'Current'}}</h3>
+  </div>
 </div>
 <app-panel-row [title]="myAbout" [contentText]="project?.description || project?.shortDescription"
-               class="page-panel"></app-panel-row>
-<app-panel-row *ngIf="project?.links" [title]="myLinks" class="page-panel">
-    <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of project?.links | orderDate:'newestFirst'" class="page-tile">
+class="page-panel"></app-panel-row>
+@if (project?.links) {
+  <app-panel-row [title]="myLinks" class="page-panel">
+    @for (item of project?.links | orderDate:'newestFirst'; track item) {
+      <app-clickable-tile [objectToDisplay]="item" class="page-tile">
         <app-plain-tile [objectToDisplay]="item"></app-plain-tile>
-    </app-clickable-tile>
-</app-panel-row>
+      </app-clickable-tile>
+    }
+  </app-panel-row>
+}

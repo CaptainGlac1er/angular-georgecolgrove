@@ -2,30 +2,38 @@ import { TestBed } from '@angular/core/testing';
 
 import { ExperienceComponent } from './experience.component';
 import { ExperienceService } from '../../../../service/experience.service';
-import { TestComponentContext } from '../../../../interfaces/TestComponentContext';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideRouter } from "@angular/router";
+import {RouterTestingHarness} from "@angular/router/testing";
+import {MockProvider} from "ng-mocks";
+import {Title} from "@angular/platform-browser";
+import {EMPTY} from "rxjs";
 
 describe('ExperienceComponent', () => {
-  type ExperienceComponentTest = TestComponentContext<ExperienceComponent>;
-  beforeEach(async function (this: ExperienceComponentTest) {
-    await TestBed.configureTestingModule({
-    providers: [
-        ExperienceService,
-        { provide: IS_BROWSER, useValue: true },
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting(),
-        provideRouter([])
-    ]
-})
-      .compileComponents();
-    this.fixture = TestBed.createComponent(ExperienceComponent);
-    this.component = this.fixture.componentInstance;
-  });
+    let harness: RouterTestingHarness;
+    let component: ExperienceComponent;
 
-  it('should create', async function (this: ExperienceComponentTest) {
-    expect(this.component).toBeTruthy();
-  });
+    beforeEach(async () => {
+        TestBed.configureTestingModule({
+            imports: [ExperienceComponent],
+            providers: [
+                { provide: IS_BROWSER, useValue: true },
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+                MockProvider(ExperienceService, { getJob: () => EMPTY }),
+                MockProvider(Title),
+                provideRouter([
+                    { path: 'experiences/:company', component: ExperienceComponent }
+                ]),
+            ],
+        });
+        harness = await RouterTestingHarness.create();
+        component = await harness.navigateByUrl('/experiences/test', ExperienceComponent);
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

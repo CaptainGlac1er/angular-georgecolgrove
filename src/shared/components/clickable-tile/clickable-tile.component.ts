@@ -1,7 +1,7 @@
 import { booleanAttribute, Component, input } from '@angular/core';
 import { Tile } from '../../../interfaces/tile';
 import { RouterLink } from "@angular/router";
-import { NgIf, NgTemplateOutlet } from "@angular/common";
+import { NgTemplateOutlet } from "@angular/common";
 
 @Component({
     selector: 'app-clickable-tile',
@@ -9,10 +9,9 @@ import { NgIf, NgTemplateOutlet } from "@angular/common";
     styleUrls: ['./clickable-tile.component.scss'],
 
     imports: [
-        RouterLink,
-        NgTemplateOutlet,
-        NgIf
-    ]
+    RouterLink,
+    NgTemplateOutlet
+]
 })
 export class ClickableTileComponent {
     objectToDisplay = input<Tile>();

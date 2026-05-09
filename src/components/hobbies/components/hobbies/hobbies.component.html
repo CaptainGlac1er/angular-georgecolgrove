@@ -1,7 +1,9 @@
 @for (hobby of hobbies; track hobby.tag) {
-    <app-panel-row [title]="hobby.title"
-                   [contentText]="hobby.description || hobby.shortDescription"
-                   class="page-panel">
-        <app-clickable-tile [objectToDisplay]="item" *ngFor="let item of hobby?.links" class="page-tile"><app-plain-tile [objectToDisplay]="item"></app-plain-tile> </app-clickable-tile>
-    </app-panel-row>
+  <app-panel-row [title]="hobby.title"
+    [contentText]="hobby.description || hobby.shortDescription"
+    class="page-panel">
+    @for (item of hobby?.links; track item) {
+      <app-clickable-tile [objectToDisplay]="item" class="page-tile"><app-plain-tile [objectToDisplay]="item"></app-plain-tile> </app-clickable-tile>
+    }
+  </app-panel-row>
 }
