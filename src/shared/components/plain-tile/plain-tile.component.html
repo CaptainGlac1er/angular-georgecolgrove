@@ -1,9 +1,13 @@
 <div class="plain-tile">
-    <h4>
-        {{objectToDisplay?.title}}
-    </h4>
-    <h3 *ngIf="objectToDisplay?.subTitle">
-        {{objectToDisplay?.subTitle}}
+  <h4>
+    {{objectToDisplay?.title}}
+  </h4>
+  @if (objectToDisplay?.subTitle) {
+    <h3>
+      {{objectToDisplay?.subTitle}}
     </h3>
-    <p *ngIf="objectToDisplay?.shortDescription" [innerHTML]="objectToDisplay?.shortDescription"></p>
+  }
+  @if (objectToDisplay?.shortDescription) {
+    <p [innerHTML]="objectToDisplay?.shortDescription"></p>
+  }
 </div>

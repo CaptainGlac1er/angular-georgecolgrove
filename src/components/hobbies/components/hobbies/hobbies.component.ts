@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { PlainTileComponent } from "../../../../shared/components/plain-tile/plain-tile.component";
 import { PanelRowComponent } from "../../../../shared/panel-row/panel-row.component";
 import { ClickableTileComponent } from "../../../../shared/components/clickable-tile/clickable-tile.component";
-import { NgForOf } from "@angular/common";
+
 
 @Component({
     selector: 'app-hobbies',
@@ -13,11 +13,10 @@ import { NgForOf } from "@angular/common";
     styleUrls: ['./hobbies.component.scss'],
 
     imports: [
-        PlainTileComponent,
-        PanelRowComponent,
-        ClickableTileComponent,
-        NgForOf
-    ]
+    PlainTileComponent,
+    PanelRowComponent,
+    ClickableTileComponent
+]
 })
 export class HobbiesComponent implements OnInit {
   public hobbies: DataRow[];

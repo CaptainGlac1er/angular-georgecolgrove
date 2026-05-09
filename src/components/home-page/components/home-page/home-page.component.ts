@@ -8,7 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ExperienceService } from '../../../../service/experience.service';
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { DataRow } from '../../../../interfaces/data-row';
 import { IS_BROWSER, WINDOW } from '../../../../shared/providers';
@@ -35,10 +35,9 @@ import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
     PanelRowComponent,
     PrettyTileComponent,
     HeaderComponent,
-    NgForOf,
     AsyncPipe,
     OrderDatePipe
-  ]
+]
 })
 export class HomePageComponent implements OnInit {
   logo = `${environment.cdn}/img/personalLogo2.png`;

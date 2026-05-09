@@ -5,7 +5,7 @@ import { Project } from '../../../../interfaces/project';
 import { Title } from '@angular/platform-browser';
 import { IS_BROWSER } from '../../../../shared/providers';
 import { EMPTY, Observable, shareReplay } from 'rxjs';
-import { AsyncPipe, DatePipe, NgForOf, NgIf } from "@angular/common";
+import { AsyncPipe, DatePipe } from "@angular/common";
 import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
 
 @Component({
@@ -14,13 +14,11 @@ import { OrderDatePipe } from "../../../../shared/pipes/order-date.pipe";
     styleUrls: ['./projects.component.scss', '../../../../shared/css/page-listing.scss'],
 
     imports: [
-        DatePipe,
-        RouterLink,
-        NgIf,
-        NgForOf,
-        OrderDatePipe,
-        AsyncPipe
-    ]
+    DatePipe,
+    RouterLink,
+    OrderDatePipe,
+    AsyncPipe
+]
 })
 export class ProjectsComponent implements OnInit {
   projects$: Observable<Project[]>;

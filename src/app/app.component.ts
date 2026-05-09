@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { IS_BROWSER } from '../shared/providers';
-import { CommonModule } from '@angular/common';
+
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../shared/shared/shared.module';
 
@@ -13,11 +13,10 @@ declare let gtag: (...any: unknown[]) => unknown;
 @Component({
     selector: 'app-root',
     imports: [
-        CommonModule,
-        RouterOutlet,
-        MatIconModule,
-        SharedModule
-    ],
+    RouterOutlet,
+    MatIconModule,
+    SharedModule
+],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })

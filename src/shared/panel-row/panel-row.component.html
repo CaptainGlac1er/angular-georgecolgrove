@@ -1,14 +1,16 @@
 <div id="wrapper">
-    <h2 class="page-panel-title">
-        {{title}}
-    </h2>
-    <div class="page-panel-content">
-        <div class="flex-row">
-            <div *ngIf="contentText" [innerHTML]="contentText">
-            </div>
+  <h2 class="page-panel-title">
+    {{title}}
+  </h2>
+  <div class="page-panel-content">
+    <div class="flex-row">
+      @if (contentText) {
+        <div [innerHTML]="contentText">
         </div>
-        <div class="flex-row">
-            <ng-content></ng-content>
-        </div>
+      }
     </div>
+    <div class="flex-row">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>
