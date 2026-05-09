@@ -217,21 +217,34 @@
       "inlineStyle": false,
       "inlineTemplate": false,
       "prefix": "app",
-      "style": "css"
+      "style": "css",
+      "type": "component"
     },
     "@schematics/angular:directive": {
       "skipTests": true,
-      "prefix": "app"
+      "prefix": "app",
+      "type": "directive"
     },
     "@schematics/angular:guard": {
-      "skipTests": true
+      "skipTests": true,
+      "typeSeparator": "."
     },
-    "@schematics/angular:module": {},
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
     "@schematics/angular:pipe": {
-      "skipTests": false
+      "skipTests": false,
+      "typeSeparator": "."
     },
     "@schematics/angular:service": {
-      "skipTests": false
+      "skipTests": false,
+      "type": "service"
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
     }
   }
 }
